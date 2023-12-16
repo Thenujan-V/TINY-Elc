@@ -32,20 +32,38 @@ body{
     font-weight: 500;
     border-radius: 10px;
 }
-#navbar #account #signup{
+#navbar #account #Register{
+    margin-right: 15px;
+    background-color:#DAFFFB;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: #001C30;
+}
+#navbar #account #user{
     background: none;
     color: #DAFFFB;
     transition: transform 1s;
 }
-#navbar #account #signup :hover{
+#navbar #account #cart{
+    background: none;
+    color:#64CCC5;
+    transition: transform 1s;
+}
+#navbar #account #cart :hover{
     transform: scale(1.2);
+    color: #64CCC5;
+}
+#navbar #account #user :hover{
+    transform: scale(1.2);
+    color: #64CCC5;
 }
 section{
     width: 100%;
     min-height: 100vh;
 }
 #home{
-    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(/ìmages/home.jpg);
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(ìmages\home.jpg);
     height: 63vh;
     background-size:cover;
     background-position: center;
@@ -172,12 +190,114 @@ section{
     transform: .5s;
 }
 .card .details .center ul li a:hover {
-    background: #ff3636;
+    /* background: #ff3636; */
 }
 #trendbox{
     border-right: 2px solid black;
-    
 }
+
+#productcard{
+width:90%;
+margin:0px auto; 
+}
+#products{
+    background-color: #64CCC5;
+
+}
+.column {
+float: left;
+width: 20%;
+padding: 0 10px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+
+#details {
+    margin: 0 -5px;
+    background-color: #001C30;
+}
+
+
+.details:after {
+content: "";
+display: table;
+clear: both;
+
+}
+
+/* Responsive columns */
+@media screen and (max-width: 917px) {
+
+#productcard{
+    width: 90%;
+  }
+    
+    .column {
+      width: 33.33%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+  #card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    border-radius:10px;
+    cursor:pointer;
+  }
+  #card .profile{
+     border-radius:10px;
+     transition: 0.2s;
+  }
+  #card:hover .profile{
+    transform:scale(1.4);
+    border-top-right-radius:50px;
+    border-top-left-radius:50px;
+  }
+  
+  #card .content{
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+  }
+  #card .content .back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color: #f1f1f1e6;
+    transition:1s;
+    
+    z-index:1;
+    padding:10px;
+  }
+  
+  .from-left{
+    top:0;
+    left:-100%;
+  }
+  #card:hover .content .from-left {
+     left:0%;
+  }
+  
+  #card .content .back h3{
+    font-size:15px;
+    letter-spacing:2px;
+  }
+  #card .content .back .tem-img{
+    border-radius:100%;
+  }
+  
+  #card .content .back .des{
+    font-size:13px;
+    padding:20px 0px;
+  }
+  
+  
 
 #footer{
     background: black;
@@ -259,8 +379,8 @@ section{
 #social a span:hover{
     color: orangered;
 }
-#details{
+/* #details{
     font-size: 14px;
     color: #ccc;
     background-color: #ff3636;
-}
+} */

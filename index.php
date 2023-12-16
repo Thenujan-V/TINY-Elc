@@ -58,8 +58,10 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <button class="btn" type="button" id="login">Login</button>
-            <button class="btn " type="button" id="signup"><i class="fa-solid fa-user-plus fa-xl"></i></button>
+          <button class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
+            <a class="btn" type="button" id="Register" href="register.php">Register</a>
+            <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <button class="btn " type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></button>
           </form>
         </div>
       </nav>
@@ -73,27 +75,27 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="/ìmages/game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="#" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="/ìmages/game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="#" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="#"><img src="/ìmages/game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="#" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="/ìmages/game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="#" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="/ìmages/game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="#" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="/ìmages/game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="#" >Speakers</a>
               </div>
           </div>
@@ -145,7 +147,7 @@
                  
                 ?>
                   <div class="col-6 "><img class="img-fluid" src="<?php echo $imageTrend   ?>" alt="" width="248px" height="248px"></div>
-                  <!-- <div class="col-6"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div> -->
+                  <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
                 
                 <?php }?>
                 </div>
@@ -164,7 +166,7 @@
                       $imageFree = $rowsFree['image'];
                 ?>
                   <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
-                  <!-- <div class="col-6"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div> -->
+                  <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
                 <?php }?>
                 </div>
                 
@@ -192,6 +194,106 @@
             </div>
             
         </div>
+      </section>
+      <section id="products">
+      <div class="" id="productcard">
+          <center>
+            <h1 class="title">Products</h1>
+          </center>
+          <div class="row" id="details">
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                  <div class="front">
+                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
+                    <h2>product</h2>
+                  </div>
+                  <div class="back from-left">
+                    <h2>Product</h2>
+                    <h3>100000</h3>
+                    <h3>apple</h3>
+                    <p class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                  <div class="front">
+                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
+                    <h2>product</h2>
+                  </div>
+                  <div class="back from-left">
+                    <h2>Product</h2>
+                    <h3>100000</h3>
+                    <h3>apple</h3>
+                    <p class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                  <div class="front">
+                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
+                    <h2>product</h2>
+                  </div>
+                  <div class="back from-left">
+                    <h2>Product</h2>
+                    <h3>100000</h3>
+                    <h3>apple</h3>
+                    <p class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                  <div class="front">
+                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
+                    <h2>product</h2>
+                  </div>
+                  <div class="back from-left">
+                    <h2>Product</h2>
+                    <h3>100000</h3>
+                    <h3>apple</h3>
+                    <p class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                  <div class="front">
+                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
+                    <h2>product</h2>
+                  </div>
+                  <div class="back from-left">
+                    <h2>Product</h2>
+                    <h3>100000</h3>
+                    <h3>apple</h3>
+                    <p class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+       </div> 
       </section>
 
       <div id="footer">
