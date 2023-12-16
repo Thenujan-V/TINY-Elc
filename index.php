@@ -1,3 +1,16 @@
+<?php
+  include 'connection.php' ;
+
+  $sql = "select * from discounts";
+  $result = mysqli_query($connection,$sql);
+  $sqlFree = "select * from products where deliveryCharge = 0";
+  $resultFree = mysqli_query($connection,$sqlFree);
+  $sqlTrend = "select * from products";
+  $resultTrend = mysqli_query($connection,$sqlTrend);
+  $sqlBrand = "select * from brands";
+  $resultBrand = mysqli_query($connection,$sqlBrand);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,77 +102,72 @@
       </section >
           
       <section id="discount">
-        <div class="container-fluid">  
-          <h2 class="ml-5">Exclusive Offers</h2>          
-              <div class="row d-flex justify-content-center">
-                <div class="card m-3">
+        <div class="container-fluid" >  
+          <h2 class="ml-5 pt-3">Exclusive Offers</h2>         
+            <div class="row ">
+              <!-- <div id="arrow" class="ml-5"><i class="fa-solid fa-chevron-left fa-4x"></i></div> -->
+                <?php
+                  while($rows = mysqli_fetch_assoc($result)){
+                    $price =  $rows['price'];
+                    $image = $rows['image'];
+                    $model =  $rows['model'];
+                    $details =  $rows['details'];
+                    $discount =  $rows['discount'];
+                ?>
+                <div class="col-3 pl-5">
+                <div class="card">
                   <div class="image">
-                    <img src="/ìmages/home.jpg"/>
+                    <img src="<?php echo $image ?>"/>
                   </div>
                   <div class="details">
                     <div class="center">
-                      <h1>Someone famous<br><span>team leader</span></h1>
+                      <h1><?php echo $model ?><br><span><?php echo $details ?></span></h1>
                     </div>
+                    <p class="pt-2"><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
+                    <p><?php echo $discount ?></p>
                   </div>
                 </div>
-                <div class="card m-3">
-                  <div class="image">
-                    <img src="/ìmages/game.jpg"/>
-                  </div>
-                  <div class="details">
-                    <div class="center">
-                      <h1>Someone famous<br><span>team leader</span></h1>
-                    </div>
-                  </div>
                 </div>
-                <div class="card m-3">
-                  <div class="image">
-                    <img src="/ìmages/game.jpg"/>
-                  </div>
-                  <div class="details">
-                    <div class="center">
-                      <h1>Someone famous<br><span>team leader</span></h1>
-                    </div>
-                  </div>
-                </div>
-                <div class="card m-3">
-                  <div class="image">
-                    <img src="/ìmages/game.jpg"/>
-                  </div>
-                  <div class="details">
-                    <div class="center">
-                      <h1>Someone famous<br><span>team leader</span></h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <?php } ?>
+                <!-- <div id="arrow"><i class="fa-solid fa-chevron-right fa-4x"></i></div> -->
+            </div>
               <hr>
           <div class="row">
             <div class="col-6" id="trendbox" >
-              <h2 class="ml-5 text-center">Trending Sales</h2>
+              <h2 class="text-center">Trending Sales</h2>
               <div>
                 <div class="row">
-                  <div class="col-6 d-flex justify-content-end"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
-                  <div class="col-6"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
+                
+                <?php 
+                  for($i=0;$i<4;$i++){
+                    $rowsTrend = mysqli_fetch_assoc($resultTrend);
+                      $imageTrend = $rowsTrend['image'];   
+                 
+                ?>
+                  <div class="col-6 "><img class="img-fluid" src="<?php echo $imageTrend   ?>" alt="" width="248px" height="248px"></div>
+                  <!-- <div class="col-6"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div> -->
+                
+                <?php }?>
                 </div>
-                <div class="row ">
-                  <div class="col-6 mt-4 d-flex justify-content-end"><img  class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
-                  <div class="col-6 mt-4"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
-                </div>
+               
                 <a href="" class="d-flex justify-content-end">see more deals</a>
               </div>
             </div>
             <div class="col-6">
-              <h2 class="ml-5 text-center">Free delivery</h2>
+
+              <h2 class="text-center">Free delivery</h2>
               <div>
                 <div class="row">
-                  <div class="col-6 d-flex justify-content-end"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
-                  <div class="col-6"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
+                <?php 
+                  for($i=0;$i<4;$i++){
+                    $rowsFree = mysqli_fetch_assoc($resultFree);
+                      $imageFree = $rowsFree['image'];
+                ?>
+                  <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
+                  <!-- <div class="col-6"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div> -->
+                <?php }?>
                 </div>
-                <div class="row ">
-                  <div class="col-6 mt-4 d-flex justify-content-end"><img  class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
-                  <div class="col-6 mt-4"><img class="img-fluid" src="/ìmages/game.jpg" alt="" width="230px" height="150px"></div>
-                </div>
+                
                 <a href="" class="d-flex justify-content-end">see more deals</a>
               </div>
             </div>
@@ -169,37 +177,18 @@
         <div id="brands">
           	<h2 class="ml-5">Brands</h2>
             <div class=" d-flex justify-content-center">
+              <?php 
+                while($rowsBrand = mysqli_fetch_assoc($resultBrand)){
+                    $image = $rowsBrand['image'];
+                    $name =  $rowsBrand['name'];
+              ?>
               <div class="col-lg-2">
                 <div>
-                  <img src="/ìmages/game.jpg" class="img-fluid" alt="" width="180px" height="180px">
-                  <h5 class="text-center">dell</h5>
+                  <img src="<?php echo $image ?>" class="img-fluid" alt="" width="180px" height="30px">
+                  <h5 class="text-center"><?php echo $name ?></h5>
                 </div>
               </div>
-              <div class="col-lg-2">
-                <div>
-                  <img src="/ìmages/game.jpg" class="img-fluid" alt="" width="180px" height="180px">
-                  <h5 class="text-center">dell</h5>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div>
-                  <img src="/ìmages/game.jpg" class="img-fluid" alt="" width="180px" height="180px">
-                  <h5 class="text-center">dell</h5>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div>
-                  <img src="/ìmages/game.jpg" class="img-fluid" alt="" width="180px" height="180px">
-                  <h5 class="text-center">dell</h5>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div>
-                  <img src="/ìmages/game.jpg" class="img-fluid" alt="" width="180px" height="180px">
-                  <h5 class="text-center">dell</h5>
-                </div>
-              </div>
-              
+              <?php } ?>
             </div>
             
         </div>
