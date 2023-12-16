@@ -30,18 +30,23 @@
         </button>
         <div class="collapse navbar-collapse ml-5" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     All
                 </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Laptops</a>
-                    <a class="dropdown-item" href="#">Mobile phones</a>
-                    <a class="dropdown-item" href="#">Smart watches</a>
-                    <a class="dropdown-item" href="#">Television</a>
-                    <a class="dropdown-item" href="#">Camaras</a>
-                    <a class="dropdown-item" href="#">Others</a>
-                  </div>            </li>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="">Laptops</a></li>
+                        <ul class="dropdown-menu submenu">
+                            <li><a href="" class="dropdown-item">hp</a></li>
+                            <li><a href="" class="dropdown-item">hp</a></li>
+                        </ul>
+                    <li><a class="dropdown-item" href="#">Mobile phones</a></li>
+                    <li><a class="dropdown-item" href="#">Smart watches</a></li>
+                    <li><a class="dropdown-item" href="#">Television</a></li>
+                    <li><a class="dropdown-item" href="#">Camaras</a></li>
+                    <li><a class="dropdown-item" href="#">Others</a></li>
+                  </ul>            
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
             </li>
@@ -51,6 +56,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" >Customer service</a>
             </li>
+            
             
           </ul>
           <form class="form-inline" id="search">

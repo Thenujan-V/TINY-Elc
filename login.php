@@ -5,33 +5,29 @@ if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "select * from userdetails where email = '$username'";
+    $sql = "select * from userdetails where mail = '$username'";
     $sqlSuperAdmin = "select * from superadminabcistore where username = '$username'";
     $sqlAdmin = "select * from adminabcistore where username = '$username'";
 
     $result = mysqli_query($connection,$sql);
-    $resultSuperAdmin = mysqli_query($connection,$sqlSuperAdmin);
-    $resultAdmin = mysqli_query($connection,$sqlAdmin);
+    // $resultSuperAdmin = mysqli_query($connection,$sqlSuperAdmin);
+    // $resultAdmin = mysqli_query($connection,$sqlAdmin);
     
-    // $fetch = mysqli_fetch_array($result);
-    // $fetchSuperAdmin = mysqli_fetch_array($resultSuperAdmin);
-    // $fetchAdimn = mysqli_fetch_array($resultAdmin);
-
     $row = mysqli_fetch_assoc($result);
-    $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
-    $rowAdmin = mysqli_fetch_assoc($resultAdmin);
+    // $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
+    // $rowAdmin = mysqli_fetch_assoc($resultAdmin);
 
 
-    if(mysqli_num_rows($resultSuperAdmin) > 0){
-        if($password == $rowSuperAdmin["password"]){
-            header("location:indexSuperAdmin.php");
-        }
-        else{
-            echo
-            "<script>alert('something went to wrong...')</script>";
-        }
-    }   
-    elseif(mysqli_num_rows($result) > 0){
+    // if(mysqli_num_rows($resultSuperAdmin) > 0){
+    //     if($password == $rowSuperAdmin["password"]){
+    //         header("location:indexSuperAdmin.php");
+    //     }
+    //     else{
+    //         echo
+    //         "<script>alert('something went to wrong...')</script>";
+    //     }
+    // }   
+    if(mysqli_num_rows($result) > 0){
         if($password == $row["password"]){
             //$_SESSION['username'] = $fetch["username"];
             header("location:index.php");
@@ -41,15 +37,15 @@ if(isset($_POST['submit'])){
             "<script>alert('something went to wrong...')</script>";
         }
     }
-    elseif(mysqli_num_rows($resultAdmin) > 0){
-        if($password == $rowAdmin["password"]){
-            header("location:indexAdmin.php");
-        }
-        else{
-            echo
-            "<script>alert('something went to wrong...')</script>";
-        }
-    }
+    // elseif(mysqli_num_rows($resultAdmin) > 0){
+    //     if($password == $rowAdmin["password"]){
+    //         header("location:indexAdmin.php");
+    //     }
+    //     else{
+    //         echo
+    //         "<script>alert('something went to wrong...')</script>";
+    //     }
+    // }
     
 }
 ?>
@@ -102,48 +98,7 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 
-    <section id="footer">
-        <div class="container footbox">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 col-12" id="footleft">
-                    <h2>Sign up for updates</h2>
-                    <h6>Subscribe to our newsletter to receive news, our new products, special offers and informations about Spices</h6>
-                    <div class="input-group">
-                        <input type="text" placeholder="Email Address" class="form-control">
-                        <button class="btn">Get started</button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="Media/instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6" id="footright">
-                    <h5>Spices</h5>
-                    <div>
-                        <address class="px-sm-5">999 BB Avenue<br>
-                                Chunnakam,Jaffna 40000<br>
-                                Srilanka.<a href="Map.html" id="map" class="text-decoration-none text-reset">  Map<i class="fa-solid fa-location-dot"></i></a><br>
-                                
-                        </address>
-                        <div id="con-us">
-                            <a href="tel:0705050564" class="text-decoration-none text-reset"><i class="fa-solid fa-mobile-screen-button"></i> Call (+94)70-5050-564</a>
-                        </div>
-                        <div id="con-us">
-                            <a href="mailto:spices.organic@gmail.com" class="text-decoration-none text-reset">spices.organic@gmail.com</a>
-                        </div>
-                        <div id="con-us">
-                            <a href="#" class="text-decoration-none text-reset">Privacy Policy</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        </div>
-    </section>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="Js/registration.js"></script>
