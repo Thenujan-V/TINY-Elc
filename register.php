@@ -25,13 +25,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="signup" style="background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(media/register.jpg) ;background-size: cover;background-position: center;">
+    <div class="signup" style="background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(ìmages\login.jpg) ;background-size: cover;background-position: center;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
                     <div class="top">
                         <h2>TINY Electronics</h2>
-                        <a href="login.html" class="text-decoration-none">already have an account</a>
+                        <a href="login.php" class="text-decoration-none">already have an account</a>
                     </div>
                     <h1>Register</h1>
                     <form action="register.php" method="post">
@@ -68,9 +68,9 @@
                             <div class="line"></div>
                         </div>
                         <div class="brands text-center">
-                            <a href="" class="text-decoration-none text-reset"><img src="Media/google.png" alt=""></a>
-                            <a href="" class="text-decoration-none text-reset"><img src="Media/facebook.png" alt=""></a>
-                            <a href="" class="text-decoration-none text-reset"><img src="Media/apple-logo.png" alt=""></i></a>
+                            <a href="" class="text-decoration-none text-reset"><img src="ìmages\apple.png" alt=""></a>
+                            <a href="" class="text-decoration-none text-reset"><img src="ìmages\facebook.png" alt=""></a>
+                            <a href="" class="text-decoration-none text-reset"><img src="ìmages\search.png" alt=""></i></a>
                         </div>     
                     </div>
                 </div>
@@ -89,11 +89,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="Media/instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
                     <h5>Spices</h5>

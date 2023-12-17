@@ -6,7 +6,7 @@
     font-family: 'Preahvihear', sans-serif;
 }
 .login{
-    background:linear-gradient(to left,rgba(19, 18, 18,.7),rgba(22, 21, 21,.8)),url(/media/register.jpg);
+    background:url(ìmages\login.jpg);
     background-size: cover;
     background-position: center;
     object-fit: fill;
