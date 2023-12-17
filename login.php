@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 if(isset($_POST['submit'])){
-    session_start();
+    
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -32,10 +32,10 @@ if(isset($_POST['submit'])){
     // }   
     if(mysqli_num_rows($result) > 0){
         if($password == $row["password"]){
-            $id = $row["id"];
+            $uid = $row["id"];
             //$_SESSION['username'] = $fetch["username"];
-            $_SESSION["id"] = $id;
-
+            session_start();
+            $_SESSION["id"] = $uid;
             header("location:index.php");
         }
         else{

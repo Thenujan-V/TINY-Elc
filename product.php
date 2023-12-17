@@ -1,7 +1,34 @@
 <?php 
+  session_start();
+  $uid = $_SESSION['id'];
   include 'connection.php';
-  $sqlProducts = "select * from products";
-  $resultProducts = mysqli_query($connection,$sqlProducts);
+  // $sqlProducts = "select * from products";
+  // $resultProducts = mysqli_query($connection,$sqlProducts);
+
+
+  if(isset($_GET['cart'])){
+    $pid = $_GET['cart'];
+    // $_SESSION['pid'] = $pid;
+    $select_sql = "SELECT * FROM usercart WHERE uid='$uid' AND pid='$pid'";
+    $select_result = mysqli_query($connection,$select_sql);
+    
+    if(mysqli_num_rows($select_result) == 0){
+        $insert_sql = "INSERT INTO usercart VALUES('$uid','$pid',1)";
+        $insert_result = mysqli_query($connection,$insert_sql); 
+        if($insert_result){
+            echo "<script>alert('Book added to cart successfully.')</script>";
+            echo "<script>window.open('product.php','_self')</script>";
+        }
+        else{
+            echo "<script>alert('Some thing wrong. Failed to add to cart.')</script>";
+            echo "<script>window.open('product.php','_self')</script>";
+        }
+    }
+    else{
+        echo "<script>alert('Book is already added to cart.')</script>";
+        echo "<script>window.open('product.php','_self')</script>";
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,11 +61,10 @@
                             <li><a href="" class="dropdown-item">hp</a></li>
                             <li><a href="" class="dropdown-item">hp</a></li>
                         </ul>
-                    <li><a class="dropdown-item" href="#">Mobile phones</a></li>
-                    <li><a class="dropdown-item" href="#">Smart watches</a></li>
-                    <li><a class="dropdown-item" href="#">Television</a></li>
-                    <li><a class="dropdown-item" href="#">Camaras</a></li>
-                    <li><a class="dropdown-item" href="#">Others</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
@@ -58,7 +84,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <button class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
+            <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
             <button class="btn " type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></button>
@@ -74,28 +100,28 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="#" >Monitors</a>
+                <a href="product.php?category='monitors'"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='monitors'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="#" >Mobile Accessories</a>
+                <a href="product.php?category='mobileaccessories'"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='mobileaccessories'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="#" >Storage devices</a>
+                <a href="product.php?category='storagedevice'"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='storagedevice'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="#" >Pc Accessories</a>
+                <a href="product.php?category='pcaccessories'"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='pcaccessories'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="#" >Gaming Accessories</a>
+                <a href="product.php?category='gaming'"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='gaming'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="#"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="#" >Speakers</a>
+                <a href="product.php?category='speakers'"><img src="ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='speakers'" >Speakers</a>
               </div>
           </div>
           </div>
@@ -108,8 +134,12 @@
             </center>
             <div class="row" id="details">
               <?php 
+              if(!isset($_GET['category'])){
+                $sqlProducts = "select * from products";
+                $resultProducts = mysqli_query($connection,$sqlProducts);
+                
                 while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
-                  $id = $rowsproducts['id'];
+                  $pid = $rowsproducts['id'];
                   $price =  $rowsproducts['price'];
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
@@ -129,14 +159,51 @@
                       <h3><?php echo $deliverycharge ?></h3>
                       <h3><?php echo $details ?></h3>
                       
-                      <a href="#" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="#" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
-                  </form>
-                  </div>
+                  </div>  
                 </div>
               </div>
-              <?php } ?>
+              <?php } }?>
+
+              <?php 
+              if(isset($_GET['category'])){
+                $category = $_GET['category'];
+                $sqlProducts = "select * from products where category = $category";
+                $resultProducts = mysqli_query($connection,$sqlProducts);
+                if(mysqli_num_rows($resultProducts) == 0){
+                  echo 'no products';
+                }
+                else{
+                while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                  $pid = $rowsproducts['id'];
+                  $price =  $rowsproducts['price'];
+                  $image = $rowsproducts['image'];
+                  $model =  $rowsproducts['model'];
+                  $details =  $rowsproducts['details'];
+                  $deliverycharge =  $rowsproducts['deliveryCharge'];
+              ?>
+              <div class="column">
+                <div class="card" id="card">
+                  <div class="content">
+                  
+                    <div class="front">
+                      <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                      <h2><?php echo $model ?></h2>
+                    </div>
+                    <div class="back from-left">
+                      <h2><?php echo $price ?></h2>
+                      <h3><?php echo $deliverycharge ?></h3>
+                      <h3><?php echo $details ?></h3>
+                      
+                      <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+              <?php } } }?>
             </div>
             <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
          </div> 

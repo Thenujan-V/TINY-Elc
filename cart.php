@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include 'connection.php';
+    // $pid = $_SESSION['pid'];
+    $sqlcart = "select * from products join usercart on products.id = usercart.pid";
+    $resultcart = mysqli_query($connection,$sqlcart);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +35,7 @@
                             <li><a href="" class="dropdown-item">hp</a></li>
                             <li><a href="" class="dropdown-item">hp</a></li>
                         </ul>
-                    <li><a class="dropdown-item" href="#">Mobile phones</a></li>
+                    <li><a class="dropdown-item" href="product.php">Mobile phones</a></li>
                     <li><a class="dropdown-item" href="#">Smart watches</a></li>
                     <li><a class="dropdown-item" href="#">Television</a></li>
                     <li><a class="dropdown-item" href="#">Camaras</a></li>
@@ -39,7 +46,7 @@
                 <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" >Customer service</a>
@@ -67,43 +74,55 @@
                         <p class="d-flex justify-content-start"><input type="checkbox"> SELECT ALL(No of items)</p>
                         <a class="d-flex justify-content-" href="#"><i class="fa-regular fa-trash-can fa-lg"></i> DELETE</a>
                     </div>
+                    <?php
+                        while($rowcart = mysqli_fetch_assoc($resultcart)){
+                            $image = $rowcart['image'];
+                            $price = $rowcart['price'];
+                            $model = $rowcart['model'];
+                            $deliverycharge = $rowcart['deliveryCharge'];
+                            $details = $rowcart['details'];
+                            $quantity = $rowcart['quantity'];
+                        
+                    ?>
                     <div class="row mt-2" id="cartproduct">
                         <div class="col-2" id="image">
-                            <img src="ìmages\game.jpg" alt="" class="img-fluid">
+                            <img src="<?php echo $image ?>" alt="" class="img-fluid">
                         </div>
                         <div class="col-6 text-center" id="description">
-                            <p> autem veritatis distinctio! Eum adipisci non, fugiat molestias ipsam eveniet natus. Esse fugiat provident quos.</p>
+                            <p><?php echo $details ?></p>
                         </div>
                         <div class="col-2" id="prices">
-                            <p>price</p>
-                            <p>old price</p>
-                            <p>discount</p>
+                            <p><?php echo $model ?></p>
+                            <p><?php echo $price ?></p>
+                            <p><?php echo $deliverycharge ?></p>
                             <a href="#"><i class="fa-regular fa-trash-can fa-lg"></i></a>
                         </div>
-                        <div class="col-2 d-flex" id="quantity">
-                            <button class="btn" style="height: 40px;">+</button>
-                            <p>1</p>
-                            <button class="btn" style="height: 40px;">-</button>
+                        <div class="col-2 d-flex" style="flex-direction:column;" id="quantity">
+                            <label for="quantity">quantity</label>
+                            <input type="number" value="1" name="quantity" style="height:30px; width:40px;">
+                            
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="col-4" id="odrsum">
                     <h2>Order summary</h2>
                     <div id="cartamounts" class="row">
-                        <h5 class="col-8">Subtotal(No of Items)</h5>
-                        <p class="col-4">Rs.1000</p>
+                        <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
+                        <p class="col-4"><?php echo $price ?></p>
                     </div>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Shipping Fee</h5>
-                        <p class="col-4">Rs.100</p>
+                        <p class="col-4"><?php echo $deliverycharge ?></p>
                     </div>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Shipping Fee Discount</h5>
-                        <p class="col-4">Rs.10</p>
+                        <p class="col-4"><?php echo $deliverycharge ?></p>
                     </div>
+                    <hr>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Total Amount</h5>
-                        <p class="col-4">Rs.1110</p>
+                        <p class="col-4"><?php echo $price + $deliverycharge; ?></p>
                     </div> 
                 </div>
             </div>
