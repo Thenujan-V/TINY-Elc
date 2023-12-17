@@ -93,14 +93,10 @@ body{
     font-size:17px;
     color: #DAFFFB;
  }
- .dropdown-menu div{
+
+.dropdown-menu .dropdown-item{
     background-color: transparent;
     border: transparent;
     border: none;
   }
- .dropdown-menu .dropdown-item :hover {
-    background-image: none;
-    background-color: #000;
-  }
-
  

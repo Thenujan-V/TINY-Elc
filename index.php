@@ -12,6 +12,10 @@
   $sqlProducts = "select * from products";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
+  //$uid = $_SESSION['id'];
+
+  // $sqluser = "select * from userdetails where id = $uid ";
+  // $resultuser = mysqli_query($connection,$sqluser);
 
   // if(isset($_POST['addcart'])){
   //   if(isset($_SESSION['cart'])){
@@ -60,11 +64,11 @@
                             <li><a href="" class="dropdown-item">hp</a></li>
                             <li><a href="" class="dropdown-item">hp</a></li>
                         </ul>
-                    <li><a class="dropdown-item" href="#">Mobile phones</a></li>
-                    <li><a class="dropdown-item" href="#">Smart watches</a></li>
-                    <li><a class="dropdown-item" href="#">Television</a></li>
-                    <li><a class="dropdown-item" href="#">Camaras</a></li>
-                    <li><a class="dropdown-item" href="#">Others</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Camaras</a></li>
+                    <li><a class="dropdown-item"  id="alldropdownitem" href="#">Others</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
@@ -93,7 +97,7 @@
               <div class="dropdown-item" id="dropdown-item">
                 <h4>Username</h4>
                 <div>
-                <input type="text" value="Thenujan">
+                <input type="text" value="tHDNUJAN">
                 <i class="fa-solid fa-pencil fa-lg"></i>
                 </div>
               </div>
@@ -119,13 +123,13 @@
                 </div>              
               </div>
               <hr>
-              <div class="dropdown-item">
+              <div class="dropdown-item" id="dropdown-item">
                 <a href="#">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
               </div>
-              <div class="dropdown-item">
+              <div class="dropdown-item" id="dropdown-item">
                 <a href="#">privacy policy</a>
               </div>
-              <div class="dropdown-item">
+              <div class="dropdown-item" id="dropdown-item">
                 <a href="#">Terms and Conditions</a>
               </div>
               </div>
