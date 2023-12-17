@@ -61,3 +61,46 @@ body{
 #navbar .dropdown-menu{
     background-color: #001C30;
 }
+#navbar #userDetails{
+    position: absolute;
+    left: -400px;
+    top: 50px;
+    background-color:#001C30;
+    width: 30vw;
+}
+#navbar #userDetails .dropdown-item input{
+   font-size:14px;
+   color: #64CCC5;
+   border: none;
+   background: transparent;
+   outline: none;
+}
+#navbar #userDetails #dropdown-item i{
+    color: #DAFFFB;
+    display: flex;
+    justify-content:flex-end;
+    position: relative;
+    bottom: 12px;
+    
+ }
+ #navbar #userDetails hr{
+    background-color: #64CCC5;
+ }
+ #navbar #userDetails .dropdown-item div{
+    border-bottom: 1px solid #DAFFFB;
+ }
+#navbar #userDetails .dropdown-item h4{
+    font-size:17px;
+    color: #DAFFFB;
+ }
+ .dropdown-menu div{
+    background-color: transparent;
+    border: transparent;
+    border: none;
+  }
+ .dropdown-menu .dropdown-item :hover {
+    background-image: none;
+    background-color: #000;
+  }
+
+ 

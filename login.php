@@ -5,9 +5,12 @@ if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+
     $sql = "select * from userdetails where mail = '$username'";
     $sqlSuperAdmin = "select * from superadminabcistore where username = '$username'";
     $sqlAdmin = "select * from adminabcistore where username = '$username'";
+
+    
 
     $result = mysqli_query($connection,$sql);
     // $resultSuperAdmin = mysqli_query($connection,$sqlSuperAdmin);
@@ -29,7 +32,10 @@ if(isset($_POST['submit'])){
     // }   
     if(mysqli_num_rows($result) > 0){
         if($password == $row["password"]){
+            $id = $row["id"];
             //$_SESSION['username'] = $fetch["username"];
+            $_SESSION["id"] = $id;
+
             header("location:index.php");
         }
         else{

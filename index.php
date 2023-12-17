@@ -1,6 +1,6 @@
 <?php
   include 'connection.php' ;
-
+  session_start();
   $sql = "select * from discounts";
   $result = mysqli_query($connection,$sql);
   $sqlFree = "select * from products where deliveryCharge = 0";
@@ -12,6 +12,23 @@
   $sqlProducts = "select * from products";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
+
+  // if(isset($_POST['addcart'])){
+  //   if(isset($_SESSION['cart'])){
+
+  //   }
+  // }
+  // else{
+  //   $item = array(
+  //     'id' => $_POST['id'],
+  //     'image' => $_POST['image'],
+  //     'price' => $_POST['price'],
+  //     'deliverycharge' => $_POST['deliverycharge'],
+  //     'details' => $_POST['details'],
+  //   );
+  //   $_SESSION["cart"][0] = $item;
+  //   echo "<script>alert product added</script>";
+  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +39,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/navbarstyle.css">
 </head>
 <body>
     <!--nav bar-->
@@ -53,7 +71,7 @@
                 <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" >Customer service</a>
@@ -69,7 +87,50 @@
             <button class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
-            <button class="btn " type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></button>
+            <div class="dropdown">
+              <button class="btn" type="button" id="user" data-toggle="dropdown"><i class="fa-solid fa-user fa-2xl"></i></button>
+              <div class="dropdown-menu" id="userDetails" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-item" id="dropdown-item">
+                <h4>Username</h4>
+                <div>
+                <input type="text" value="Thenujan">
+                <i class="fa-solid fa-pencil fa-lg"></i>
+                </div>
+              </div>
+              <div class="dropdown-item" id="dropdown-item">
+                <h4>Email</h4>
+                <div>
+                <input type="text" value="Thenujan">
+                <i class="fa-solid fa-pencil fa-lg"></i>
+                </div>
+              </div>
+              <div class="dropdown-item" id="dropdown-item">
+                <h4>Phone Number</h4>
+                <div>
+                <input type="text" value="Thenujan">
+                <i class="fa-solid fa-pencil fa-lg"></i>
+                </div>              
+              </div>
+              <div class="dropdown-item" id="dropdown-item">
+                <h4>Address</h4>
+                <div>
+                <input type="text" value="Thenujan">
+                <i class="fa-solid fa-pencil fa-lg"></i>
+                </div>              
+              </div>
+              <hr>
+              <div class="dropdown-item">
+                <a href="#">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+              </div>
+              <div class="dropdown-item">
+                <a href="#">privacy policy</a>
+              </div>
+              <div class="dropdown-item">
+                <a href="#">Terms and Conditions</a>
+              </div>
+              </div>
+              
+            </div>
           </form>
         </div>
       </nav>
@@ -211,6 +272,7 @@
           <div class="row" id="details">
             <?php 
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $id = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
                 $model =  $rowsproducts['model'];
@@ -220,6 +282,7 @@
             <div class="column">
               <div class="card" id="card">
                 <div class="content">
+                <form action="{$_SERVER['REQUEST_URI']}" method="post">
                   <div class="front">
                     <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
                     <h2><?php echo $model ?></h2>
@@ -228,9 +291,16 @@
                     <h2><?php echo $price ?></h2>
                     <h3><?php echo $deliverycharge ?></h3>
                     <h3><?php echo $details ?></h3>
-                    <a href="#" class="btn d-flex justify-content-center mb-3" type="button" id="buybutton">Buy</a>
-                    <a href="#" class="btn d-flex justify-content-center" type="button" id="cartbutton">Add to cart</a>
+                    <input type="hidden" value="<?php echo $id ?>" name='id'>
+                    <input type="hidden" value="<?php echo $price ?>" name="image">
+                    <input type="hidden" value="<?php echo $deliverycharge ?>" name="price">
+                    <input type="hidden" value="<?php echo $details ?>" name="deliverycharge">
+                    <input type="hidden" value="<?php echo $image ?>" name="details">
+
+                    <a href="#" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                    <a href="#" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                   </div>
+                </form>
                 </div>
               </div>
             </div>

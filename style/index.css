@@ -5,62 +5,6 @@ body{
     font-family: 'Preahvihear', sans-serif;
     
 }
-#navbar{
-    display: flex;
-    background-color: #001C30;
-}
-#navbar a{
-    color:#DAFFFB;
-}
-#navbar #search button{
-    background: transparent;
-    border: none;
-}
-#navbar #serach input{
-    background: transparent;
-    border: none;
-}
-#navbar #account{
-    flex: 1;
-    justify-content: end;
-    
-}
-#navbar #account #login{
-    margin-right: 15px;
-    background-color: #64CCC5;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 10px;
-}
-#navbar #account #Register{
-    margin-right: 15px;
-    background-color:#DAFFFB;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 10px;
-    color: #001C30;
-}
-#navbar #account #user{
-    background: none;
-    color: #DAFFFB;
-    transition: transform 1s;
-}
-#navbar #account #cart{
-    background: none;
-    color:#64CCC5;
-    transition: transform 1s;
-}
-#navbar #account #cart :hover{
-    transform: scale(1.2);
-    color: #64CCC5;
-}
-#navbar #account #user :hover{
-    transform: scale(1.2);
-    color: #64CCC5;
-}
-#navbar .dropdown-menu{
-    background-color: #001C30;
-}
 
 section{
     width: 100%;
