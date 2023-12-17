@@ -61,17 +61,7 @@ body{
 #navbar .dropdown-menu{
     background-color: #001C30;
 }
-#navbar .dropdown-menu li{
-    position: relative;
-}
-#navbar .dropdown-menu .submenu{
-    display: none;
-    position: absolute;
-    /* left: 100%; */
-}
-.dropdown-menu > li:hover > .submenu{
-    display: block;
-}
+
 section{
     width: 100%;
     min-height: 100vh;
@@ -310,7 +300,15 @@ clear: both;
     font-size:13px;
     padding:20px 0px;
   }
-  
+  .from-left #buybutton{
+    background-color: #64CCC5;
+    border-radius: 10px;
+    color: #001C30;
+  }
+  #cartbutton{
+    background-color:#001C30;
+    border-radius: 10px;
+  }
   
 
 #footer{

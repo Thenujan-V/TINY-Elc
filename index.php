@@ -9,6 +9,8 @@
   $resultTrend = mysqli_query($connection,$sqlTrend);
   $sqlBrand = "select * from brands";
   $resultBrand = mysqli_query($connection,$sqlBrand);
+  $sqlProducts = "select * from products";
+  $resultProducts = mysqli_query($connection,$sqlProducts);
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +66,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-          <button class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
+            <button class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
             <button class="btn " type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></button>
@@ -207,96 +209,32 @@
             <h1 class="title">Products</h1>
           </center>
           <div class="row" id="details">
+            <?php 
+              while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $price =  $rowsproducts['price'];
+                $image = $rowsproducts['image'];
+                $model =  $rowsproducts['model'];
+                $details =  $rowsproducts['details'];
+                $deliverycharge =  $rowsproducts['deliveryCharge'];
+            ?>
             <div class="column">
               <div class="card" id="card">
                 <div class="content">
                   <div class="front">
-                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
-                    <h2>product</h2>
+                    <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                    <h2><?php echo $model ?></h2>
                   </div>
                   <div class="back from-left">
-                    <h2>Product</h2>
-                    <h3>100000</h3>
-                    <h3>apple</h3>
-                    <p class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
-                    </p>
+                    <h2><?php echo $price ?></h2>
+                    <h3><?php echo $deliverycharge ?></h3>
+                    <h3><?php echo $details ?></h3>
+                    <a href="#" class="btn d-flex justify-content-center mb-3" type="button" id="buybutton">Buy</a>
+                    <a href="#" class="btn d-flex justify-content-center" type="button" id="cartbutton">Add to cart</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="column">
-              <div class="card" id="card">
-                <div class="content">
-                  <div class="front">
-                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
-                    <h2>product</h2>
-                  </div>
-                  <div class="back from-left">
-                    <h2>Product</h2>
-                    <h3>100000</h3>
-                    <h3>apple</h3>
-                    <p class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card" id="card">
-                <div class="content">
-                  <div class="front">
-                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
-                    <h2>product</h2>
-                  </div>
-                  <div class="back from-left">
-                    <h2>Product</h2>
-                    <h3>100000</h3>
-                    <h3>apple</h3>
-                    <p class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card" id="card">
-                <div class="content">
-                  <div class="front">
-                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
-                    <h2>product</h2>
-                  </div>
-                  <div class="back from-left">
-                    <h2>Product</h2>
-                    <h3>100000</h3>
-                    <h3>apple</h3>
-                    <p class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card" id="card">
-                <div class="content">
-                  <div class="front">
-                    <img class="profile" width="100%" src="ìmages\game.jpg" alt="product">
-                    <h2>product</h2>
-                  </div>
-                  <div class="back from-left">
-                    <h2>Product</h2>
-                    <h3>100000</h3>
-                    <h3>apple</h3>
-                    <p class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, in animi doloribus reprehenderit debitis voluptas pariatur eaque! Rem, accusamus tempora?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php } ?>
           </div>
           <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
        </div> 

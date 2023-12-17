@@ -1,0 +1,85 @@
+#footer{
+    background: black;
+    color: #fff;
+}
+#footleft{
+   margin-top: 20px;
+}
+#footleft h2{
+    font-weight: 600;
+    text-decoration: underline 1.5px greenyellow;
+    text-underline-position: under;
+}
+/* #footleft p{
+    padding-top: 20px;
+    padding-right: 150px;
+} */
+#footleft .input-group{
+    padding-top: 20px;
+    padding-right: 150px;
+    border: none;
+    outline: none;
+}
+#footleft button{
+    background-color: green;
+}
+#footleft input{
+    border: none;
+}
+#footright{
+   margin-top: 20px;
+    text-align:center;
+}
+#footright{
+    display: flex;
+    flex-direction: column;
+}
+#footright address {
+    font-size:18px; 
+    margin-bottom: 40px;
+}
+
+#footright address a{
+   color: orangered;
+}
+#con-us{
+    padding-left: 22%;
+    padding-top: 10px;
+    text-align: start;
+}
+#con-us:hover{
+    color: orangered;
+}
+#social{
+    text-align: center;
+}
+
+.footbox{
+    align-self: start;
+    
+}
+#social a{
+    display: flex;
+    margin-top: 20px;
+}
+#social a img{
+    width: 40px;
+    height:40px;
+    transition: .6s;
+}
+#social a span{
+    font-size: 15px;
+    margin-top: 9px;
+    margin-left:12px;
+}
+#social a:hover{
+    transform: translateX(1%);
+}
+#social a span:hover{
+    color: orangered;
+}
+/* #details{
+    font-size: 14px;
+    color: #ccc;
+    background-color: #ff3636;
+} */
