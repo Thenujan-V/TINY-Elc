@@ -36,16 +36,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/footerstyle.css">
     <link rel="stylesheet" href="style/navbarstyle.css">
     <link rel="stylesheet" href="style/productstyle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
   </head>
 <body>
+    <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="#">TINY Elc</a>
+        <a class="navbar-brand " href="index.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,25 +56,21 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="">Laptops</a></li>
-                        <ul class="dropdown-menu submenu">
-                            <li><a href="" class="dropdown-item">hp</a></li>
-                            <li><a href="" class="dropdown-item">hp</a></li>
-                        </ul>
-                    <li><a class="dropdown-item" href="product.php?category='mobile'">Mobile phones</a></li>
-                    <li><a class="dropdown-item" href="product.php?category='smart watch'">Smart watches</a></li>
-                    <li><a class="dropdown-item" href="product.php?category='tv'">Television</a></li>
-                    <li><a class="dropdown-item" href="product.php?category='camara'">Camaras</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="aboutpage.php">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Customer service</a>
+                <a class="nav-link" href="contactpage.php" >Customer service</a>
             </li>
             
             
@@ -87,7 +83,8 @@
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
-            <button class="btn " type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></button>
+            <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+              
           </form>
         </div>
       </nav>

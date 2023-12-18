@@ -12,11 +12,7 @@
   $sqlProducts = "select * from products";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
-  $uid = $_SESSION['id'];
-
-  $sqluser = "select * from userdetails where id = $uid";
-  $resultuser = mysqli_query($connection,$sqluser);
-  $rowuser = mysqli_fetch_assoc($resultuser);
+  
 
   // if(isset($_POST['addcart'])){
   //   if(isset($_SESSION['cart'])){
@@ -60,26 +56,21 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="">Laptops</a></li>
-                        <ul class="dropdown-menu submenu">
-                            <li><a href="" class="dropdown-item">hp</a></li>
-                            <li><a href="" class="dropdown-item">hp</a></li>
-                        </ul>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Mobile phones</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Smart watches</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Television</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="#">Camaras</a></li>
-                    <li><a class="dropdown-item"  id="alldropdownitem" href="#">Others</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="aboutpage.php">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Customer service</a>
+                <a class="nav-link" href="contactpage.php" >Customer service</a>
             </li>
             
             
@@ -92,51 +83,8 @@
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
-            <div class="dropdown">
-              <button class="btn" type="button" id="user" data-toggle="dropdown"><i class="fa-solid fa-user fa-2xl"></i></button>
-              <div class="dropdown-menu" id="userDetails" aria-labelledby="dropdownMenuButton">
-              <div class="dropdown-item" id="dropdown-item">
-                <h4>Username</h4>
-                <div>
-                <input type="text" value="<?php echo $rowuser['name'] ?>">
-                <i class="fa-solid fa-pencil fa-lg"></i>
-                </div>
-              </div>
-              <div class="dropdown-item" id="dropdown-item">
-                <h4>Email</h4>
-                <div>
-                <input type="text" value="<?php echo $rowuser['mail'] ?>">
-                <a href=""></a>
-                <i class="fa-solid fa-pencil fa-lg"></i>
-                </div>
-              </div>
-              <div class="dropdown-item" id="dropdown-item">
-                <h4>Phone Number</h4>
-                <div>
-                <input type="text" value="<?php echo $rowuser['phoneno'] ?>">
-                <i class="fa-solid fa-pencil fa-lg"></i>
-                </div>              
-              </div>
-              <div class="dropdown-item" id="dropdown-item">
-                <h4>Address</h4>
-                <div>
-                <input type="text" value="<?php echo $rowuser['address'] ?>">
-                <i class="fa-solid fa-pencil fa-lg"></i>
-                </div>              
-              </div>
-              <hr>
-              <div class="dropdown-item" id="dropdown-item">
-                <a href="#">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
-              </div>
-              <div class="dropdown-item" id="dropdown-item">
-                <a href="#">privacy policy</a>
-              </div>
-              <div class="dropdown-item" id="dropdown-item">
-                <a href="#">Terms and Conditions</a>
-              </div>
-              </div>
+            <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
               
-            </div>
           </form>
         </div>
       </nav>

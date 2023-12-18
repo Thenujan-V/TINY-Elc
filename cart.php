@@ -1,12 +1,12 @@
 <?php
     session_start();
     include 'connection.php';
-    // $pid = $_SESSION['pid'];
+    $uid = $_SESSION['id'];
     $sqlcart = "select * from products join usercart on products.id = usercart.pid";
     $resultcart = mysqli_query($connection,$sqlcart);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="style/footerstyle.css">
 </head>
 <body>
+    <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="#">TINY Elc</a>
+        <a class="navbar-brand " href="index.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,26 +31,21 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="">Laptops</a></li>
-                        <ul class="dropdown-menu submenu">
-                            <li><a href="" class="dropdown-item">hp</a></li>
-                            <li><a href="" class="dropdown-item">hp</a></li>
-                        </ul>
-                    <li><a class="dropdown-item" href="product.php">Mobile phones</a></li>
-                    <li><a class="dropdown-item" href="#">Smart watches</a></li>
-                    <li><a class="dropdown-item" href="#">Television</a></li>
-                    <li><a class="dropdown-item" href="#">Camaras</a></li>
-                    <li><a class="dropdown-item" href="#">Others</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="aboutpage.php">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Customer service</a>
+                <a class="nav-link" href="contactpage.php" >Customer service</a>
             </li>
             
             
@@ -59,10 +55,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <button class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></button>
+            <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
-            <button class="btn " type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></button>
+            <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+              
           </form>
         </div>
       </nav>
@@ -76,6 +73,7 @@
                     </div>
                     <?php
                         while($rowcart = mysqli_fetch_assoc($resultcart)){
+                            $id = $rowcart['pid'];
                             $image = $rowcart['image'];
                             $price = $rowcart['price'];
                             $model = $rowcart['model'];
@@ -98,8 +96,45 @@
                             <a href="#"><i class="fa-regular fa-trash-can fa-lg"></i></a>
                         </div>
                         <div class="col-2 d-flex" style="flex-direction:column;" id="quantity">
-                            <label for="quantity">quantity</label>
-                            <input type="number" value="1" name="quantity" style="height:30px; width:40px;">
+                            <form action="" method="post">
+                                <label for="quantity">quantity</label>
+                                <input type="number" value="<?php echo $quantity ?>" name="quantity" style="height:30px; width:40px;">
+                                <input type="hidden" value="<?php echo $pid ?>" name="pid">
+                                <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="update">
+                            </form>
+                            <?php 
+                                if(isset($_POST['submit'])){
+                                    $pid = $_POST['pid'];
+                                    $new_quantity = $_POST['quantity'];
+                                    if($quantity != $new_quantity){
+                                    if($new_quantity != 0){
+                                        $sql = "UPDATE usercart SET quantity='$new_quantity' WHERE pid='$pid' AND uid='$uid'";
+                                        $result = mysqli_query($connection,$sql);
+                                        if($result){
+                                        echo "<script>alert('Cart updated successfully.')</script>";
+                                        echo "<script>window.open('cart.php','_self')</script>";
+                                        }
+                                        else{
+                                        echo "<script>alert('Sorry can't update cart.')</script>";
+                                        echo "<script>window.open('cart.php','_self')</script>";
+                                        }
+                                    }
+                                    else{
+                                        $pid = $_POST['pid'];
+                                        $sql = "DELETE FROM usercart WHERE pid='$pid' AND uid='$uid'";
+                                        $result = mysqli_query($connection,$sql);
+                                        if($result){
+                                        echo "<script>alert('Book removed from cart successfully.')</script>";
+                                        echo "<script>window.open('cart.php','_self')</script>";
+                                        }
+                                        else{
+                                        echo "<script>alert('Sorry can't remove from cart.')</script>";
+                                        echo "<script>window.open('cart.php','_self')</script>";
+                                        }
+                                    }
+                                    }
+                                }
+                            ?>
                             
                         </div>
                     </div>
