@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  $uid = $_SESSION['id'];
+  $uid = $_SESSION['uid'];
   include 'connection.php';
   // $sqlProducts = "select * from products";
   // $resultProducts = mysqli_query($connection,$sqlProducts);

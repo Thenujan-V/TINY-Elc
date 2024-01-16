@@ -1,7 +1,7 @@
 <?php
     session_start();
     include 'connection.php';
-    $uid = $_SESSION['id'];
+    $uid = $_SESSION['uid'];
     $sqlcart = "select * from products join usercart on products.id = usercart.pid";
     $resultcart = mysqli_query($connection,$sqlcart);
 ?>
@@ -63,7 +63,7 @@
           </form>
         </div>
       </nav>
-    <section>
+    <div>
         <div class="container">
             <div class="row">
                 <div class="col-8">
@@ -73,16 +73,23 @@
                     </div>
                     <?php
                         while($rowcart = mysqli_fetch_assoc($resultcart)){
-                            $id = $rowcart['pid'];
-                            $image = $rowcart['image'];
-                            $price = $rowcart['price'];
-                            $model = $rowcart['model'];
-                            $deliverycharge = $rowcart['deliveryCharge'];
-                            $details = $rowcart['details'];
-                            $quantity = $rowcart['quantity'];
+                            if($rowcart['uid'] == $uid){
+                                $userId = $rowcart['uid'];
+                                $pid = $rowcart['pid'];
+                                $image = $rowcart['image'];
+                                $price = $rowcart['price'];
+                                $model = $rowcart['model'];
+                                $deliverycharge = $rowcart['deliveryCharge'];
+                                $details = $rowcart['details'];
+                                $quantity = $rowcart['quantity'];
+                            
+                            
                         
                     ?>
                     <div class="row mt-2" id="cartproduct">
+                        <form action="cart.php" method="post">
+                            <input type="checkbox" name="selected"> 
+                        </form>
                         <div class="col-2" id="image">
                             <img src="<?php echo $image ?>" alt="" class="img-fluid">
                         </div>
@@ -90,16 +97,17 @@
                             <p><?php echo $details ?></p>
                         </div>
                         <div class="col-2" id="prices">
+
                             <p><?php echo $model ?></p>
                             <p><?php echo $price ?></p>
                             <p><?php echo $deliverycharge ?></p>
                             <a href="#"><i class="fa-regular fa-trash-can fa-lg"></i></a>
                         </div>
                         <div class="col-2 d-flex" style="flex-direction:column;" id="quantity">
-                            <form action="" method="post">
+                            <form action="cart.php" method="post">
                                 <label for="quantity">quantity</label>
                                 <input type="number" value="<?php echo $quantity ?>" name="quantity" style="height:30px; width:40px;">
-                                <input type="hidden" value="<?php echo $pid ?>" name="pid">
+                                <input type="hidden" value="<?php echo "$pid" ?>" name="pid">
                                 <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="update">
                             </form>
                             <?php 
@@ -121,15 +129,15 @@
                                     }
                                     else{
                                         $pid = $_POST['pid'];
-                                        $sql = "DELETE FROM usercart WHERE pid='$pid' AND uid='$uid'";
+                                        $sql = "DELETE FROM usercart WHERE uid='$uid' AND pid = '$pid'";
                                         $result = mysqli_query($connection,$sql);
                                         if($result){
-                                        echo "<script>alert('Book removed from cart successfully.')</script>";
-                                        echo "<script>window.open('cart.php','_self')</script>";
+                                            echo "<script>alert('Book removed from cart successfully.')</script>";
+                                            echo "<script>window.open('cart.php','_self')</script>";
                                         }
                                         else{
-                                        echo "<script>alert('Sorry can't remove from cart.')</script>";
-                                        echo "<script>window.open('cart.php','_self')</script>";
+                                            echo "<script>alert('Sorry can't remove from cart.')</script>";
+                                            echo "<script>window.open('cart.php','_self')</script>";
                                         }
                                     }
                                     }
@@ -138,11 +146,14 @@
                             
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
                 <div class="col-4" id="odrsum">
                     <h2>Order summary</h2>
-                    <div id="cartamounts" class="row">
+                    <?php
+                    if(isset($_POST['selected'])){ 
+                        ?>
+                        <div id="cartamounts" class="row">
                         <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
                         <p class="col-4"><?php echo $price ?></p>
                     </div>
@@ -159,10 +170,32 @@
                         <h5 class="col-8">Total Amount</h5>
                         <p class="col-4"><?php echo $price + $deliverycharge; ?></p>
                     </div> 
+                    <?php }
+
+                    else{ ?>
+                        <div id="cartamounts" class="row">
+                        <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
+                        <p class="col-4"><?php echo $price ?></p>
+                    </div>
+                    <div id="cartamounts" class="row">
+                        <h5 class="col-8">Shipping Fee</h5>
+                        <p class="col-4"><?php echo $deliverycharge ?></p>
+                    </div>
+                    <div id="cartamounts" class="row">
+                        <h5 class="col-8">Shipping Fee Discount</h5>
+                        <p class="col-4"><?php echo $deliverycharge ?></p>
+                    </div>
+                    <hr>
+                    <div id="cartamounts" class="row">
+                        <h5 class="col-8">Total Amount</h5>
+                        <p class="col-4"><?php echo $price + $deliverycharge; ?></p>
+                    </div> 
+                    <?php } ?>
+                    
                 </div>
             </div>
         </div>
-    </section>
+                            </div>
     <div id="footer">
         <div class="container footbox">
             <div class="row">
