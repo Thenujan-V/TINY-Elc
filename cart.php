@@ -72,6 +72,21 @@
                         <a class="d-flex justify-content-" href="#"><i class="fa-regular fa-trash-can fa-lg"></i> DELETE</a>
                     </div>
                     <?php
+                                function deleteOption($uid, $pid, $connection){
+                                        $pid = $_POST['pid'];
+                                        $sql = "DELETE FROM usercart WHERE uid='$uid' AND pid = '$pid'";
+                                        $result = mysqli_query($connection,$sql);
+                                        if($result){
+                                            echo "<script>alert('Book removed from cart successfully.')</script>";
+                                            echo "<script>window.open('cart.php','_self')</script>";
+                                        }
+                                        else{
+                                            echo "<script>alert('Sorry can't remove from cart.')</script>";
+                                            echo "<script>window.open('cart.php','_self')</script>";
+                                        }
+                                }
+                            ?>
+                    <?php
                         while($rowcart = mysqli_fetch_assoc($resultcart)){
                             if($rowcart['uid'] == $uid){
                                 $userId = $rowcart['uid'];
@@ -101,7 +116,7 @@
                             <p><?php echo $model ?></p>
                             <p><?php echo $price ?></p>
                             <p><?php echo $deliverycharge ?></p>
-                            <a href="#"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                            <button  onclick = deleteOption($uid,$pid,$connection)<i class="fa-regular fa-trash-can fa-lg"></i></button>
                         </div>
                         <div class="col-2 d-flex" style="flex-direction:column;" id="quantity">
                             <form action="cart.php" method="post">
@@ -110,6 +125,7 @@
                                 <input type="hidden" value="<?php echo "$pid" ?>" name="pid">
                                 <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="update">
                             </form>
+                            
                             <?php 
                                 if(isset($_POST['submit'])){
                                     $pid = $_POST['pid'];
@@ -129,16 +145,17 @@
                                     }
                                     else{
                                         $pid = $_POST['pid'];
-                                        $sql = "DELETE FROM usercart WHERE uid='$uid' AND pid = '$pid'";
-                                        $result = mysqli_query($connection,$sql);
-                                        if($result){
-                                            echo "<script>alert('Book removed from cart successfully.')</script>";
-                                            echo "<script>window.open('cart.php','_self')</script>";
-                                        }
-                                        else{
-                                            echo "<script>alert('Sorry can't remove from cart.')</script>";
-                                            echo "<script>window.open('cart.php','_self')</script>";
-                                        }
+                                        deleteOption($uid, $pid, $connection);
+                                        // $sql = "DELETE FROM usercart WHERE uid='$uid' AND pid = '$pid'";
+                                        // $result = mysqli_query($connection,$sql);
+                                        // if($result){
+                                        //     echo "<script>alert('Book removed from cart successfully.')</script>";
+                                        //     echo "<script>window.open('cart.php','_self')</script>";
+                                        // }
+                                        // else{
+                                        //     echo "<script>alert('Sorry can't remove from cart.')</script>";
+                                        //     echo "<script>window.open('cart.php','_self')</script>";
+                                        // }
                                     }
                                     }
                                 }
