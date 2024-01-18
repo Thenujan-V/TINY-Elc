@@ -39,6 +39,8 @@ if(isset($_POST['submit'])){
             header("location:index.php");
         }
         else{
+            session_start();
+            $_SESSION["uid"] = null;
             echo
             "<script>alert('something went to wrong...')</script>";
         }

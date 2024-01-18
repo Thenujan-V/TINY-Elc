@@ -58,6 +58,7 @@
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
               
           </form>
@@ -102,9 +103,15 @@
                         
                     ?>
                     <div class="row mt-2" id="cartproduct">
-                        <form action="cart.php" method="post">
-                            <input type="checkbox" name="selected"> 
+                        <form action="" method="post"  >
+                            <input type="checkbox" name="selected" id="selected" onChange="this.form.submit(e) "> 
                         </form>
+                        <script>
+                                document.getElementById('selected').addEventListener("click", function(e){
+                                    console.log("okey")
+                                    e.preventDefault();
+                                })
+                            </script>
                         <div class="col-2" id="image">
                             <img src="<?php echo $image ?>" alt="" class="img-fluid">
                         </div>
@@ -170,6 +177,9 @@
                     <?php
                     if(isset($_POST['selected'])){ 
                         ?>
+                        <script>
+                            console.log("okey")
+                        </script>
                         <div id="cartamounts" class="row">
                         <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
                         <p class="col-4"><?php echo $price ?></p>
