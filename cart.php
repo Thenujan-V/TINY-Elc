@@ -3,6 +3,8 @@
     include 'connection.php';
     $uid = $_SESSION['uid'];
     $sqlcart = "select * from products join usercart on products.id = usercart.pid";
+    $sqlEmptyCart = "select * from usercart where uid = '$uid' ";
+    $resultEmptyCart = mysqli_query($connection,$sqlEmptyCart);
     $resultcart = mysqli_query($connection,$sqlcart);
 ?>
 <!DOCTYPE html>
@@ -175,11 +177,8 @@
                 <div class="col-4" id="odrsum">
                     <h2>Order summary</h2>
                     <?php
-                    if(isset($_POST['selected'])){ 
+                    if(mysqli_num_rows($resultEmptyCart) > 0){ 
                         ?>
-                        <script>
-                            console.log("okey")
-                        </script>
                         <div id="cartamounts" class="row">
                         <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
                         <p class="col-4"><?php echo $price ?></p>
@@ -201,21 +200,21 @@
 
                     else{ ?>
                         <div id="cartamounts" class="row">
-                        <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
-                        <p class="col-4"><?php echo $price ?></p>
+                        <h5 class="col-8">Subtotal(0)</h5>
+                        <p class="col-4"><?php echo '000' ?></p>
                     </div>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Shipping Fee</h5>
-                        <p class="col-4"><?php echo $deliverycharge ?></p>
+                        <p class="col-4"><?php echo '000' ?></p>
                     </div>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Shipping Fee Discount</h5>
-                        <p class="col-4"><?php echo $deliverycharge ?></p>
+                        <p class="col-4"><?php echo '00o' ?></p>
                     </div>
                     <hr>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Total Amount</h5>
-                        <p class="col-4"><?php echo $price + $deliverycharge; ?></p>
+                        <p class="col-4"><?php echo '____' ?></p>
                     </div> 
                     <?php } ?>
                     
