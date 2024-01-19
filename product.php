@@ -33,6 +33,10 @@
         echo "<script>window.open('product.php','_self')</script>";
     }
   }
+  if(isset($_GET['products'])){
+    $_SESSION['pid'] = $_GET['products'];
+    header('Location:productsDetailPage.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,7 +163,7 @@
                     <div class="back from-left">
                       <h2><?php echo $price ?></h2>
                       <h3><?php echo $deliverycharge ?></h3>
-                      <h3><?php echo $details ?></h3>
+                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
                       
                       <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
