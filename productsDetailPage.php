@@ -2,10 +2,37 @@
   include "connection.php";
   session_start();
   $pid = $_SESSION['pid'];
-
+  $uid = $_SESSION['uid'];
   $sqlDetails = "select * from products where id = '$pid'" ;
   $rowDetails = mysqli_query($connection, $sqlDetails);
   $resultDetails = mysqli_fetch_assoc($rowDetails);
+  $category = $resultDetails['category'];
+  
+
+
+  if(isset($_GET['cart'])){
+    $pid = $_GET['cart'];
+    // $_SESSION['pid'] = $pid;
+    $select_sql = "SELECT * FROM usercart WHERE uid='$uid' AND pid='$pid'";
+    $select_result = mysqli_query($connection,$select_sql);
+    
+    if(mysqli_num_rows($select_result) == 0){
+        $insert_sql = "INSERT INTO usercart VALUES('$uid','$pid',1)";
+        $insert_result = mysqli_query($connection,$insert_sql); 
+        if($insert_result){
+            echo "<script>alert('Book added to cart successfully.')</script>";
+            echo "<script>window.open('product.php','_self')</script>";
+        }
+        else{
+            echo "<script>alert('Some thing wrong. Failed to add to cart.')</script>";
+            echo "<script>window.open('product.php','_self')</script>";
+        }
+    }
+    else{
+        echo "<script>alert('Book is already added to cart.')</script>";
+        echo "<script>window.open('product.php','_self')</script>";
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +44,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/footerstyle.css">
     <link rel="stylesheet" href="style/navbarstyle.css">
-    <link rel="stylesheet" href="style/productstyle.css">
+    <link rel="stylesheet" href="style/productDetailsPage.css">
 </head>
 <body>
     <!--nav bar-->
@@ -68,20 +95,64 @@
       </nav>
 
 
-      <section>
+      <section id="productDetailPage">
         <div class="container">
-          <div class="row">
-            <div class="col-4">
-              <img src="<?php echo $resultDetails['image'] ?>" alt="" height="600px" width="700px">
+          <div class="row" >
+            <div class="col-lg-6" id="productDetailImage">
+              <img class="img-fluid" src="<?php echo $resultDetails['image'] ?>" alt="" height="600px" width="700px">
             </div>
-            <div class="col-8">
-              <div>
+            <div class="col-lg-6" id="productDetails">
               <h2><?php echo $resultDetails['model'] ?></h2>
               <h3><?php echo $resultDetails['price'] ?></h3>
               <p><?php echo $resultDetails['details'] ?></p>
+              <p><?php echo $resultDetails['category'] ?></p>
+              <div id="buttons">
+                <a href="" class="btn" type="submit" id="buybutton" name="addcart">Buy</a>
+                <a href="product.php?cart= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Add to cart</a>
               </div>
             </div>
           </div>
+        </div>
+        <div class="continer" id="productcard">
+        <center>
+              <h1 class="title">Products</h1>
+            </center>
+          <?php 
+                $sqlProducts = "select * from products where category = '$category'";
+                $resultProducts = mysqli_query($connection,$sqlProducts);
+                $rowsproducts = mysqli_fetch_assoc($resultProducts);
+                if(mysqli_num_rows($resultProducts) == 0){
+                  echo 'no products';
+                }
+                else{
+                while($rowsproducts){
+                  $pid = $rowsproducts['id'];
+                  $price =  $rowsproducts['price'];
+                  $image = $rowsproducts['image'];
+                  $model =  $rowsproducts['model'];
+                  $details =  $rowsproducts['details'];
+                  $deliverycharge =  $rowsproducts['deliveryCharge'];
+              ?>
+              <div class="column">
+                <div class="card" id="card">
+                  <div class="content">
+                  
+                    <div class="front">
+                      <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                      <h2><?php echo $model ?></h2>
+                    </div>
+                    <div class="back from-left">
+                      <h2><?php echo $price ?></h2>
+                      <h3><?php echo $deliverycharge ?></h3>
+                      <h3><?php echo $details ?></h3>
+                      
+                      <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            <?php } } ?>
         </div>
       </section>
 

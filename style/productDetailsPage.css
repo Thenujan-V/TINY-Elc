@@ -1,0 +1,123 @@
+#productDetailPage{
+    background-color: #DAFFFB;;
+}
+#productDetails{
+    background-color:#64CCC5 ;
+}
+#productDetailImage{
+    background-color:#64CCC5 ;
+}
+#buybutton{
+    background-color: #DAFFFB;
+    border-radius: 10px;
+    color: #001C30;
+}
+#cartbutton{
+    background-color:#001C30;
+    border-radius: 10px;
+}
+#buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+#productcard{
+    width:90%;
+    margin:0px auto; 
+    }
+    #products{
+        background-color: #64CCC5;
+    
+    }
+    .column {
+    float: left;
+    width: 20%;
+    padding: 0 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    
+    
+    #details {
+        margin: 0 -5px;
+        background-color: #001C30;
+    }
+    
+    
+    .details:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+    }
+    
+    /* Responsive columns */
+    @media screen and (max-width: 917px) {
+    
+    #productcard{
+        width: 90%;
+      }
+        
+        .column {
+          width: 33.33%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+      
+      
+      #card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 5px;
+        text-align: center;
+        background-color: #fff;
+        border-radius:10px;
+        cursor:pointer;
+      }
+      #card .profile{
+         border-radius:10px;
+         transition: 0.2s;
+      }
+      #card:hover .profile{
+        transform:scale(1.4);
+        border-top-right-radius:50px;
+        border-top-left-radius:50px;
+      }
+      
+      #card .content{
+        width:100%;
+        height:100%;
+        position:relative;
+        overflow:hidden;
+      }
+      #card .content .back{
+        position:absolute;
+        width:100%;
+        height:100%;
+        background-color: #f1f1f1e6;
+        transition:1s;
+        
+        z-index:1;
+        padding:10px;
+      }
+      
+      .from-left{
+        top:0;
+        left:-100%;
+      }
+      #card:hover .content .from-left {
+         left:0%;
+      }
+      
+      #card .content .back h3{
+        font-size:15px;
+        letter-spacing:2px;
+      }
+      #card .content .back .tem-img{
+        border-radius:100%;
+      }
+      
+      #card .content .back .des{
+        font-size:13px;
+        padding:20px 0px;
+      }
