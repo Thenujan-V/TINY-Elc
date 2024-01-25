@@ -3,9 +3,12 @@
     include 'connection.php';
     $uid = $_SESSION['uid'];
     $sqlcart = "select * from products join usercart on products.id = usercart.pid";
-    $sqlEmptyCart = "select * from usercart where uid = '$uid' ";
+    $sqlEmptyCart = "select * from products join usercart on products.id = usercart.pid where uid = '$uid' ";
     $resultEmptyCart = mysqli_query($connection,$sqlEmptyCart);
     $resultcart = mysqli_query($connection,$sqlcart);
+    $totalprice = 0;
+    $productCount = 0;
+    $totalShippingFee = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -88,6 +91,7 @@
                                             echo "<script>window.open('cart.php','_self')</script>";
                                         }
                                 }
+                                
                             ?>
                     <?php
                         while($rowcart = mysqli_fetch_assoc($resultcart)){
@@ -124,8 +128,8 @@
 
                             <p><?php echo $model ?></p>
                             <p><?php echo $price ?></p>
-                            <p><?php echo $deliverycharge ?></p>
-                            <button  onclick = deleteOption($uid,$pid,$connection)<i class="fa-regular fa-trash-can fa-lg"></i></button>
+                            <p><?php echo $deliverycharge ?></p
+                            <button onclick = deleteOption($uid,$pid,$connection) ><i class="fa-regular fa-trash-can fa-xl"></i></button>
                         </div>
                         <div class="col-2 d-flex" style="flex-direction:column;" id="quantity">
                             <form action="cart.php" method="post">
@@ -178,23 +182,32 @@
                     <h2>Order summary</h2>
                     <?php
                     if(mysqli_num_rows($resultEmptyCart) > 0){ 
+                        
+                        while($rowEmptycart = mysqli_fetch_assoc($resultEmptyCart)){
+                            $productCount++;
+                            // $totalprice = $totalprice + ($price * $quantity);}
+                            $totalprice = $totalprice + ($rowEmptycart['price'] * $rowEmptycart['quantity']);
+                            $totalShippingFee = $totalShippingFee + ($rowEmptycart['deliveryCharge']);
+
+                        }
+
                         ?>
                         <div id="cartamounts" class="row">
-                        <h5 class="col-8">Subtotal(<?php echo $quantity ?>)</h5>
-                        <p class="col-4"><?php echo $price ?></p>
+                        <h5 class="col-8">Subtotal(<?php echo $productCount ?> item)</h5>
+                        <p class="col-4"><?php echo $totalprice ?></p>
                     </div>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Shipping Fee</h5>
-                        <p class="col-4"><?php echo $deliverycharge ?></p>
+                        <p class="col-4"><?php echo $totalShippingFee ?></p>
                     </div>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Shipping Fee Discount</h5>
-                        <p class="col-4"><?php echo $deliverycharge ?></p>
+                        <p class="col-4"><?php echo $totalShippingFee ?></p>
                     </div>
                     <hr>
                     <div id="cartamounts" class="row">
                         <h5 class="col-8">Total Amount</h5>
-                        <p class="col-4"><?php echo $price + $deliverycharge; ?></p>
+                        <p class="col-4"><?php echo $totalprice + $totalShippingFee; ?></p>
                     </div> 
                     <?php }
 

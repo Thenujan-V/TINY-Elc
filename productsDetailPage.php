@@ -113,7 +113,10 @@
             </div>
           </div>
         </div>
-        <div class="continer" id="productcard">
+      </section>
+
+      <section id="productcard">
+      <div class="continer" >
         <center>
               <h1 class="title">Products</h1>
             </center>
@@ -125,7 +128,7 @@
                   echo 'no products';
                 }
                 else{
-                while($rowsproducts){
+                while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
                   $pid = $rowsproducts['id'];
                   $price =  $rowsproducts['price'];
                   $image = $rowsproducts['image'];

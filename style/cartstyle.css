@@ -18,3 +18,8 @@ section{
     height: 100vh;
     width: 100%;
 }
+#prices button{
+    background-color: aquamarine;
+    border: none;
+    cursor: pointer;
+}

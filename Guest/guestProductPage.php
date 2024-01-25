@@ -51,11 +51,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a href="../cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
+            <a href="../login.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="../register.php">Register</a>
             <a class="btn" type="button" id="login" href="../login.php">Login</a>
-            <a class="btn" href="../userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
-            <a href="logout.php" class="btn" id="../logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            <!-- <a class="btn" href="../userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a> -->
               
           </form>
         </div>
@@ -128,8 +128,8 @@
                       <h3><?php echo $deliverycharge ?></h3>
                       <h3><?php echo $details ?></h3>
                       
-                      <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
                   </div>  
                 </div>
@@ -166,8 +166,8 @@
                       <h3><?php echo $deliverycharge ?></h3>
                       <h3><?php echo $details ?></h3>
                       
-                      <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
                   </div>  
                 </div>
