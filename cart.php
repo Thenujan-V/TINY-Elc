@@ -2,6 +2,9 @@
     session_start();
     include 'connection.php';
     $uid = $_SESSION['uid'];
+    if(!$uid){
+        header('Location:login.php');
+    }
     $sqlcart = "select * from products join usercart on products.id = usercart.pid";
     $sqlEmptyCart = "select * from products join usercart on products.id = usercart.pid where uid = '$uid' ";
     $resultEmptyCart = mysqli_query($connection,$sqlEmptyCart);

@@ -7,7 +7,7 @@
     $resultuser = mysqli_query($connection,$sqluser);
     $rowuser = mysqli_fetch_assoc($resultuser);
 
-    // $sqluser = "select * from userdetails where id = $uid";
+    // $sqluser = "select * from superadmindetails where id = $uid";
     // $resultuser = mysqli_query($connection,$sqluser);
     // $rowuser = mysqli_fetch_assoc($resultuser);
 

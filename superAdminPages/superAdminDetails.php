@@ -2,11 +2,21 @@
     include '../connection.php';
     session_start();
     $uid = $_SESSION['uid'];
-    $Eid = $_SESSION['Eid'];
 
-    $sqlEditProductDetails = "select * from products where id = $Eid";
-    $resultEditProductDetails = mysqli_query($connection,$sqlEditProductDetails);
-    $rowEditProductDetails = mysqli_fetch_assoc($resultEditProductDetails);
+    // $sqluser = "select * from userdetails where id = $uid";
+    // $resultuser = mysqli_query($connection,$sqluser);
+    // $rowuser = mysqli_fetch_assoc($resultuser);
+
+    $sqlSuperAdmin = "select * from superadmindetails where id = '$uid' ";
+    $resultSuperAdmin = mysqli_query($connection,$sqlSuperAdmin);
+
+    if (!$resultSuperAdmin) {
+        die("Query failed: " . mysqli_error($connection));
+    }
+    
+    $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
+
+    // $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
 
 ?>
 <!DOCTYPE html>
@@ -74,42 +84,27 @@
                 <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
                         <h1>User Profile</h1>
                         <form class="form m-2" method="post" action="">
-                            <p>Product Name</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="productName" value="<?php echo $rowEditProductDetails['model'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_productName" value="save">
+                            <p>UserName</p>
+                            <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowSuperAdmin['name'];?>">
+                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
                         </form>
                         <form class="form m-2" method="post" action="">
-                            <p>Category</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="category" value="<?php echo $rowEditProductDetails['category'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_category" value="save">
+                            <p>Email</p>
+                            <input type="email" class="form-outline mx-3 w-50" name="email" value="<?php echo $rowSuperAdmin['email'];?>">
+                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_email" value="save">
                         </form>
                         <form class="form m-2" method="post" action="">
-                            <p>Price</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="Price" value="<?php echo $rowEditProductDetails['price'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_price" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Image(url)</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="image" value="<?php echo $rowEditProductDetails['image'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_image" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Delivery Charge</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="deliveryCharge" value="<?php echo $rowEditProductDetails['deliveryCharge'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_deliveryCharge" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Details</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="details" value="<?php echo $rowEditProductDetails['details'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_details" value="save">
+                            <p>Phone</p>
+                            <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowSuperAdmin['phoneno'];?>">
+                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
                         </form>
                 </div>
                 <?php 
-                if(isset($_POST['submit_productName'])){
-                  $new_name = $_POST['productName'];
-                  if($new_name != $rowEditProductDetails['model']){
+                if(isset($_POST['submit_name'])){
+                  $new_name = $_POST['name'];
+                  if($new_name != $rowuser['name']){
                       if($new_name != ''){
-                          $sql = "UPDATE products SET name='$new_name' WHERE id='$Eid'";
+                          $sql = "UPDATE userdetails SET name='$new_name' WHERE id='$uid'";
                           $result = mysqli_query($connection,$sql);
                           if($result){
                               echo "<script>alert('Details updated successfully')</script>";
@@ -126,60 +121,26 @@
                       }
                   }
               }
-              if(isset($_POST['submit_category'])){
-                $new_category = $_POST['category'];
-                if($new_category != $rowEditProductDetails['category']){
-                    if($new_category != ''){
-                        $sql = "UPDATE products SET `category`='$new_category' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                        else{
-                            echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                    }
-                    else{
-                        echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                    }
-                }
-            }
-                    if(isset($_POST['submit_price'])){
-                        $new_Price = $_POST['Price'];
-                        if($new_Price != $rowEditProductDetails['Price']){
-                            if($new_Price != ''){
-                                $sql = "UPDATE products SET `price`='$new_Price' WHERE id='$Eid'";
-                                $result = mysqli_query($connection,$sql);
-                                if($result){
-                                    echo "<script>alert('Details updated successfully')</script>";
-                                    echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                                }
-                                else{
-                                    echo "<script>alert('Unable to update details.')</script>";
-                                    echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                                }
+              if(isset($_POST['submit_email'])){
+                $new_email = $_POST['email'];
+                if($new_email != $rowuser['mail']){
+                    if($new_email!= '' && preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $new_email)){
+                        $sql_check ="SELECT * FROM userdetails WHERE mail='$new_email'";
+                        $result_check = mysqli_query($connection,$sql_check);
+                        if(mysqli_num_rows($result_check) == 0){
+                            $sql = "UPDATE userdetails SET mail='$new_email' WHERE id='$uid'";
+                            $result = mysqli_query($connection,$sql);
+                            if($result){
+                                echo "<script>alert('Details updated successfully')</script>";
+                                echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
                             }
                             else{
-                                echo "<script>alert('Invalid input')</script>";
+                                echo "<script>alert('Unable to update details.')</script>";
                                 echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
                             }
                         }
-                    }
-            if(isset($_POST['submit_image'])){
-                $new_image = $_POST['image'];
-                if($new_image != $rowEditProductDetails['image']){
-                    if($new_image != ''){
-                        $sql = "UPDATE products SET `image`='$new_image' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
                         else{
-                            echo "<script>alert('Unable to update details.')</script>";
+                            echo "<script>alert('Given Email already exist.')</script>";
                             echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
                         }
                     }
@@ -189,32 +150,11 @@
                     }
                 }
             }
-            if(isset($_POST['submit_deliveryCharge'])){
-                $new_deliveryCharge = $_POST['deliveryCharge'];
-                if($new_deliveryCharge != $rowEditProductDetails['deliveryCharge']){
-                    if($new_deliveryCharge != ''){
-                        $sql = "UPDATE products SET `deliveryCharge`='$new_deliveryCharge' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                        else{
-                            echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                    }
-                    else{
-                        echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                    }
-                }
-            }
-            if(isset($_POST['submit_details'])){
-                $new_details = $_POST['details'];
-                if($new_details != $rowEditProductDetails['details']){
-                    if($new_details != ''){
-                        $sql = "UPDATE products SET `details`='$new_details' WHERE id='$Eid'";
+            if(isset($_POST['submit_phone'])){
+                $new_phone = $_POST['phone'];
+                if($new_phone != $rowuser['phoneno']){
+                    if($new_phone != '' && preg_match("/^\d{10}$/", $new_phone)){
+                        $sql = "UPDATE userdetails SET phoneno='$new_phone' WHERE id='$uid'";
                         $result = mysqli_query($connection,$sql);
                         if($result){
                             echo "<script>alert('Details updated successfully')</script>";

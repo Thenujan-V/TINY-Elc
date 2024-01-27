@@ -53,12 +53,10 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
-            <a class="btn" type="button" id="Register" href="register.php">Register</a>
-            <a class="btn" type="button" id="login" href="login.php">Login</a>
-            <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
-            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
-              
+            <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
+            <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
           </form>
         </div>
       </nav>
@@ -67,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
-                        <h1>User Profile</h1>
+                        <h1>Add product</h1>
                         <form class="form m-2" method="post" action="productAddPage.php">
                             <div class="form-group">
                                 <input type="text" placeholder="Product Name" class="form-outline mx-3 w-50" name="productName">
