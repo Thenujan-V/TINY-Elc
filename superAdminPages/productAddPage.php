@@ -1,14 +1,3 @@
-<?php
-    include '../connection.php';
-    session_start();
-    $uid = $_SESSION['uid'];
-    $Eid = $_SESSION['Eid'];
-
-    $sqlEditProductDetails = "select * from products where id = $Eid";
-    $resultEditProductDetails = mysqli_query($connection,$sqlEditProductDetails);
-    $rowEditProductDetails = mysqli_fetch_assoc($resultEditProductDetails);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,44 +58,40 @@
           </form>
         </div>
       </nav>
-    <section>
+      <section>
     <div class="signup" style="background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(ìmages\login.jpg) ;background-size: cover;background-position: center;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
                         <h1>User Profile</h1>
                         <form class="form m-2" method="post" action="">
-                            <p>Product Name</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="productName" value="<?php echo $rowEditProductDetails['model'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_productName" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Category</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="category" value="<?php echo $rowEditProductDetails['category'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_category" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Price</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="Price" value="<?php echo $rowEditProductDetails['price'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_price" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Image(url)</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="image" value="<?php echo $rowEditProductDetails['image'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_image" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Delivery Charge</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="deliveryCharge" value="<?php echo $rowEditProductDetails['deliveryCharge'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_deliveryCharge" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Details</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="details" value="<?php echo $rowEditProductDetails['details'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_details" value="save">
+                            <div class="form-group">
+                                <input type="text" placeholder="Product Name" class="form-outline mx-3 w-50" name="productName">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Category" class="form-outline mx-3 w-50" name="category">
+                            </div>  
+                            <div class="form-group">
+                                <input type="text" placeholder="Price" class="form-outline mx-3 w-50" name="Price">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Image" class="form-outline mx-3 w-50" name="image">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Delivery charge" class="form-outline mx-3 w-50" name="deliveryCharge">
+                            </div>                            
+                            <div class="form-group">
+                                <input type="text" placeholder="Details" class="form-outline mx-3 w-50" name="details">
+                            </div>
+                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="Submit">
                         </form>
                 </div>
                 <?php 
+                if(isset($_POST['submit'])){
+
+                }
+
+
                 if(isset($_POST['submit_productName'])){
                   $new_name = $_POST['productName'];
                   if($new_name != $rowEditProductDetails['model']){
@@ -238,7 +223,7 @@
         </div>
     </div>
     </section>
-    <div id="footer">
+      <div id="footer">
         <div class="container footbox">
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-12" id="footleft">

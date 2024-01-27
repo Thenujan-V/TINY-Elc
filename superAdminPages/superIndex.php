@@ -16,7 +16,7 @@
     $_SESSION['pid'] = $_GET['products'];
     header('Location:productsDetailPage.php');
   }
-  if(isset($GET['editDetail'])){
+  if(isset($_GET['editDetail'])){
     $_SESSION['Eid'] = $_GET['editDetail'];
     header('Location:productsDetailEditPage.php');
   }
@@ -255,7 +255,7 @@
                     
 
                     <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                    <a href="product.php?editDetail = <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
+                    <a href="superIndex.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                   </div>
                 </form>
                 </div>
@@ -266,7 +266,7 @@
               <div class="card" id="card">
                 <div class="content">
                   <div class="front">
-                    <a href=""><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                    <a href="productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
                     <h2>Add products</h2>
                   </div>
                 </div>
