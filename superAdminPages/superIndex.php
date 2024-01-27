@@ -63,21 +63,21 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='mobile'">Mobile phones</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='smart watch'">Smart watches</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='tv'">Television</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='camara'">Camaras</a></li>
+                    <li><a class="dropdown-item" href="superProductPage.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="../aboutpage.php">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="product.php">Products</a>
+                <a class="nav-link" href="superProductPage.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="../contactpage.php" >Customer service</a>
             </li>
             
             
@@ -87,10 +87,10 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a class="btn" type="button" id="Register" href="register.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
-            <a class="btn" type="button" id="login" href="login.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
-            <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
-            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
+            <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
+            <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" href="../userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               
           </form>
         </div>
@@ -105,28 +105,28 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='monitor'"><img src="../ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='monitor'" >Monitors</a>
+                <a href="superProductPage.php?category='monitor'"><img src="../ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="superProductPage.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='mobileacc'"><img src="../ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='mobileacc'" >Mobile Accessories</a>
+                <a href="superProductPage.php?category='mobileacc'"><img src="../ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="superProductPage.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="product.php?category='storage'"><img src="../ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='storage'" >Storage devices</a>
+                <a href="superProductPage.php?category='storage'"><img src="../ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="superProductPage.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='pc'"><img src="../ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='pc'" >Pc Accessories</a>
+                <a href="superProductPage.php?category='pc'"><img src="../ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="superProductPage.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='game'"><img src="../ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='game'" >Gaming Accessories</a>
+                <a href="superProductPage.php?category='game'"><img src="../ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="superProductPage.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='speakers'"><img src="../ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='speakers'" >Speakers</a>
+                <a href="superProductPage.php?category='speakers'"><img src="../ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="superProductPage.php?category='speakers'" >Speakers</a>
               </div>
             </div>
           </div>

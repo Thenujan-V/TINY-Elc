@@ -1,3 +1,7 @@
+<?php
+    include '../connection.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +18,7 @@
 <body>
     <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="userIndex.php">TINY Elc</a>
+        <a class="navbar-brand " href="superIndex.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,7 +68,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
                         <h1>User Profile</h1>
-                        <form class="form m-2" method="post" action="">
+                        <form class="form m-2" method="post" action="productAddPage.php">
                             <div class="form-group">
                                 <input type="text" placeholder="Product Name" class="form-outline mx-3 w-50" name="productName">
                             </div>
@@ -81,143 +85,31 @@
                                 <input type="text" placeholder="Delivery charge" class="form-outline mx-3 w-50" name="deliveryCharge">
                             </div>                            
                             <div class="form-group">
-                                <input type="text" placeholder="Details" class="form-outline mx-3 w-50" name="details">
+                                <textarea type="text" placeholder="Details" class="form-outline mx-3 w-50" name="details" cols="30" rows="10"></textarea>
                             </div>
                             <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="Submit">
                         </form>
-                </div>
+                    </div>
                 <?php 
                 if(isset($_POST['submit'])){
+                    $newProductName = $_POST['productName'];
+                    $newCategory = $_POST['category'];
+                    $newPrice = $_POST['Price'];
+                    $newimage = $_POST['image'];
+                    $newdeliveryCharge = $_POST['deliveryCharge'];
+                    $newdetails = $_POST['details'];
 
-                }
-
-
-                if(isset($_POST['submit_productName'])){
-                  $new_name = $_POST['productName'];
-                  if($new_name != $rowEditProductDetails['model']){
-                      if($new_name != ''){
-                          $sql = "UPDATE products SET name='$new_name' WHERE id='$Eid'";
-                          $result = mysqli_query($connection,$sql);
-                          if($result){
-                              echo "<script>alert('Details updated successfully')</script>";
-                              echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                          }
-                          else{
-                              echo "<script>alert('Unable to update details.')</script>";
-                              echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                          }
-                      }
-                      else{
-                          echo "<script>alert('Invalid input')</script>";
-                          echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                      }
-                  }
-              }
-              if(isset($_POST['submit_category'])){
-                $new_category = $_POST['category'];
-                if($new_category != $rowEditProductDetails['category']){
-                    if($new_category != ''){
-                        $sql = "UPDATE products SET `category`='$new_category' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                        else{
-                            echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
+                    $sqlAddProducts = "insert into products (model,category,price,image,deliveryCharge,details) 
+                                        values ('$newProductName', '$newCategory', '$newPrice', '$newimage', '$newdeliveryCharge', '$newdetails') ";
+                    $resultAddProduct = mysqli_query($connection, $sqlAddProducts);
+                    if(!$resultAddProduct){
+                        echo "<script>alert('Unable to add this product.')</script>";
+                        //echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
                     }
                     else{
-                        echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                        echo "<script>alert('Successfully add this product.')</script>";
                     }
                 }
-            }
-                    if(isset($_POST['submit_price'])){
-                        $new_Price = $_POST['Price'];
-                        if($new_Price != $rowEditProductDetails['Price']){
-                            if($new_Price != ''){
-                                $sql = "UPDATE products SET `price`='$new_Price' WHERE id='$Eid'";
-                                $result = mysqli_query($connection,$sql);
-                                if($result){
-                                    echo "<script>alert('Details updated successfully')</script>";
-                                    echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                                }
-                                else{
-                                    echo "<script>alert('Unable to update details.')</script>";
-                                    echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                                }
-                            }
-                            else{
-                                echo "<script>alert('Invalid input')</script>";
-                                echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                            }
-                        }
-                    }
-            if(isset($_POST['submit_image'])){
-                $new_image = $_POST['image'];
-                if($new_image != $rowEditProductDetails['image']){
-                    if($new_image != ''){
-                        $sql = "UPDATE products SET `image`='$new_image' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                        else{
-                            echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                    }
-                    else{
-                        echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                    }
-                }
-            }
-            if(isset($_POST['submit_deliveryCharge'])){
-                $new_deliveryCharge = $_POST['deliveryCharge'];
-                if($new_deliveryCharge != $rowEditProductDetails['deliveryCharge']){
-                    if($new_deliveryCharge != ''){
-                        $sql = "UPDATE products SET `deliveryCharge`='$new_deliveryCharge' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                        else{
-                            echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                    }
-                    else{
-                        echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                    }
-                }
-            }
-            if(isset($_POST['submit_details'])){
-                $new_details = $_POST['details'];
-                if($new_details != $rowEditProductDetails['details']){
-                    if($new_details != ''){
-                        $sql = "UPDATE products SET `details`='$new_details' WHERE id='$Eid'";
-                        $result = mysqli_query($connection,$sql);
-                        if($result){
-                            echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                        else{
-                            echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                        }
-                    }
-                    else{
-                        echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
-                    }
-                }
-            }
               ?>
             </div>
         </div>
