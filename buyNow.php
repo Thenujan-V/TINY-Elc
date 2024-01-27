@@ -1,39 +1,18 @@
 <?php
-  include "connection.php";
-  session_start();
-  $pid = $_SESSION['pid'];
-  $uid = $_SESSION['uid'];
-  $sqlDetails = "select * from products where id = '$pid'" ;
-  $rowDetails = mysqli_query($connection, $sqlDetails);
-  $resultDetails = mysqli_fetch_assoc($rowDetails);
-  $category = $resultDetails['category'];
-  
+    session_start();
+    include 'connection.php';
+    $uid = $_SESSION['uid'];
+    $pid = $_SESSION['pid'];
 
+    $sqlDetails = "select * from products where id = '$pid'" ;
+    $rowDetails = mysqli_query($connection, $sqlDetails);
+    $resultDetails = mysqli_fetch_assoc($rowDetails);
 
-  if(isset($_GET['cart'])){
-    $pid = $_GET['cart'];
-    // $_SESSION['pid'] = $pid;
-    $select_sql = "SELECT * FROM usercart WHERE uid='$uid' AND pid='$pid'";
-    $select_result = mysqli_query($connection,$select_sql);
-    
-    if(mysqli_num_rows($select_result) == 0){
-        $insert_sql = "INSERT INTO usercart VALUES('$uid','$pid',1)";
-        $insert_result = mysqli_query($connection,$insert_sql); 
-        if($insert_result){
-            echo "<script>alert('Book added to cart successfully.')</script>";
-            echo "<script>window.open('product.php','_self')</script>";
-        }
-        else{
-            echo "<script>alert('Some thing wrong. Failed to add to cart.')</script>";
-            echo "<script>window.open('product.php','_self')</script>";
-        }
-    }
-    else{
-        echo "<script>alert('Book is already added to cart.')</script>";
-        echo "<script>window.open('product.php','_self')</script>";
-    }
-  }
+    $sqluser = "select * from userdetails where id = $uid";
+    $resultuser = mysqli_query($connection,$sqluser);
+    $rowuser = mysqli_fetch_assoc($resultuser);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,9 +21,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style/footerstyle.css">
+    <link rel="stylesheet" href="style/buyNowstyle.css">
     <link rel="stylesheet" href="style/navbarstyle.css">
-    <link rel="stylesheet" href="style/productDetailsPage.css">
+    <link rel="stylesheet" href="style/footerstyle.css">
 </head>
 <body>
     <!--nav bar-->
@@ -87,79 +66,29 @@
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
             <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
-            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               
           </form>
         </div>
       </nav>
-
-
-      <section id="productDetailPage">
-        <div class="container">
-          <div class="row" >
-            <div class="col-lg-6" id="productDetailImage">
-              <img class="img-fluid" src="<?php echo $resultDetails['image'] ?>" alt="" height="600px" width="700px">
+      <section id="buyProduct">
+        <div class="paymentMethod">
+            <div class="paymentContainer">
+                <h3>Select peyment method</h3>
+                <form action="">
+                    <ul class="paymentMethods">
+                        <li><a href="">Credit / Debit Card</a></li>
+                        <li><a href="">Online Payment</a></li>
+                        <li><a href="">Cash on Delivery</a></li>
+                    </ul>
+                </form>
             </div>
-            <div class="col-lg-6" id="productDetails">
-              <h2><?php echo $resultDetails['model'] ?></h2>
-              <h3><?php echo $resultDetails['price'] ?></h3>
-              <p><?php echo $resultDetails['details'] ?></p>
-              <p><?php echo $resultDetails['category'] ?></p>
-              <div id="buttons">
-                <a href="buyNow.php" class="btn" type="submit" id="buybutton" name="addcart">BuyNow</a>
-                <a href="product.php?cart= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Add to cart</a>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="summary">
+
         </div>
       </section>
-
-      <section id="productcard">
-      <div class="continer" >
-        <center>
-              <h1 class="title">Products</h1>
-            </center>
-          <?php 
-                $sqlProducts = "select * from products where category = '$category'";
-                $resultProducts = mysqli_query($connection,$sqlProducts);
-                $rowsproducts = mysqli_fetch_assoc($resultProducts);
-                if(mysqli_num_rows($resultProducts) == 0){
-                  echo 'no products';
-                }
-                else{
-                while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
-                  $pid = $rowsproducts['id'];
-                  $price =  $rowsproducts['price'];
-                  $image = $rowsproducts['image'];
-                  $model =  $rowsproducts['model'];
-                  $details =  $rowsproducts['details'];
-                  $deliverycharge =  $rowsproducts['deliveryCharge'];
-              ?>
-              <div class="column">
-                <div class="card" id="card">
-                  <div class="content">
-                  
-                    <div class="front">
-                      <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
-                    </div>
-                    <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <h3><?php echo $details ?></h3>
-                      
-                      <a href="buyNow.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">BuyNow</a>
-                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
-                    </div>
-                  </div>  
-                </div>
-              </div>
-            <?php } } ?>
-        </div>
-      </section>
-
-
       <div id="footer">
         <div class="container footbox">
             <div class="row">
@@ -172,11 +101,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="Media/instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="Media/linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
                     <h5>Spices</h5>
@@ -201,7 +130,7 @@
         
         </div>
       </div>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

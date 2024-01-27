@@ -67,32 +67,32 @@
             <p>"Unleash the future with our electronic shop's curated selection of top-notch gadgets and tech essentials"</p>
           </div>
           <div class="container">
-            <div id="catogaries" class="row pt-2" >
+          <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='monitors'"><img src="../ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='monitors'" >Monitors</a>
+                <a href="./Guest/guestProductPage.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="./Guest/guestProductPage.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='mobileaccessories'"><img src="../ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='mobileaccessories'" >Mobile Accessories</a>
+                <a href="./Guest/guestProductPage.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="./Guest/guestProductPage.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="product.php?category='storagedevice'"><img src="../ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='storagedevice'" >Storage devices</a>
+                <a href="./Guest/guestProductPage.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="./Guest/guestProductPage.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='pcaccessories'"><img src="../ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='pcaccessories'" >Pc Accessories</a>
+                <a href="./Guest/guestProductPage.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="./Guest/guestProductPage.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='gaming'"><img src="../ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='gaming'" >Gaming Accessories</a>
+                <a href="./Guest/guestProductPage.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="./Guest/guestProductPage.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='speakers'"><img src="../ìmages\game.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='speakers'" >Speakers</a>
+                <a href="./Guest/guestProductPage.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="./Guest/guestProductPage.php?category='speakers'" >Speakers</a>
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </section >

@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
             //$_SESSION['username'] = $fetch["username"];
             session_start();
             $_SESSION["uid"] = $uid;
-            header("location:index.php");
+            header("location:userIndex.php");
         }
         else{
             session_start();

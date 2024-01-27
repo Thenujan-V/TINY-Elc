@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Preahvihear', sans-serif;
+    
+}
+section{
+    height: 93vh;
+    width: 100%;
+}
+#buyProduct{
+    display: flex;
+}
+.paymentMethod {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paymentContainer{
+    margin-top: 150px;
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+}
+.paymentMethod h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+.paymentMethods{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.paymentMethods li{
+    text-decoration: none;
+    margin-top: 15px;
+    
+}
+.summary{
+    flex: 2;
+    background-color: aqua;
+}

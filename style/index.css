@@ -37,6 +37,10 @@ section{
 #homepage{
     background-color: #64CCC5;
 }
+#catogaries img{
+    object-fit: cover;
+    background-position: center;
+}
 #discount #arrow i{
     position: relative;
     top: 110px;

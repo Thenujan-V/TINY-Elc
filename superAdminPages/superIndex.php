@@ -1,5 +1,5 @@
 <?php
-  include 'connection.php' ;
+  include '../connection.php' ;
   session_start();
   $sql = "select * from discounts";
   $result = mysqli_query($connection,$sql);
@@ -12,7 +12,14 @@
   $sqlProducts = "select * from products";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
-  
+  if(isset($_GET['products'])){
+    $_SESSION['pid'] = $_GET['products'];
+    header('Location:productsDetailPage.php');
+  }
+  if(isset($GET['editDetail'])){
+    $_SESSION['Eid'] = $_GET['editDetail'];
+    header('Location:productsDetailEditPage.php');
+  }
 
   // if(isset($_POST['addcart'])){
   //   if(isset($_SESSION['cart'])){
@@ -39,8 +46,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="style/navbarstyle.css">
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/navbarstyle.css">
 </head>
 <body>
     <!--nav bar-->
@@ -57,10 +64,10 @@
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='mobile'">Mobile phones</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='smart watch'">Smart watches</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='tv'">Television</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='camara'">Camaras</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
@@ -80,11 +87,10 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
-            <a class="btn" type="button" id="Register" href="register.php">Register</a>
-            <a class="btn" type="button" id="login" href="login.php">Login</a>
-            <!-- <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
-            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a> -->
+            <a class="btn" type="button" id="Register" href="register.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
+            <a class="btn" type="button" id="login" href="login.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               
           </form>
         </div>
@@ -99,28 +105,28 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='monitor'" >Monitors</a>
+                <a href="product.php?category='monitor'"><img src="../ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='mobileacc'" >Mobile Accessories</a>
+                <a href="product.php?category='mobileacc'"><img src="../ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="./Guest/guestProductPage.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='storage'" >Storage devices</a>
+                <a href="product.php?category='storage'"><img src="../ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='pc'" >Pc Accessories</a>
+                <a href="product.php?category='pc'"><img src="../ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='game'" >Gaming Accessories</a>
+                <a href="product.php?category='game'"><img src="../ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='speakers'" >Speakers</a>
+                <a href="product.php?category='speakers'"><img src="../ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='speakers'" >Speakers</a>
               </div>
             </div>
           </div>
@@ -227,7 +233,7 @@
           <div class="row" id="details">
             <?php 
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
-                $id = $rowsproducts['id'];
+                $pid = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
                 $model =  $rowsproducts['model'];
@@ -245,21 +251,27 @@
                   <div class="back from-left">
                     <h2><?php echo $price ?></h2>
                     <h3><?php echo $deliverycharge ?></h3>
-                    <h3><?php echo $details ?></h3>
-                    <input type="hidden" value="<?php echo $id ?>" name='id'>
-                    <input type="hidden" value="<?php echo $price ?>" name="image">
-                    <input type="hidden" value="<?php echo $deliverycharge ?>" name="price">
-                    <input type="hidden" value="<?php echo $details ?>" name="deliverycharge">
-                    <input type="hidden" value="<?php echo $image ?>" name="details">
+                    <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+                    
 
-                    <a href="#" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                    <a href="#" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                    <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                    <a href="product.php?editDetail = <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                   </div>
                 </form>
                 </div>
               </div>
             </div>
             <?php } ?>
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                  <div class="front">
+                    <a href=""><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                    <h2>Add products</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
        </div> 

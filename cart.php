@@ -25,7 +25,7 @@
 <body>
     <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="index.php">TINY Elc</a>
+        <a class="navbar-brand " href="userIndex.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
