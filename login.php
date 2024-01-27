@@ -8,22 +8,22 @@ if(isset($_POST['submit'])){
 
     $sql = "select * from userdetails where mail = '$username'";
     $sqlSuperAdmin = "select * from superadmindetails where email = '$username'";
-    $sqlAdmin = "select * from adminabcistore where username = '$username'";
+    $sqlAdmin = "select * from admindetails where email = '$username'";
 
     
 
     $result = mysqli_query($connection,$sql);
     $resultSuperAdmin = mysqli_query($connection,$sqlSuperAdmin);
-    // $resultAdmin = mysqli_query($connection,$sqlAdmin);
+    $resultAdmin = mysqli_query($connection,$sqlAdmin);
     
     $row = mysqli_fetch_assoc($result);
     $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
-    // $rowAdmin = mysqli_fetch_assoc($resultAdmin);
+    $rowAdmin = mysqli_fetch_assoc($resultAdmin);
 
 
     if(mysqli_num_rows($resultSuperAdmin) > 0){
         if($password == $rowSuperAdmin["password"]){
-            $uid = $row["id"];
+            $uid = $rowSuperAdmin["id"];
             session_start();
             $_SESSION["uid"] = $uid;
             header("location:superAdminPages\superIndex.php");
@@ -48,16 +48,18 @@ if(isset($_POST['submit'])){
             "<script>alert('something went to wrong...')</script>";
         }
     }
-    // elseif(mysqli_num_rows($resultAdmin) > 0){
-    //     if($password == $rowAdmin["password"]){
-    //         header("location:indexAdmin.php");
-    //     }
-    //     else{
-    //         echo
-    //         "<script>alert('something went to wrong...')</script>";
-    //     }
-    // }
-    
+    elseif(mysqli_num_rows($resultAdmin) > 0){
+        if($password == $rowAdmin["password"]){
+            $uid = $rowAdmin["id"];
+            session_start();
+            $_SESSION["uid"] = $uid;    
+            header("location:adminPages\adminIndex.php");
+        }
+        else{
+            echo
+            "<script>alert('something went to wrong...')</script>";
+        }
+    }
 }
 ?>
 

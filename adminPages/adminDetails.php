@@ -7,16 +7,14 @@
     // $resultuser = mysqli_query($connection,$sqluser);
     // $rowuser = mysqli_fetch_assoc($resultuser);
 
-    $sqlSuperAdmin = "select * from superadmindetails where id = '$uid' ";
-    $resultSuperAdmin = mysqli_query($connection,$sqlSuperAdmin);
+    $sqlAdmin = "select * from admindetails where id = '$uid' ";
+    $resultAdmin = mysqli_query($connection,$sqlAdmin);
 
-    if (!$resultSuperAdmin) {
+    if (!$resultAdmin) {
         die("Query failed: " . mysqli_error($connection));
     }
     
-    $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
-
-    // $rowSuperAdmin = mysqli_fetch_assoc($resultSuperAdmin);
+    $rowAdmin = mysqli_fetch_assoc($resultAdmin);
 
 ?>
 <!DOCTYPE html>
@@ -54,13 +52,13 @@
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="../aboutpage.php">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="product.php">Products</a>
+                <a class="nav-link" href="adminProduct.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="../contactpage.php" >Customer service</a>
             </li>
             
             
@@ -70,9 +68,8 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
-            <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
-            <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a class="btn" type="button" id="login" href="../superAdminPages\productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
           </form>
         </div>
@@ -85,17 +82,17 @@
                         <h1>User Profile</h1>
                         <form class="form m-2" method="post" action="">
                             <p>UserName</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowSuperAdmin['name'];?>">
+                            <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowAdmin['name'];?>">
                             <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
                         </form>
                         <form class="form m-2" method="post" action="">
                             <p>Email</p>
-                            <input type="email" class="form-outline mx-3 w-50" name="email" value="<?php echo $rowSuperAdmin['email'];?>">
+                            <input type="email" class="form-outline mx-3 w-50" name="email" value="<?php echo $rowAdmin['email'];?>">
                             <input type="submit" class="btn bg-primary" style="color:white;" name="submit_email" value="save">
                         </form>
                         <form class="form m-2" method="post" action="">
                             <p>Phone</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowSuperAdmin['phoneno'];?>">
+                            <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowAdmin['phoneno'];?>">
                             <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
                         </form>
                 </div>
@@ -104,20 +101,20 @@
                   $new_name = $_POST['name'];
                   if($new_name != $rowuser['name']){
                       if($new_name != ''){
-                          $sql = "UPDATE superadmindetails SET name='$new_name' WHERE id='$uid'";
+                          $sql = "UPDATE admindetails SET name='$new_name' WHERE id='$uid'";
                           $result = mysqli_query($connection,$sql);
                           if($result){
                               echo "<script>alert('Details updated successfully')</script>";
-                              echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                              echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                           }
                           else{
                               echo "<script>alert('Unable to update details.')</script>";
-                              echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                              echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                           }
                       }
                       else{
                           echo "<script>alert('Invalid input')</script>";
-                          echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                          echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                       }
                   }
               }
@@ -125,28 +122,28 @@
                 $new_email = $_POST['email'];
                 if($new_email != $rowuser['mail']){
                     if($new_email!= '' && preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $new_email)){
-                        $sql_check ="SELECT * FROM superadmindetails WHERE mail='$new_email'";
+                        $sql_check ="SELECT * FROM admindetails WHERE mail='$new_email'";
                         $result_check = mysqli_query($connection,$sql_check);
                         if(mysqli_num_rows($result_check) == 0){
-                            $sql = "UPDATE superadmindetails SET mail='$new_email' WHERE id='$uid'";
+                            $sql = "UPDATE admindetails SET mail='$new_email' WHERE id='$uid'";
                             $result = mysqli_query($connection,$sql);
                             if($result){
                                 echo "<script>alert('Details updated successfully')</script>";
-                                echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                                echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                             }
                             else{
                                 echo "<script>alert('Unable to update details.')</script>";
-                                echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                                echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                             }
                         }
                         else{
                             echo "<script>alert('Given Email already exist.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                            echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                         }
                     }
                     else{
                         echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                        echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                     }
                 }
             }
@@ -154,20 +151,20 @@
                 $new_phone = $_POST['phone'];
                 if($new_phone != $rowuser['phoneno']){
                     if($new_phone != '' && preg_match("/^\d{10}$/", $new_phone)){
-                        $sql = "UPDATE superadmindetails SET phoneno='$new_phone' WHERE id='$uid'";
+                        $sql = "UPDATE admindetails SET phoneno='$new_phone' WHERE id='$uid'";
                         $result = mysqli_query($connection,$sql);
                         if($result){
                             echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                            echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                         }
                         else{
                             echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                            echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                         }
                     }
                     else{
                         echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('userdetails.php?editdetail','_self')</script>";
+                        echo "<script>window.open('adminDetails.php?editdetail','_self')</script>";
                     }
                 }
             }
