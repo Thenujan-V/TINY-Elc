@@ -100,7 +100,7 @@
           </form>
           <form class="form-inline" id="account">
             <a class="btn" type="button" id="login" href="../superAdminPages\productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
-            <a class="btn" type="button" id="login" href="../superAdminPages\productAddPage.php"></i>Users</a>
+            <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
             <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               

@@ -6,7 +6,12 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
 
-    $sql = "select * from userdetails where mail = '$username'";
+    $sql = "select * from userdetails where mail = '$username' and status = 'Active'";
+    $sqlDeactive = "select * from userdetails where mail = '$username' and status = 'Deactive'";
+    if($sqlDeactive){
+        echo "<script>alert('something went to wrong...')</script>";
+        echo "<script>window.open('login.php?editdetail','_self')</script>";
+    }
     $sqlSuperAdmin = "select * from superadmindetails where email = '$username'";
     $sqlAdmin = "select * from admindetails where email = '$username'";
 
@@ -29,8 +34,7 @@ if(isset($_POST['submit'])){
             header("location:superAdminPages\superIndex.php");
         }
         else{
-            echo
-            "<script>alert('something went to wrong...')</script>";
+            echo "<script>alert('something went to wrong...')</script>";
         }
     }   
 
@@ -56,8 +60,7 @@ if(isset($_POST['submit'])){
             header("location:adminPages\adminIndex.php");
         }
         else{
-            echo
-            "<script>alert('something went to wrong...')</script>";
+            echo "<script>alert('something went to wrong...')</script>";
         }
     }
 }

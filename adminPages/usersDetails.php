@@ -1,7 +1,22 @@
 <?php
-include '../connection.php' ;
-session_start();
+    include '../connection.php' ;
+    session_start();
+    $sqlUserTable = "select * from userdetails";
+    $resultUserTable = mysqli_query($connection, $sqlUserTable);
 
+    if(isset($_GET['deleteId'])){
+        $did = $_GET['deleteId'];
+        //$sqlDelete = "DELETE FROM userdetails WHERE id = '$did' ";
+        $sqlDelete = "UPDATE userdetails SET status = 'Deactive' WHERE id = $did";
+        $resultDelete = mysqli_query($connection,$sqlDelete);
+
+        if($resultDelete){
+            echo "<script>alert('Delete successfully.')</script>";
+        }
+        else{
+            echo "<script>alert('Unable to Delete.')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,9 +75,33 @@ session_start();
         </form>
     </div>
     </nav>
-<section>
-
-</section>
+    <section>
+        <div class="userDetails">
+            <?php
+                while($rowUserTable = mysqli_fetch_assoc($resultUserTable)){
+                    $userName = $rowUserTable['name'];
+                    $mail = $rowUserTable['mail'];
+                    $phoneNo = $rowUserTable['phoneno'];
+                    $address = $rowUserTable['address'];
+                    $userId = $rowUserTable['id'];
+                ?>
+                <div class="details">
+                    <div class="paras">
+                        <p>Name : <?php echo $userName ?></p>
+                        <p>Email : <?php echo $mail ?></p>
+                        <p>Phone No : <?php echo $phoneNo ?></p>
+                        <p>Address : <?php echo $address ?></p>
+                    </div>
+                    <div class="btns">
+                        <a href="" class="btn btn-warning">Send a message to this account user</a>
+                        <a href="usersDetails.php?deleteId=<?php echo $userId ?>;" class="btn btn-danger" >Delete this account</a>
+                    </div>
+                    <hr>
+                </div>
+                <?php } ?>
+            
+        </div>
+    </section>
     <div id="footer">
     <div class="container footbox">
         <div class="row">
