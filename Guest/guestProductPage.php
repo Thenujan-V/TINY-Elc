@@ -104,36 +104,143 @@
             <div class="row" id="details">
               <?php 
               if(!isset($_GET['category'])){
-                $sqlProducts = "select * from products";
-                $resultProducts = mysqli_query($connection,$sqlProducts);
-                
-                while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
-                  $pid = $rowsproducts['id'];
-                  $price =  $rowsproducts['price'];
-                  $image = $rowsproducts['image'];
-                  $model =  $rowsproducts['model'];
-                  $details =  $rowsproducts['details'];
-                  $discount = $rowsproducts['discounts']; 
-                  $deliverycharge =  $rowsproducts['deliveryCharge'];
-              ?>
-              <div class="column">
-                <div class="card" id="card">
-                  <div class="content">
+
+
+                if(isset($_GET['discounts'])){
+
+                  $discounts = $_GET['discounts'];
+                  $sqlProducts = "select * from products where discounts = '$discounts'";
+                  $resultProducts = mysqli_query($connection,$sqlProducts);
                   
-                    <div class="front">
-                      <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
-                    </div>
-                    <div class="back from-left">
-                    <h2>LKR <?php echo $price ?></h2>
-                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
-                      <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
-                    </div>
-                  </div>  
+                  while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                    $pid = $rowsproducts['id'];
+                    $price =  $rowsproducts['price'];
+                    $image = $rowsproducts['image'];
+                    $model =  $rowsproducts['model'];
+                    $details =  $rowsproducts['details'];
+                    $discount = $rowsproducts['discounts']; 
+                    $deliverycharge =  $rowsproducts['deliveryCharge'];
+                ?>
+                <div class="column">
+                  <div class="card" id="card">
+                    <div class="content">
+                    
+                      <div class="front">
+                        <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                        <h2><?php echo $model ?></h2>
+                      </div>
+                      <div class="back from-left">
+                      <h2>LKR <?php echo $price ?></h2>
+                        <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                        <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      </div>
+                    </div>  
+                  </div>
                 </div>
+                <?php } }
+
+                else if(isset($_GET['deliveryCharge'])){
+
+                  $deliveryCharge = $_GET['deliveryCharge'];
+                  $sqlProducts = "select * from products where deliveryCharge = '$deliveryCharge'";
+                  $resultProducts = mysqli_query($connection,$sqlProducts);
+                  
+                  while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                    $pid = $rowsproducts['id'];
+                    $price =  $rowsproducts['price'];
+                    $image = $rowsproducts['image'];
+                    $model =  $rowsproducts['model'];
+                    $details =  $rowsproducts['details'];
+                    $discount = $rowsproducts['discounts']; 
+                    $deliverycharge =  $rowsproducts['deliveryCharge'];
+                ?>
+                <div class="column">
+                  <div class="card" id="card">
+                    <div class="content">
+                    
+                      <div class="front">
+                        <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                        <h2><?php echo $model ?></h2>
+                      </div>
+                      <div class="back from-left">
+                      <h2>LKR <?php echo $price ?></h2>
+                        <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                        <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+                <?php } }
+
+            else if(isset($_GET['brand'])){
+
+              $brand = $_GET['brand'];
+              $sqlProducts = "select * from products where brand = '$brand'";
+              $resultProducts = mysqli_query($connection,$sqlProducts);
+              
+              while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $pid = $rowsproducts['id'];
+                $price =  $rowsproducts['price'];
+                $image = $rowsproducts['image'];
+                $model =  $rowsproducts['model'];
+                $details =  $rowsproducts['details'];
+                $discount = $rowsproducts['discounts']; 
+                $deliverycharge =  $rowsproducts['deliveryCharge'];
+            ?>
+            <div class="column">
+              <div class="card" id="card">
+                <div class="content">
+                
+                  <div class="front">
+                    <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                    <h2><?php echo $model ?></h2>
+                  </div>
+                  <div class="back from-left">
+                  <h2>LKR <?php echo $price ?></h2>
+                    <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                    <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                    <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                  </div>
+                </div>  
               </div>
-              <?php } }?>
+            </div>
+            <?php } }
+
+
+
+                else{
+                  $sqlProducts = "select * from products";
+                  $resultProducts = mysqli_query($connection,$sqlProducts);
+                  
+                  while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                    $pid = $rowsproducts['id'];
+                    $price =  $rowsproducts['price'];
+                    $image = $rowsproducts['image'];
+                    $model =  $rowsproducts['model'];
+                    $details =  $rowsproducts['details'];
+                    $discount = $rowsproducts['discounts']; 
+                    $deliverycharge =  $rowsproducts['deliveryCharge'];
+                ?>
+                <div class="column">
+                  <div class="card" id="card">
+                    <div class="content">
+                    
+                      <div class="front">
+                        <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
+                        <h2><?php echo $model ?></h2>
+                      </div>
+                      <div class="back from-left">
+                      <h2>LKR <?php echo $price ?></h2>
+                        <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                        <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+                <?php } } }?>
 
               <?php 
               if(isset($_GET['category'])){
@@ -188,11 +295,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="../ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
                     <h5>Spices</h5>

@@ -18,43 +18,27 @@
   }
   if(isset($_GET['cart'])){
     $pid = $_GET['cart'];
-    // $_SESSION['pid'] = $pid;
+    $_SESSION['pid'] = $pid;
     $select_sql = "SELECT * FROM usercart WHERE uid='$uid' AND pid='$pid'";
     $select_result = mysqli_query($connection,$select_sql);
     
     if(mysqli_num_rows($select_result) == 0){
-        $insert_sql = "INSERT INTO usercart VALUES('$uid','$pid',1)";
+        $insert_sql = "INSERT INTO usercart (uid,pid,quantity) VALUES('$uid','$pid',1)";
         $insert_result = mysqli_query($connection,$insert_sql); 
         if($insert_result){
-            echo "<script>alert('Book added to cart successfully.')</script>";
-            echo "<script>window.open('product.php','_self')</script>";
+            echo "<script>alert('product added to cart successfully.')</script>";
+            echo "<script>window.open('userIndex.php','_self')</script>";
         }
         else{
             echo "<script>alert('Some thing wrong. Failed to add to cart.')</script>";
-            echo "<script>window.open('product.php','_self')</script>";
+            echo "<script>window.open('userIndex.php','_self')</script>";
         }
     }
     else{
-        echo "<script>alert('Book is already added to cart.')</script>";
-        echo "<script>window.open('product.php','_self')</script>";
+        echo "<script>alert('product is already added to cart.')</script>";
+        echo "<script>window.open('userIndex.php','_self')</script>";
     }
   }
-  // if(isset($_POST['addcart'])){
-  //   if(isset($_SESSION['cart'])){
-
-  //   }
-  // }
-  // else{
-  //   $item = array(
-  //     'id' => $_POST['id'],
-  //     'image' => $_POST['image'],
-  //     'price' => $_POST['price'],
-  //     'deliverycharge' => $_POST['deliverycharge'],
-  //     'details' => $_POST['details'],
-  //   );
-  //   $_SESSION["cart"][0] = $item;
-  //   echo "<script>alert product added</script>";
-  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,8 +90,6 @@
           </form>
           <form class="form-inline" id="account">
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
-            <!-- <a class="btn" type="button" id="Register" href="register.php">Register</a>
-            <a class="btn" type="button" id="login" href="login.php">Login</a> -->
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               
@@ -180,7 +162,7 @@
                 </div>
                 </div>
                 <?php } ?>
-                <!-- <div id="arrow"><i class="fa-solid fa-chevron-right fa-4x"></i></div> -->
+                <a href="product.php?discounts=0" class="d-flex justify-content-end">see more deals</a>
             </div>
               <hr>
           <div class="row">
@@ -196,7 +178,6 @@
                  
                 ?>
                   <div class="col-6 "><img class="img-fluid" src="<?php echo $imageTrend   ?>" alt="" width="248px" height="248px"></div>
-                  <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
                 
                 <?php }?>
                 </div>
@@ -223,7 +204,7 @@
                 <?php }?>
                 </div>
                 
-                <a href="" class="d-flex justify-content-end">see more deals</a>
+                <a href="product.php?deliveryCharge=0" class="d-flex justify-content-end">see more deals</a>
               </div>
             </div>
           </div> 
@@ -238,10 +219,10 @@
                     $name =  $rowsBrand['name'];
               ?>
               <div class="col-lg-2">
-                <div>
+                <a href="product.php?brand=<?php echo $name?>">
                   <img src="<?php echo $image ?>" class="img-fluid" alt="" width="180px" height="30px">
                   <h5 class="text-center"><?php echo $name ?></h5>
-                </div>
+                </a>
               </div>
               <?php } ?>
             </div>
@@ -255,7 +236,9 @@
           </center>
           <div class="row" id="details">
             <?php 
+              $countProducts = 0;
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $countProducts++;
                 $pid = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
@@ -263,6 +246,10 @@
                 $details =  $rowsproducts['details'];
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
                 $discount = $rowsproducts['discounts']; 
+  
+                if($countProducts > 5){
+                  break;
+                }
             ?>
             <div class="column">
               <div class="card" id="card">
@@ -276,7 +263,7 @@
                       <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
                     <a href="userIndex.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                    <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                    <a href="userIndex.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                   </div>
                 </form>
                 </div>
@@ -284,7 +271,7 @@
             </div>
             <?php } ?>
           </div>
-          <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+          <a class="d-flex justify-content-center mt-3" href="product.php">See more deals</a>
        </div> 
       </section>
 

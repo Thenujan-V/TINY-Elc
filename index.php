@@ -190,7 +190,7 @@
                 <?php }?>
                 </div>
                 
-                <a href="" class="d-flex justify-content-end">see more deals</a>
+                <a href="./Guest/guestProductPage.php?deliveryCharge=0" class="d-flex justify-content-end">see more deals</a>
               </div>
             </div>
           </div> 
@@ -205,11 +205,11 @@
                     $name =  $rowsBrand['name'];
               ?>
               <div class="col-lg-2">
-                <div>
+                <a href="./Guest/guestProductPage.php?brand=<?php echo $name?>">
                   <img src="<?php echo $image ?>" class="img-fluid" alt="" width="180px" height="30px">
                   <h5 class="text-center"><?php echo $name ?></h5>
                 </div>
-              </div>
+                </a>
               <?php } ?>
             </div>
             
