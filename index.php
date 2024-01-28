@@ -1,6 +1,7 @@
 <?php
   include 'connection.php' ;
   session_start();
+  $_SESSION['uid'] = 0;
   $sql = "select * from products where discounts > 0";
   $result = mysqli_query($connection,$sql);
   $sqlFree = "select * from products where deliveryCharge = 0";
@@ -12,24 +13,10 @@
   $sqlProducts = "select * from products";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
-  
-
-  // if(isset($_POST['addcart'])){
-  //   if(isset($_SESSION['cart'])){
-
-  //   }
-  // }
-  // else{
-  //   $item = array(
-  //     'id' => $_POST['id'],
-  //     'image' => $_POST['image'],
-  //     'price' => $_POST['price'],
-  //     'deliverycharge' => $_POST['deliverycharge'],
-  //     'details' => $_POST['details'],
-  //   );
-  //   $_SESSION["cart"][0] = $item;
-  //   echo "<script>alert product added</script>";
-  // }
+  if(isset($_GET['products'])){
+    $_SESSION['pid'] = $_GET['products'];
+    header('Location:productsDetailPage.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,7 +124,6 @@
                     $price =  $rows['price'];
                     $image = $rows['image'];
                     $model =  $rows['model'];
-                    $details =  $rows['details'];
                     $discount =  $rows['discounts'];
                 ?>
                 <div class="col-3 pl-5">
@@ -147,7 +133,7 @@
                   </div>
                   <div class="details">
                     <div class="center">
-                      <h1><?php echo $model ?><br><span><?php echo $details ?></span></h1>
+                      <h1><?php echo $model ?><br></h1>
                     </div>
                     <p class="pt-2"><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
                     <p><?php echo $discount ?></p>
@@ -185,9 +171,13 @@
               <div>
                 <div class="row">
                 <?php 
-                  for($i=0;$i<4;$i++){
-                    $rowsFree = mysqli_fetch_assoc($resultFree);
-                      $imageFree = $rowsFree['image'];
+                  $countProducts = 0;
+                  while($rowsFree = mysqli_fetch_assoc($resultFree)){
+                    $countProducts++;
+                    $imageFree = $rowsFree['image'];   
+                    if($countProducts > 4){
+                      break;
+                    }
                 ?>
                   <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
                   <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
@@ -227,11 +217,12 @@
           <div class="row" id="details">
             <?php 
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
-                $id = $rowsproducts['id'];
+                $pid = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
                 $model =  $rowsproducts['model'];
                 $details =  $rowsproducts['details'];
+                $discount = $rowsproducts['discounts']; 
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
             ?>
             <div class="column">
@@ -243,17 +234,16 @@
                     <h2><?php echo $model ?></h2>
                   </div>
                   <div class="back from-left">
-                    <h2><?php echo $price ?></h2>
-                    <h3><?php echo $deliverycharge ?></h3>
-                    <h3><?php echo $details ?></h3>
-                    <input type="hidden" value="<?php echo $id ?>" name='id'>
+                  <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                    <!-- <input type="hidden" value="<?php echo $id ?>" name='id'>
                     <input type="hidden" value="<?php echo $price ?>" name="image">
                     <input type="hidden" value="<?php echo $deliverycharge ?>" name="price">
                     <input type="hidden" value="<?php echo $details ?>" name="deliverycharge">
-                    <input type="hidden" value="<?php echo $image ?>" name="details">
+                    <input type="hidden" value="<?php echo $image ?>" name="details"> -->
 
-                    <a href="#" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                    <a href="#" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                    <a href="index.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                    <a href="login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                   </div>
                 </form>
                 </div>

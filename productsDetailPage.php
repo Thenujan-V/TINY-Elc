@@ -3,6 +3,7 @@
   session_start();
   $pid = $_SESSION['pid'];
   $uid = $_SESSION['uid'];
+  
   $sqlDetails = "select * from products where id = '$pid'" ;
   $rowDetails = mysqli_query($connection, $sqlDetails);
   $resultDetails = mysqli_fetch_assoc($rowDetails);

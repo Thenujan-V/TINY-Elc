@@ -104,27 +104,27 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='monitor'"><img src="../ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='mobileacc'"><img src="../ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="product.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='storage'"><img src="../ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='pc'"><img src="../ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='game'"><img src="../ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='speakers'"><img src="../ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='speakers'" >Speakers</a>
               </div>
             </div>
@@ -148,7 +148,8 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
-                  $deliverycharge =  $rowsproducts['deliveryCharge'];
+                $discount = $rowsproducts['discounts']; 
+                $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -159,27 +160,28 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+                    <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
                       
-                      <a href="productsDetailPage.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
                   </div>  
                 </div>
               </div>
-              <?php } }?>
-              <div class="column">
-              <div class="card" id="card">
-                <div class="content">
-                  <div class="front">
-                    <a href="productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
-                    <h2>Add products</h2>
+              <?php } ?>
+               <div class="column">
+                <div class="card" id="card">
+                  <div class="content">
+                    <div class="front">
+                      <a href="productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                      <h2>Add products</h2>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <?php } ?>
+              
 
               <?php 
               if(isset($_GET['category'])){
@@ -196,7 +198,8 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
-                  $deliverycharge =  $rowsproducts['deliveryCharge'];
+                $discount = $rowsproducts['discounts']; 
+                $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -207,9 +210,8 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+                    <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
                       
                       <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
@@ -217,7 +219,18 @@
                   </div>  
                 </div>
               </div>
-              <?php } } }?>
+              <?php } ?>
+               <div class="column">
+                <div class="card" id="card">
+                  <div class="content">
+                    <div class="front">
+                      <a href="productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                      <h2>Add products</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php } }?>
             </div>
             <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
          </div> 
@@ -235,11 +248,11 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-6" id="social">
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="../ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
             </div>
             <div class="col-lg-4 col-md-6 col-6" id="footright">
                 <h5>Spices</h5>

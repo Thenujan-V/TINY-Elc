@@ -113,6 +113,7 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
+                  $discount = $rowsproducts['discounts']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
@@ -124,10 +125,8 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <h3><?php echo $details ?></h3>
-                      
+                    <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
                       <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
@@ -151,6 +150,7 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
+                  $discount = $rowsproducts['discounts']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
@@ -162,10 +162,8 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <h3><?php echo $details ?></h3>
-                      
+                    <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
                       <a href="../login.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="../login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>

@@ -82,19 +82,20 @@
                         <a class="d-flex justify-content-" href="#"><i class="fa-regular fa-trash-can fa-lg"></i> DELETE</a>
                     </div>
                     <?php
-                                function deleteOption($uid, $pid, $connection){
-                                        $pid = $_POST['pid'];
-                                        $sql = "DELETE FROM usercart WHERE uid='$uid' AND pid = '$pid'";
-                                        $result = mysqli_query($connection,$sql);
-                                        if($result){
-                                            echo "<script>alert('Book removed from cart successfully.')</script>";
-                                            echo "<script>window.open('cart.php','_self')</script>";
-                                        }
-                                        else{
-                                            echo "<script>alert('Sorry can't remove from cart.')</script>";
-                                            echo "<script>window.open('cart.php','_self')</script>";
-                                        }
+                        function deleteOption($uid, $pid, $connection){
+                            echo "<script>alert('successfully.')</script>";
+                                $pid = $_POST['pid'];
+                                $sql = "DELETE FROM usercart WHERE uid='$uid' AND pid = '$pid'";
+                                $result = mysqli_query($connection,$sql);
+                                if($result){
+                                    echo "<script>alert('Book removed from cart successfully.')</script>";
+                                    echo "<script>window.open('cart.php','_self')</script>";
                                 }
+                                else{
+                                    echo "<script>alert('Sorry can't remove from cart.')</script>";
+                                    echo "<script>window.open('cart.php','_self')</script>";
+                                }
+                        }
                                 
                             ?>
                     <?php
@@ -132,8 +133,8 @@
 
                             <p><?php echo $model ?></p>
                             <p><?php echo $price ?></p>
-                            <p><?php echo $deliverycharge ?></p
-                            <button onclick = deleteOption($uid,$pid,$connection) ><i class="fa-regular fa-trash-can fa-xl"></i></button>
+                            <p><?php echo $deliverycharge ?></p>
+                            <button onClick = deleteOption($uid,$pid,$connection) class="btn"><i class="fa-regular fa-trash-can fa-xl"></i></button>
                         </div>
                         <div class="col-2 d-flex" style="flex-direction:column;" id="quantity">
                             <form action="cart.php" method="post">

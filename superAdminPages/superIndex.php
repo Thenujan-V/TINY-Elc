@@ -1,7 +1,7 @@
 <?php
   include '../connection.php' ;
   session_start();
-  $sql = "select * from discounts";
+  $sql = "select * from products where discounts > 0";
   $result = mysqli_query($connection,$sql);
   $sqlFree = "select * from products where deliveryCharge = 0";
   $resultFree = mysqli_query($connection,$sqlFree);
@@ -63,7 +63,7 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="superProductPage.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" href="superProductPage.php?category='laptop'">Laptops</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='mobile'">Mobile phones</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='smart watch'">Smart watches</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='tv'">Television</a></li>
@@ -144,8 +144,7 @@
                     $price =  $rows['price'];
                     $image = $rows['image'];
                     $model =  $rows['model'];
-                    $details =  $rows['details'];
-                    $discount =  $rows['discount'];
+                    $discount =  $rows['discounts'];
                 ?>
                 <div class="col-3 pl-5">
                 <div class="card">
@@ -154,7 +153,7 @@
                   </div>
                   <div class="details">
                     <div class="center">
-                      <h1><?php echo $model ?><br><span><?php echo $details ?></span></h1>
+                      <h1><?php echo $model ?><br></h1>
                     </div>
                     <p class="pt-2"><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
                     <p><?php echo $discount ?></p>
@@ -192,9 +191,13 @@
               <div>
                 <div class="row">
                 <?php 
-                  for($i=0;$i<4;$i++){
-                    $rowsFree = mysqli_fetch_assoc($resultFree);
-                      $imageFree = $rowsFree['image'];
+                  $countProducts = 0;
+                  while($rowsFree = mysqli_fetch_assoc($resultFree)){
+                    $countProducts++;
+                    $imageFree = $rowsFree['image'];   
+                    if($countProducts > 4){
+                      break;
+                    }
                 ?>
                   <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
                   <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
@@ -239,6 +242,7 @@
                 $image = $rowsproducts['image'];
                 $model =  $rowsproducts['model'];
                 $details =  $rowsproducts['details'];
+                $discount = $rowsproducts['discounts']; 
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
             ?>
             <div class="column">
@@ -250,11 +254,8 @@
                     <h2><?php echo $model ?></h2>
                   </div>
                   <div class="back from-left">
-                    <h2><?php echo $price ?></h2>
-                    <h3><?php echo $deliverycharge ?></h3>
-                    <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
-                    
-
+                      <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
                     <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                     <a href="superIndex.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                   </div>

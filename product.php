@@ -92,7 +92,7 @@
             <!-- <a class="btn" type="button" id="Register" href="register.php">Register</a>
             <a class="btn" type="button" id="login" href="login.php">Login</a> -->
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
-            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               
           </form>
         </div>
@@ -166,7 +166,7 @@
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
                       <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
                       
-                      <a href="productsDetailPage.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
                   </div>  
@@ -206,7 +206,7 @@
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
                       <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
                       
-                      <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
                   </div>  

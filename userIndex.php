@@ -162,7 +162,7 @@
                     $price =  $rows['price'];
                     $image = $rows['image'];
                     $model =  $rows['model'];
-                    $details =  $rows['details'];
+                    // $details =  $rows['details'];
                     $discount =  $rows['discounts'];
                 ?>
                 <div class="col-3 pl-5">
@@ -172,7 +172,7 @@
                   </div>
                   <div class="details">
                     <div class="center">
-                      <h1><?php echo $model ?><br><span><?php echo $details ?></span></h1>
+                      <h1><?php echo $model ?><br></h1>
                     </div>
                     <p class="pt-2"><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
                     <p><?php echo $discount ?></p>
@@ -273,12 +273,9 @@
                     <h2><?php echo $model ?></h2>
                   </div>
                   <div class="back from-left">
-                  <h2>LKR <?php echo $price ?></h2>
+                      <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
-                    <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
-                    
-
-                    <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
+                    <a href="userIndex.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                     <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                   </div>
                 </form>
