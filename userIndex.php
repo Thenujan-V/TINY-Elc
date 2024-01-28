@@ -1,7 +1,7 @@
 <?php
   include 'connection.php' ;
   session_start();
-  $sql = "select * from discounts";
+  $sql = "select * from products where discounts > 0";
   $result = mysqli_query($connection,$sql);
   $sqlFree = "select * from products where deliveryCharge = 0";
   $resultFree = mysqli_query($connection,$sqlFree);
@@ -106,8 +106,8 @@
           </form>
           <form class="form-inline" id="account">
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
-            <a class="btn" type="button" id="Register" href="register.php">Register</a>
-            <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <!-- <a class="btn" type="button" id="Register" href="register.php">Register</a>
+            <a class="btn" type="button" id="login" href="login.php">Login</a> -->
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
               
@@ -163,7 +163,7 @@
                     $image = $rows['image'];
                     $model =  $rows['model'];
                     $details =  $rows['details'];
-                    $discount =  $rows['discount'];
+                    $discount =  $rows['discounts'];
                 ?>
                 <div class="col-3 pl-5">
                 <div class="card">
@@ -210,9 +210,13 @@
               <div>
                 <div class="row">
                 <?php 
-                  for($i=0;$i<4;$i++){
-                    $rowsFree = mysqli_fetch_assoc($resultFree);
-                      $imageFree = $rowsFree['image'];
+                  $countProducts = 0;
+                  while($rowsFree = mysqli_fetch_assoc($resultFree)){
+                    $countProducts++;
+                    $imageFree = $rowsFree['image'];   
+                    if($countProducts > 4){
+                      break;
+                    }
                 ?>
                   <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
                   <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
@@ -258,6 +262,7 @@
                 $model =  $rowsproducts['model'];
                 $details =  $rowsproducts['details'];
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
+                $discount = $rowsproducts['discounts']; 
             ?>
             <div class="column">
               <div class="card" id="card">
@@ -268,9 +273,9 @@
                     <h2><?php echo $model ?></h2>
                   </div>
                   <div class="back from-left">
-                    <h2><?php echo $price ?></h2>
-                    <h3><?php echo $deliverycharge ?></h3>
-                    <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+                  <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                    <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
                     
 
                     <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>

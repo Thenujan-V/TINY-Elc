@@ -17,7 +17,7 @@
     $select_result = mysqli_query($connection,$select_sql);
     
     if(mysqli_num_rows($select_result) == 0){
-        $insert_sql = "INSERT INTO usercart VALUES('$uid','$pid',1)";
+        $insert_sql = "INSERT INTO usercart (uid,pid,quantity) VALUES('$uid','$pid',1)";
         $insert_result = mysqli_query($connection,$insert_sql); 
         if($insert_result){
             echo "<script>alert('Book added to cart successfully.')</script>";
@@ -64,7 +64,7 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" href="product.php?category='laptop'">Laptops</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='mobile'">Mobile phones</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='smart watch'">Smart watches</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="product.php?category='tv'">Television</a></li>
@@ -89,8 +89,8 @@
           </form>
           <form class="form-inline" id="account">
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
-            <a class="btn" type="button" id="Register" href="register.php">Register</a>
-            <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <!-- <a class="btn" type="button" id="Register" href="register.php">Register</a>
+            <a class="btn" type="button" id="login" href="login.php">Login</a> -->
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
               
@@ -151,6 +151,7 @@
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
+                  $discount = $rowsproducts['discounts'];
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -161,9 +162,9 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+                      <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                      <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
                       
                       <a href="productsDetailPage.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
@@ -189,6 +190,8 @@
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
+                  $discount = $rowsproducts['discounts'];
+
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -199,9 +202,9 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+                    <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                      <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
                       
                       <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>

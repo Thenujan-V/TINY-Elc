@@ -64,8 +64,8 @@
           </form>
           <form class="form-inline" id="account">
             <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
-            <a class="btn" type="button" id="Register" href="register.php">Register</a>
-            <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <!-- <a class="btn" type="button" id="Register" href="register.php">Register</a>
+            <a class="btn" type="button" id="login" href="login.php">Login</a> -->
             <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
               

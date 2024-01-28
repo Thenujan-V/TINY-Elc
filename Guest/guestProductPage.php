@@ -27,7 +27,7 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="guestProductPage.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" href="guestProductPage.php?category='laptop'">Laptops</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="guestProductPage.php?category='mobile'">Mobile phones</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="guestProductPage.php?category='smart watch'">Smart watches</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="guestProductPage.php?category='tv'">Television</a></li>
@@ -69,28 +69,28 @@
           <div class="container">
           <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='monitor'" >Monitors</a>
+                <a href="guestProductPage.php?category='monitor'"><img src="../ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="guestProductPage.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='mobileacc'" >Mobile Accessories</a>
+                <a href="guestProductPage.php?category='mobileacc'"><img src="../ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="guestProductPage.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="./Guest/guestProductPage.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='storage'" >Storage devices</a>
+                <a href="guestProductPage.php?category='storage'"><img src="../ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="guestProductPage.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='pc'" >Pc Accessories</a>
+                <a href="guestProductPage.php?category='pc'"><img src="../ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="guestProductPage.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='game'" >Gaming Accessories</a>
+                <a href="guestProductPage.php?category='game'"><img src="../ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="guestProductPage.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="./Guest/guestProductPage.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="./Guest/guestProductPage.php?category='speakers'" >Speakers</a>
+                <a href="guestProductPage.php?category='speakers'"><img src="../ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="guestProductPage.php?category='speakers'" >Speakers</a>
               </div>
             </div>
           </div>

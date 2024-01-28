@@ -1,7 +1,7 @@
 <?php
   include 'connection.php' ;
   session_start();
-  $sql = "select * from discounts";
+  $sql = "select * from products where discounts > 0";
   $result = mysqli_query($connection,$sql);
   $sqlFree = "select * from products where deliveryCharge = 0";
   $resultFree = mysqli_query($connection,$sqlFree);
@@ -56,7 +56,7 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="product.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" href="./Guest/guestProductPage.php?category='laptop'">Laptops</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='mobile'">Mobile phones</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='smart watch'">Smart watches</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='tv'">Television</a></li>
@@ -138,7 +138,7 @@
                     $image = $rows['image'];
                     $model =  $rows['model'];
                     $details =  $rows['details'];
-                    $discount =  $rows['discount'];
+                    $discount =  $rows['discounts'];
                 ?>
                 <div class="col-3 pl-5">
                 <div class="card">
