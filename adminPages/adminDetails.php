@@ -33,7 +33,7 @@
 <body>
     <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="userIndex.php">TINY Elc</a>
+        <a class="navbar-brand " href="adminIndex.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,8 +68,8 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a class="btn" type="button" id="login" href="../superAdminPages\productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
-            <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" href="#" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
           </form>
         </div>
@@ -185,11 +185,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="../ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
                     <h5>Spices</h5>

@@ -18,7 +18,7 @@
 <body>
     <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="superIndex.php">TINY Elc</a>
+        <a class="navbar-brand" href="adminIndex.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +40,7 @@
                 <a class="nav-link" href="aboutpage.php">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="product.php">Products</a>
+                <a class="nav-link" href="adminProductPage.php">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contactpage.php" >Customer service</a>
@@ -54,9 +54,8 @@
           </form>
           <form class="form-inline" id="account">
             <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
-            <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
             <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
-            <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
           </form>
         </div>

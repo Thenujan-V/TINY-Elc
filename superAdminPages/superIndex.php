@@ -87,7 +87,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-          <a class="btn" type="button" id="login" href="../adminPages\usersDetails.php"></i>Users</a>
+          <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
             <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
             <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
             <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
@@ -236,7 +236,9 @@
           </center>
           <div class="row" id="details">
             <?php 
+              $productsCount = 0;
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $productsCount++;
                 $pid = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
@@ -244,6 +246,10 @@
                 $details =  $rowsproducts['details'];
                 $discount = $rowsproducts['discounts']; 
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
+
+                if($productsCount > 4){
+                  break;
+                }
             ?>
             <div class="column">
               <div class="card" id="card">
@@ -256,7 +262,6 @@
                   <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
-                    <a href="" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                     <a href="superIndex.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                   </div>
                 </form>
@@ -275,7 +280,7 @@
               </div>
             </div>
           </div>
-          <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+          <a class="d-flex justify-content-center mt-3" href="superProductPage.php">See more deals</a>
        </div> 
       </section>
 
@@ -291,11 +296,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="../ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
                     <h5>Spices</h5>

@@ -32,7 +32,7 @@
 <body>
 <!--nav bar-->
 <nav class="navbar navbar-expand-lg" id="navbar">
-    <a class="navbar-brand " href="adminIndex.php">TINY Elc</a>
+    <a class="navbar-brand " href="superIndex.php">TINY Elc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,21 +43,21 @@
                 All
             </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="adminProductPage.php?category='mobile'">Laptops</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='mobile'">Mobile phones</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='smart watch'">Smart watches</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='tv'">Television</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='camara'">Camaras</a></li>
+                <li><a class="dropdown-item" href="superProductPage.php?category='mobile'">Laptops</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='mobile'">Mobile phones</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='smart watch'">Smart watches</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='tv'">Television</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='camara'">Camaras</a></li>
                 </ul>            
         </li>
         <li class="nav-item">
             <a class="nav-link" href="aboutpage.php">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="adminProductPage.php">Products</a>
+            <a class="nav-link" href="superProductPage.php">Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="contactpage.php">Customer service</a>
+            <a class="nav-link" href="contactpage.php" >Customer service</a>
         </li>
         
         
@@ -69,7 +69,7 @@
         <form class="form-inline" id="account">
         <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
         <a class="btn" type="button" id="login" href="#"></i>Users</a>
-        <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+        <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
         <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
             
         </form>

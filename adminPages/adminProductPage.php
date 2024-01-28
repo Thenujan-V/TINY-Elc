@@ -65,7 +65,7 @@
 <body>
     <!--nav bar-->
     <nav class="navbar navbar-expand-lg" id="navbar">
-        <a class="navbar-brand " href="superIndex.php">TINY Elc</a>
+        <a class="navbar-brand " href="adminIndex.php">TINY Elc</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -76,18 +76,18 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="superProductPage.php?category='mobile'">Laptops</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='mobile'">Mobile phones</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='smart watch'">Smart watches</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='tv'">Television</a></li>
-                    <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='camara'">Camaras</a></li>
+                    <li><a class="dropdown-item" href="adminProductPage.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='camara'">Camaras</a></li>
                   </ul>            
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../aboutpage.php">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a class="nav-link" href="adminProductPage.php">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../contactpage.php" >Customer service</a>
@@ -100,9 +100,9 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a class="btn" type="button" id="login" href="../superAdminPages\productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
             <a class="btn" type="button" id="login" href="usersDetails.php">Users</a>
-            <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
           </form>
         </div>
@@ -116,28 +116,28 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='monitor'" >Monitors</a>
+                <a href="adminProductPage.php?category='monitor'"><img src="../ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="adminProductPage.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='mobileacc'" >Mobile Accessories</a>
+                <a href="adminProductPage.php?category='mobileacc'"><img src="../ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="adminProductPage.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="product.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='storage'" >Storage devices</a>
+                <a href="adminProductPage.php?category='storage'"><img src="../ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="adminProductPage.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='pc'" >Pc Accessories</a>
+                <a href="adminProductPage.php?category='pc'"><img src="../ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="adminProductPage.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='game'" >Gaming Accessories</a>
+                <a href="adminProductPage.php?category='game'"><img src="../ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="adminProductPage.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
-                <a href="product.php?category='speakers'" >Speakers</a>
+                <a href="adminProductPage.php?category='speakers'"><img src="../ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="adminProductPage.php?category='speakers'" >Speakers</a>
               </div>
             </div>
           </div>
@@ -160,6 +160,7 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
+                  $discount = $rowsproducts['discounts']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
@@ -171,27 +172,27 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
-                      
-                      <a href="adminProductPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
-                        <a href="adminProductPage.php?deleteProduct= <?php echo $pid ?>" class="btn ml-5 mt-3" type="submit" id="cartbutton" name="buy">Delete Product</a>
+                      <h2>LKR <?php echo $price ?></h2>
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>                   
+                        <a href="adminProductPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
+                        <a href="adminProductPage.php?deleteProduct= <?php echo $pid ?>" class="btn btn-danger ml-5 mt-3" type="submit" id="" name="buy">Delete Product</a>
                   </div>
                   </div>  
                 </div>
               </div>
-              <?php } }?>
-              <div class="column">
-              <div class="card" id="card">
-                <div class="content">
-                  <div class="front">
-                    <a href="../superAdminPages\productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
-                    <h2>Add products</h2>
+              <?php } ?> 
+                <div class="column">
+                  <div class="card" id="card">
+                    <div class="content">
+                      <div class="front">
+                        <a href="../superAdminPages\productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                        <h2>Add products</h2>
+                      </div>
+                    </div>
                   </div>
-                </div>
               </div>
-            </div>
+            <?php }?>
+              
 
               <?php 
               if(isset($_GET['category'])){
@@ -228,7 +229,18 @@
                   </div>  
                 </div>
               </div>
-              <?php } } }?>
+              <?php } ?> 
+                <div class="column">
+                  <div class="card" id="card">
+                    <div class="content">
+                      <div class="front">
+                        <a href="../superAdminPages\productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                        <h2>Add products</h2>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <?php }}?>
             </div>
             <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
          </div> 
@@ -246,11 +258,11 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-6" id="social">
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="../ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
             </div>
             <div class="col-lg-4 col-md-6 col-6" id="footright">
                 <h5>Spices</h5>

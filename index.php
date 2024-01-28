@@ -120,11 +120,17 @@
             <div class="row ">
               <!-- <div id="arrow" class="ml-5"><i class="fa-solid fa-chevron-left fa-4x"></i></div> -->
                 <?php
+                  $countProducts = 0;
                   while($rows = mysqli_fetch_assoc($result)){
+                    $countProducts++;
                     $price =  $rows['price'];
                     $image = $rows['image'];
                     $model =  $rows['model'];
                     $discount =  $rows['discounts'];
+
+                    if($countProducts > 4){
+                      break;
+                    }
                 ?>
                 <div class="col-3 pl-5">
                 <div class="card">
@@ -141,7 +147,7 @@
                 </div>
                 </div>
                 <?php } ?>
-                <!-- <div id="arrow"><i class="fa-solid fa-chevron-right fa-4x"></i></div> -->
+                <a href="./Guest/guestProductPage.php?discounts=0" class="d-flex justify-content-end">see more deals</a>
             </div>
               <hr>
           <div class="row">

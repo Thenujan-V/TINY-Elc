@@ -88,6 +88,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
+          <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
           <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
             <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
             <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
@@ -148,8 +149,8 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
-                $discount = $rowsproducts['discounts']; 
-                $deliverycharge =  $rowsproducts['deliveryCharge'];
+                  $discount = $rowsproducts['discounts']; 
+                  $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -160,11 +161,9 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                    <h2>LKR <?php echo $price ?></h2>
+                      <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
-                      
-                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      <a href="superIndex.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                     </div>
                   </div>  
                 </div>

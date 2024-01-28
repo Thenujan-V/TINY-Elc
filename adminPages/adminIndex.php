@@ -1,7 +1,7 @@
 <?php
   include '../connection.php' ;
   session_start();
-  $sql = "select * from discounts";
+  $sql = "select * from products where discounts > 0";
   $result = mysqli_query($connection,$sql);
   $sqlFree = "select * from products where deliveryCharge = 0";
   $resultFree = mysqli_query($connection,$sqlFree);
@@ -12,10 +12,6 @@
   $sqlProducts = "select * from products";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
-  if(isset($_GET['products'])){
-    $_SESSION['pid'] = $_GET['products'];
-    header('Location:productsDetailPage.php');
-  }
   if(isset($_GET['editDetail'])){
     $_SESSION['Eid'] = $_GET['editDetail'];
     header('Location:productsDetailEditPage.php');
@@ -75,7 +71,7 @@
                     All
                 </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="adminProductPage.php?category='mobile'">Laptops</a></li>
+                    <li><a class="dropdown-item" href="adminProductPage.php?category='laptop'">Laptops</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='mobile'">Mobile phones</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='smart watch'">Smart watches</a></li>
                     <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='tv'">Television</a></li>
@@ -99,7 +95,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-            <a class="btn" type="button" id="login" href="../superAdminPages\productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
+            <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
             <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
             <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
@@ -155,8 +151,7 @@
                     $price =  $rows['price'];
                     $image = $rows['image'];
                     $model =  $rows['model'];
-                    $details =  $rows['details'];
-                    $discount =  $rows['discount'];
+                    $discount =  $rows['discounts'];
                 ?>
                 <div class="col-3 pl-5">
                 <div class="card">
@@ -165,7 +160,7 @@
                   </div>
                   <div class="details">
                     <div class="center">
-                      <h1><?php echo $model ?><br><span><?php echo $details ?></span></h1>
+                      <h1><?php echo $model ?><br></h1>
                     </div>
                     <p class="pt-2"><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
                     <p><?php echo $discount ?></p>
@@ -203,9 +198,13 @@
               <div>
                 <div class="row">
                 <?php 
-                  for($i=0;$i<4;$i++){
-                    $rowsFree = mysqli_fetch_assoc($resultFree);
-                      $imageFree = $rowsFree['image'];
+                  $countProducts = 0;
+                  while($rowsFree = mysqli_fetch_assoc($resultFree)){
+                    $countProducts++;
+                    $imageFree = $rowsFree['image'];   
+                    if($countProducts > 4){
+                      break;
+                    }
                 ?>
                   <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
                   <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
@@ -244,13 +243,19 @@
           </center>
           <div class="row" id="details">
             <?php 
+            $productsCount = 0;
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $productsCount++;
                 $pid = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
                 $model =  $rowsproducts['model'];
                 $details =  $rowsproducts['details'];
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
+
+                if($productsCount > 4){
+                  break;
+                }
             ?>
             <div class="column">
               <div class="card" id="card">
@@ -263,9 +268,8 @@
                   <div class="back from-left">
                     <h2><?php echo $price ?></h2>
                     <h3><?php echo $deliverycharge ?></h3>
-                    <a href="adminIndex.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
                     <a href="adminIndex.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
-                    <a href="adminIndex.php?deleteProduct= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Delete Product</a>
+                    <a href="adminIndex.php?deleteProduct= <?php echo $pid ?>" class="btn btn-danger ml-5" type="submit" id="" name="buy">Delete Product</a>
                   </div>
                 </form>
                 </div>
@@ -276,14 +280,14 @@
               <div class="card" id="card">
                 <div class="content">
                   <div class="front">
-                    <a href="../superAdminPages\productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
+                    <a href="productAddPage.php"><img  width="100%" src="../ìmages/add.png" alt="add"></a>
                     <h2>Add products</h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+          <a class="d-flex justify-content-center mt-3" href="adminProductPage.php">See more deals</a>
        </div> 
       </section>
 
@@ -299,11 +303,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="social">
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
-                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\facebook.png" alt="facebook-logo"><span>Like us on Facebook</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2 "><img src="../ìmages\instagram.png" alt="instragram-logo"><span>Follow us on Instragram</span></i></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\youtube.png" alt="youtube-logo"><span>Subscribe our channel</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\twitter.png" alt="twitter-logo"><span>Follow us on twitter</span></a>
+                    <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
                     <h5>Spices</h5>
