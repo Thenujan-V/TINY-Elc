@@ -156,7 +156,8 @@
                     $model =  $rowsproducts['model'];
                     $details =  $rowsproducts['details'];
                     $discount = $rowsproducts['discounts']; 
-                    $deliverycharge =  $rowsproducts['deliveryCharge'];
+                  $count = $rowsproducts['count']; 
+                  $deliverycharge =  $rowsproducts['deliveryCharge'];
                 ?>
                 <div class="column">
                   <div class="card" id="card">
@@ -169,6 +170,10 @@
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
                         <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>
                         <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                         <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                       </div>
@@ -189,7 +194,8 @@
                     $image = $rowsproducts['image'];
                     $model =  $rowsproducts['model'];
                     $details =  $rowsproducts['details'];
-                    $discount = $rowsproducts['discounts']; 
+                  $count = $rowsproducts['count']; 
+                  $discount = $rowsproducts['discounts']; 
                     $deliverycharge =  $rowsproducts['deliveryCharge'];
                 ?>
                 <div class="column">
@@ -203,6 +209,10 @@
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
                         <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>
                         <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                         <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                       </div>
@@ -224,6 +234,7 @@
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
                   $discount = $rowsproducts['discounts']; 
+                  $count = $rowsproducts['count']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
@@ -237,6 +248,10 @@
                     <div class="back from-left">
                     <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                      <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>
                       <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
@@ -258,7 +273,8 @@
                     $model =  $rowsproducts['model'];
                     $details =  $rowsproducts['details'];
                     $discount = $rowsproducts['discounts']; 
-                    $deliverycharge =  $rowsproducts['deliveryCharge'];
+                  $count = $rowsproducts['count']; 
+                  $deliverycharge =  $rowsproducts['deliveryCharge'];
                 ?>
                 <div class="column">
                   <div class="card" id="card">
@@ -271,6 +287,10 @@
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
                         <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>
                         <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                         <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                       </div>
@@ -296,6 +316,7 @@
                   $details =  $rowsproducts['details'];
                   $discount = $rowsproducts['discounts']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
+                  $count = $rowsproducts['count']; 
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -306,8 +327,12 @@
                       <h2><?php echo $model ?></h2>
                     </div>
                     <div class="back from-left">
-                    <h2>LKR <?php echo $price ?></h2>
+                      <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                      <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>
                       <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>

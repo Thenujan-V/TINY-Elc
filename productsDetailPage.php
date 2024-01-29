@@ -34,6 +34,27 @@
         echo "<script>window.open('product.php','_self')</script>";
     }
   }
+  if(isset($_GET['products'])){
+    $_SESSION['pid'] = $_GET['products'];
+    header('Location:productsDetailPage.php');
+  }
+  
+  if(isset($_GET['buyProduct'])){
+    if($uid == 0){
+      header('location:login.php');
+    }
+    else{
+      $pid = $_GET['buyProduct'];
+      $sqlBuyProduct = "insert into buyproductsdetails (uid,pid,count) values ('$uid','$pid','1')";
+      $resultBuyProduct = mysqli_query($connection, $sqlBuyProduct);
+
+      $stockProductCount = $resultDetails['count'];
+      $stockProductCount--;
+      $sqlProductCount ="UPDATE products SET count='$stockProductCount' WHERE id='$pid'";
+      $rowProductCount = mysqli_query($connection, $sqlProductCount);
+      header('location:buyNow.php');
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,34 +118,42 @@
 
 
       <section id="productDetailPage">
-        <div class="container">
+        <div class="container" style="margin-top: 100px;">
           <div class="row" >
             <div class="col-lg-6" id="productDetailImage">
               <img class="img-fluid" src="<?php echo $resultDetails['image'] ?>" alt="" height="600px" width="700px">
             </div>
             <div class="col-lg-6" id="productDetails">
-              <h2><?php echo $resultDetails['model'] ?></h2>
+              <h3 class="mt-5"><?php echo $resultDetails['model'] ?></h3>
               <h3><?php echo $resultDetails['price'] ?></h3>
-              <p><?php echo $resultDetails['details'] ?></p>
-              <p><?php echo $resultDetails['category'] ?></p>
-              <div id="buttons">
-                <a href="buyNow.php" class="btn" type="submit" id="buybutton" name="addcart">BuyNow</a>
-                <a href="product.php?cart= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Add to cart</a>
+              <p><?php echo $resultDetails['details'] ?></p> 
+              <h6>Brand : <?php echo $resultDetails['brand'] ?></h6>
+              <h6>Delivery Chrage : LKR <?php echo $resultDetails['deliveryCharge'] ?></h6>
+              <h6>Discount : <?php echo $resultDetails['discounts'] ?>%</h6>
+              <?php 
+                if($resultDetails['count'] == 0){ ?>
+                  <h5 style="background-color: red;">Out of Stock</h5>
+              <?php } ?>
+              <div id="buttons" >
+                <a href="productsDetailPage.php?buyProduct=<?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">BuyNow</a>
+                <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3 ml-5" type="submit" id="cartbutton" name="addcart">Add to cart</a>
+                
+                <!-- <a href="product.php?cart= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Add to cart</a> -->
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="productcard">
-      <div class="continer" >
-        <center>
-              <h1 class="title">Products</h1>
+      <section id="products">
+      <div class="container" id="productcard">
+            <center>
+              <h1 class="title">Related Products</h1>
             </center>
+            <div class="row" id="details">
           <?php 
-                $sqlProducts = "select * from products where category = '$category'";
+                $sqlProducts = "select * from products where category = '$category' and id != '$pid'";
                 $resultProducts = mysqli_query($connection,$sqlProducts);
-                $rowsproducts = mysqli_fetch_assoc($resultProducts);
                 if(mysqli_num_rows($resultProducts) == 0){
                   echo 'no products';
                 }
@@ -135,7 +164,8 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
-                  $deliverycharge =  $rowsproducts['deliveryCharge'];
+                $discount = $rowsproducts['discounts']; 
+                $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
                 <div class="card" id="card">
@@ -143,14 +173,13 @@
                   
                     <div class="front">
                       <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
+                      <h5><?php echo $model ?></h5>
                     </div>
                     <div class="back from-left">
-                      <h2><?php echo $price ?></h2>
-                      <h3><?php echo $deliverycharge ?></h3>
-                      <h3><?php echo $details ?></h3>
+                      <h5>LKR <?php echo $price ?></h5>
+                      <h5><?php echo $discount ?>%</h5>
                       
-                      <a href="buyNow.php" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">BuyNow</a>
+                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                       <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                     </div>
                   </div>  

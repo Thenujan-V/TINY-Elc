@@ -140,12 +140,17 @@
             <div class="row ">
               <!-- <div id="arrow" class="ml-5"><i class="fa-solid fa-chevron-left fa-4x"></i></div> -->
                 <?php
+                  $countProducts = 0;
                   while($rows = mysqli_fetch_assoc($result)){
+                    $countProducts++;
                     $price =  $rows['price'];
                     $image = $rows['image'];
                     $model =  $rows['model'];
                     // $details =  $rows['details'];
                     $discount =  $rows['discounts'];
+                    if($countProducts > 4){
+                      break;
+                    }
                 ?>
                 <div class="col-3 pl-5">
                 <div class="card">

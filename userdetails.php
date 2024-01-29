@@ -77,27 +77,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
-                        <h1>User Profile</h1>
-                        <form class="form m-2" method="post" action="">
-                            <p>UserName</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowuser['name'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Email</p>
-                            <input type="email" class="form-outline mx-3 w-50" name="email" value="<?php echo $rowuser['mail'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_email" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Phone</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowuser['phoneno'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
-                        </form>
-                        <form class="form m-2" method="post" action="">
-                            <p>Address</p>
-                            <input type="text" class="form-outline mx-3 w-50" name="address" value="<?php echo $rowuser['address'];?>">
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit_address" value="save">
-                        </form>
+                    <h1>User Profile</h1>
+                    <form class="form m-2" method="post" action="">
+                        <p>UserName</p>
+                        <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowuser['name'];?>">
+                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
+                    </form>
+                    <form class="form m-2" method="post" action="">
+                        <p>Email</p>
+                        <input type="email" class="form-outline mx-3 w-50" name="email" value="<?php echo $rowuser['mail'];?>">
+                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_email" value="save">
+                    </form>
+                    <form class="form m-2" method="post" action="">
+                        <p>Phone</p>
+                        <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowuser['phoneno'];?>">
+                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
+                    </form>
+                    <form class="form m-2" method="post" action="">
+                        <p>Address</p>
+                        <input type="text" class="form-outline mx-3 w-50" name="address" value="<?php echo $rowuser['address'];?>">
+                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_address" value="save">
+                    </form>
                 </div>
                 <?php 
                 if(isset($_POST['submit_name'])){

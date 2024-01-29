@@ -222,7 +222,9 @@
           </center>
           <div class="row" id="details">
             <?php 
+              $countProducts = 0;
               while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
+                $countProducts++;
                 $pid = $rowsproducts['id'];
                 $price =  $rowsproducts['price'];
                 $image = $rowsproducts['image'];
@@ -230,6 +232,10 @@
                 $details =  $rowsproducts['details'];
                 $discount = $rowsproducts['discounts']; 
                 $deliverycharge =  $rowsproducts['deliveryCharge'];
+
+                if($countProducts > 5){
+                  break;
+                }
             ?>
             <div class="column">
               <div class="card" id="card">
@@ -240,14 +246,8 @@
                     <h2><?php echo $model ?></h2>
                   </div>
                   <div class="back from-left">
-                  <h2>LKR <?php echo $price ?></h2>
+                      <h2>LKR <?php echo $price ?></h2>
                       <h6>Discount <span><?php echo $discount ?>%</span></h6>
-                    <!-- <input type="hidden" value="<?php echo $id ?>" name='id'>
-                    <input type="hidden" value="<?php echo $price ?>" name="image">
-                    <input type="hidden" value="<?php echo $deliverycharge ?>" name="price">
-                    <input type="hidden" value="<?php echo $details ?>" name="deliverycharge">
-                    <input type="hidden" value="<?php echo $image ?>" name="details"> -->
-
                     <a href="index.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
                     <a href="login.php" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
                   </div>

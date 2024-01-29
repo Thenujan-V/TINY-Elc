@@ -198,7 +198,7 @@
                         }
 
                         ?>
-                        <div id="cartamounts" class="row">
+                    <div id="cartamounts" class="row">
                         <h5 class="col-8">Subtotal(<?php echo $productCount ?> item)</h5>
                         <p class="col-4"><?php echo $totalprice ?></p>
                     </div>

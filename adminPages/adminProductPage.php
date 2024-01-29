@@ -161,6 +161,7 @@
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
                   $discount = $rowsproducts['discounts']; 
+                  $count = $rowsproducts['count']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
@@ -173,7 +174,11 @@
                     </div>
                     <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
-                      <h6>Discount <span><?php echo $discount ?>%</span></h6>                   
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>                 
                         <a href="adminProductPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                         <a href="adminProductPage.php?deleteProduct= <?php echo $pid ?>" class="btn btn-danger ml-5 mt-3" type="submit" id="" name="buy">Delete Product</a>
                   </div>
@@ -209,6 +214,7 @@
                   $image = $rowsproducts['image'];
                   $model =  $rowsproducts['model'];
                   $details =  $rowsproducts['details'];
+                  $count = $rowsproducts['count']; 
                   $deliverycharge =  $rowsproducts['deliveryCharge'];
               ?>
               <div class="column">
@@ -222,7 +228,14 @@
                     <div class="back from-left">
                       <h2><?php echo $price ?></h2>
                       <h3><?php echo $deliverycharge ?></h3>
-                      <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a>
+
+                      <h6>Discount <span><?php echo $discount ?>%</span></h6>
+                        <?php 
+                        if($count == 0){ ?>
+                          <h6 style="background-color: red;">Out of Stock</h6>
+                       <?php } ?>
+
+                      <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
                         <a href="adminProductPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                         <a href="adminProductPage.php?deleteProduct= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Delete Product</a>
                   </div>

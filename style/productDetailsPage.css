@@ -9,6 +9,7 @@ body{
 section{
   width: 100%;
   min-height: 100vh;
+  background-color: rgb(208, 255, 127);
 } 
 #productDetailPage{
     background-color: #DAFFFB;;
@@ -23,15 +24,18 @@ section{
     background-color: #DAFFFB;
     border-radius: 10px;
     color: #001C30;
+    /* margin-top: 60px; */
 }
 #cartbutton{
-    background-color:#001C30;
+    /* background-color:#001C30; */
     border-radius: 10px;
+    /* margin-top: 60px; */
 }
-#buttons{
+/* #buttons{
     display: flex;
     flex-direction: row;
-}
+    background-color: #bc2020;
+} */
 
 #productcard{
     width:90%;

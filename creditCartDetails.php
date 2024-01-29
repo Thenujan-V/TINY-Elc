@@ -37,6 +37,14 @@
     <link rel="stylesheet" href="style/buyNowstyle.css">
     <link rel="stylesheet" href="style/navbarstyle.css">
     <link rel="stylesheet" href="style/footerstyle.css">
+    <style>
+        .inlineimage{
+            max-width:470px;margin-right: 8px;margin-left: 10px
+        }
+        .images{
+            display: inline-block;max-width: 98%;height: auto;width: 22%;margin: 1%;left:20px;text-align: center
+        }
+    </style>
 </head>
 <body>
     <!--nav bar-->
@@ -87,16 +95,54 @@
       </nav>
       <section id="buyProduct">
         <div class="paymentMethod">
-            <div class="paymentContainer">
-                <h3>Select peyment method</h3>
-                <form action="">
-                    <ul class="paymentMethods">
-                        <li><a href="creditCartDetails.php">Credit / Debit Card</a></li>
-                        <li><a href="">Online Payment</a></li>
-                        <li><a href="">Cash on Delivery</a></li>
-                    </ul>
-                </form>
-            </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-md-offset-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <h3 class="text-center">Payment Details</h3>
+                                        <div class="inlineimage"> 
+                                        <img class="img-responsive images" src="https://cdn.vox-cdn.com/thumbor/zqrc6MN4NHTgAEU03-zuXiUBEYw=/0x248:1000x772/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg"> 
+                                        <img class="img-responsive images" src="https://s3.amazonaws.com/bizenglish/wp-content/uploads/2023/06/28152051/Visa-logo.jpg"> 
+                                        <img class="img-responsive images" src="https://i.pcmag.com/imagery/reviews/068BjcjwBw0snwHIq0KNo5m-15.fit_lim.size_1050x591.v1602794215.png"> 
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form-group"> <label>CARD NUMBER</label>
+                                                    <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-7 col-md-7">
+                                                <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                            </div>
+                                            <div class="col-xs-5 col-md-5 pull-right">
+                                                <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
         </div>
         <div class="details">
             <div class="userDetails">
@@ -138,16 +184,16 @@
                           $result = mysqli_query($connection,$sql);
                           if($result){
                               echo "<script>alert('Details updated successfully')</script>";
-                              echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                              echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                           }
                           else{
                               echo "<script>alert('Unable to update details.')</script>";
-                              echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                              echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                           }
                       }
                       else{
                           echo "<script>alert('Invalid input')</script>";
-                          echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                          echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                       }
                   }
               }
@@ -162,16 +208,16 @@
                         $rowProductCount = mysqli_query($connection, $sqlProductCount);
                         if($result){
                             echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                            echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                         }
                         else{
                             echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                            echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                         }
                     }
                     else{
                         echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                        echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                     }
                 }
             }
@@ -183,16 +229,16 @@
                         $result = mysqli_query($connection,$sql);
                         if($result){
                             echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                            echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                         }
                         else{
                             echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                            echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                         }
                     }
                     else{
                         echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                        echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                     }
                 }
             }
@@ -204,16 +250,16 @@
                         $result = mysqli_query($connection,$sql);
                         if($result){
                             echo "<script>alert('Details updated successfully')</script>";
-                            echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                            echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                         }
                         else{
                             echo "<script>alert('Unable to update details.')</script>";
-                            echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                            echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                         }
                     }
                     else{
                         echo "<script>alert('Invalid input')</script>";
-                        echo "<script>window.open('buyNow.php?editdetail','_self')</script>";
+                        echo "<script>window.open('creditCartDetails.php?editdetail','_self')</script>";
                     }
                 }
             }
