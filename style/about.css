@@ -1,0 +1,79 @@
+body {
+   margin: 0;
+   padding: 0;
+     width: 100vw;
+    height: 100%; 
+    /* position: fixed; */
+    
+  }
+  section{
+   width: 100%;
+   background-color: rgba(2, 38, 43, 0.5);
+  }
+ .row{
+    width: 100%;
+    display: flex;
+ }
+ .offer{
+   display: flex;
+   flex-direction: column;
+ }
+ .offer span{
+   align-self: end;
+   font-weight:800;
+   position: relative;
+   bottom: 13px;
+   left: 5%;
+ }
+ .img1{
+   margin-top: 10%;
+   /* padding: 10px; */
+   /* justify-self: end; */
+   align-self: end;
+   width: 200px;
+   height: 200px;
+ }
+ .about1{
+    /* flex: 2; */
+    font-weight:1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .free{
+   display: flex;
+   flex-direction: column;
+ }
+ .img2{
+   margin-top: 10%;
+   justify-self: flex-start;
+   align-self: flex-start;
+   width: 300px;
+   height: 300px;
+   position: relative;
+   right: 25%;
+ }
+.box{
+   /* background-color: rgb(80, 69, 69); */
+   display: flex;
+   justify-content: end;
+   align-items: end;
+}
+.pic{
+   width: 300px;
+   height: 300px;
+ }
+  .box6 {
+   display: flex;
+   justify-content: start;
+   align-items: start;
+ } 
+ .about p{
+   text-align: center;
+   padding: 0 60px;
+   margin-top: 10%;
+ }
+/* .img5{
+   justify-self: flex-end;
+   align-self: flex-end;
+} */
