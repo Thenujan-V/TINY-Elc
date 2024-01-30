@@ -42,13 +42,13 @@
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="../about.html">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="../contactus.html" >Customer service</a>
             </li>
             
             
