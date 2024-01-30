@@ -1,0 +1,72 @@
+body {
+    padding: 0;
+    margin: 0;
+  }
+  #contantUs{
+    background: linear-gradient(rgba(19, 155, 173, 0.5),rgba(0,0,0,.7)),url(https://www.lincad.co.uk/wp-content/uploads/2022/08/contact-us-scaled-1.jpg);
+    height: 100vh;
+    background-size:cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .contactHead{
+   display: flex;
+   justify-content: end;
+   align-items: end;
+    color: beige;
+    font-size: 35px;
+    font-weight: 800;
+    margin-right: 15%;
+    padding-right: 10%;
+    margin-top: 10%;
+  }
+#form{
+    width: 450px;
+    height: 400px;
+    /* border: 2px solid rgb(24, 141, 209); */
+    padding: 20px;
+    margin-left: 12%;
+    background-color: rgba(2, 38, 43, 0.5);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+} 
+.form-group{
+  display: flex;
+}
+.form-group label{
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    color:  rgb(24, 141, 209);
+    font-size: 15px;
+    font-weight: 600;
+}
+.form-group input{
+  /* padding: 10px; */
+  /* margin: 5px; */
+width: 250px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid  rgb(24, 141, 209);
+  background-color: rgb(231, 226, 216);
+  background: transparent;
+}
+::placeholder {
+  color: rgb(24, 141, 209);
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: rgb(24, 141, 209);
+}
+.btn{
+  color:white;
+  /* justify-self: end; */
+  align-self: flex-end;
+  margin-right: 12%;
+  margin-top: 4%;
+}
