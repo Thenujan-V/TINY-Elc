@@ -7,10 +7,10 @@ body{
 }
 #navbar{
     display: flex;
-    background-color: #001C30;
+    background-color: #082032;
 }
 #navbar a{
-    color:#DAFFFB;
+    color:#F0ECE5;
 }
 #navbar #search button{
     background: transparent;
@@ -27,56 +27,57 @@ body{
 }
 #navbar #account #login{
     margin-right: 15px;
-    background-color: #64CCC5;
+    background-color: #F0ECE5;
     font-size: 18px;
     font-weight: 500;
     border-radius: 10px;
+    color: #FF4C29;
 }
 #navbar #account #Register{
     margin-right: 15px;
-    background-color:#DAFFFB;
+    background-color:#FF4C29;
     font-size: 18px;
     font-weight: 500;
     border-radius: 10px;
-    color: #001C30;
+    color: #082032;
 }
 #navbar #account #user{
     background: none;
-    color: #DAFFFB;
+    color: #F0ECE5;
     transition: transform 1s;
 }
 #navbar #account #cart{
     background: none;
-    color:#64CCC5;
+    color:#FF4C29;
     transition: transform 1s;
 }
 #navbar #account #cart :hover{
     transform: scale(1.2);
-    color: #64CCC5;
+    /* color: #64CCC5; */
 }
 #navbar #account #user :hover{
     transform: scale(1.2);
-    color: #64CCC5;
+    /* color: #64CCC5; */
 }
 #navbar .dropdown-menu{
-    background-color: #001C30;
+    background-color: #082032;
 }
 #navbar #userDetails{
     position: absolute;
     left: -400px;
     top: 50px;
-    background-color:#001C30;
+    background-color:#082032;
     width: 30vw;
 }
 #navbar #userDetails .dropdown-item input{
    font-size:14px;
-   color: #64CCC5;
+   color: #F0ECE5;
    border: none;
    background: transparent;
    outline: none;
 }
 #navbar #userDetails #dropdown-item i{
-    color: #DAFFFB;
+    color: #F0ECE5;
     display: flex;
     justify-content:flex-end;
     position: relative;
@@ -84,14 +85,14 @@ body{
     
  }
  #navbar #userDetails hr{
-    background-color: #64CCC5;
+    background-color: #F0ECE5;
  }
  #navbar #userDetails .dropdown-item div{
-    border-bottom: 1px solid #DAFFFB;
+    border-bottom: 1px solid #F0ECE5;
  }
 #navbar #userDetails .dropdown-item h4{
     font-size:17px;
-    color: #DAFFFB;
+    color: #F0ECE5;
  }
 
 .dropdown-menu .dropdown-item{

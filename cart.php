@@ -48,13 +48,13 @@
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="contactus.html" >Customer service</a>
             </li>
             
             
@@ -73,13 +73,13 @@
           </form>
         </div>
       </nav>
-    <div>
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-8">
                     <div class="top">
                         <p class="d-flex justify-content-start"><input type="checkbox"> SELECT ALL(No of items)</p>
-                        <a class="d-flex justify-content-" href="#"><i class="fa-regular fa-trash-can fa-lg"></i> DELETE</a>
+                        <a class="d-flex justify-content-end p-3 " href="#" style="color:#F0ECE5 ;"><i class="fa-regular fa-trash-can fa-lg"></i></a>
                     </div>
                     <?php
                         function deleteOption($uid, $pid, $connection){
@@ -127,11 +127,11 @@
                             <img src="<?php echo $image ?>" alt="" class="img-fluid">
                         </div>
                         <div class="col-6 text-center" id="description">
+                            <p style="font-size: 20px; font-weigth:800;"><?php echo $model ?></p>
                             <p><?php echo $details ?></p>
                         </div>
                         <div class="col-2" id="prices">
 
-                            <p><?php echo $model ?></p>
                             <p><?php echo $price ?></p>
                             <p><?php echo $deliverycharge ?></p>
                             <button onClick = deleteOption($uid,$pid,$connection) class="btn"><i class="fa-regular fa-trash-can fa-xl"></i></button>
@@ -141,7 +141,7 @@
                                 <label for="quantity">quantity</label>
                                 <input type="number" value="<?php echo $quantity ?>" name="quantity" style="height:30px; width:40px;">
                                 <input type="hidden" value="<?php echo "$pid" ?>" name="pid">
-                                <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="update">
+                                <input type="submit" class="btn" style="color:white; height:2vw; background-color:#FF4C29;" name="submit" value="update">
                             </form>
                             
                             <?php 
@@ -240,7 +240,7 @@
                 </div>
             </div>
         </div>
-                            </div>
+    </section>
     <div id="footer">
         <div class="container footbox">
             <div class="row">

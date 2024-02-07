@@ -4,11 +4,13 @@ body {
   }
   #contantUs{
     background: linear-gradient(rgba(19, 155, 173, 0.5),rgba(0,0,0,.7)),url(https://www.lincad.co.uk/wp-content/uploads/2022/08/contact-us-scaled-1.jpg);
-    height: 100vh;
+    height: 555px;
     background-size:cover;
     background-position: center;
     display: flex;
     flex-direction: column;
+    position: relative;
+    bottom: 10px;
   }
   .contactHead{
    display: flex;
@@ -69,4 +71,67 @@ width: 250px;
   align-self: flex-end;
   margin-right: 12%;
   margin-top: 4%;
+}
+@media only screen and (max-width: 539px) {
+   
+  .contactHead{
+     margin-top: 30%;
+   }
+  #form{
+    width: 80%;
+    margin-top: 15%;
+    height: 50%;
+    padding: 20px;
+    margin-left: 12%;
+} 
+.form-group label{
+  padding: 5px;
+  margin: 5px;
+  width: 45%;
+  color:  rgb(24, 141, 209);
+  font-size: 5vw;
+  font-weight: 600;
+}
+.form-group input{
+  width: 80%;
+} 
+.btn{
+  color:white;
+  /* justify-self: end; */
+  align-self: flex-end;
+  margin-right: 7%;
+  margin-top: 2%;
+}
+}
+@media only screen and (max-width: 1000px) {
+body{
+  min-width:400px ;
+  height: 100%;
+}  
+#contantUs{
+  display: flex;
+  flex-direction: column;
+}
+.contactHead{
+  text-align: center;
+  margin-top: 15%;
+}
+#form{
+  width: 65%;
+  height: 60%;
+  padding: 20px;
+  margin-left: 12%;
+} 
+.form-group label{
+width: 55%;
+color:  rgb(24, 141, 209);
+font-size: 2vw;
+font-weight: 600;
+padding: 20px;
+  
+}
+.form-group input{
+padding: 20px;
+/* width: 50vw; */
+}  
 }

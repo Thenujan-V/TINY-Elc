@@ -48,10 +48,10 @@
       $sqlBuyProduct = "insert into buyproductsdetails (uid,pid,count) values ('$uid','$pid','1')";
       $resultBuyProduct = mysqli_query($connection, $sqlBuyProduct);
 
-      $stockProductCount = $resultDetails['count'];
-      $stockProductCount--;
-      $sqlProductCount ="UPDATE products SET count='$stockProductCount' WHERE id='$pid'";
-      $rowProductCount = mysqli_query($connection, $sqlProductCount);
+      // $stockProductCount = $resultDetails['count'];
+      // $stockProductCount--;
+      // $sqlProductCount ="UPDATE products SET count='$stockProductCount' WHERE id='$pid'";
+      // $rowProductCount = mysqli_query($connection, $sqlProductCount);
       header('location:buyNow.php');
     }
   }
@@ -90,13 +90,13 @@
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="contactus.html" >Customer service</a>
             </li>
             
             
@@ -118,7 +118,7 @@
 
 
       <section id="productDetailPage">
-        <div class="container" style="margin-top: 100px;">
+        <div class="container" style="margin-top: 3vw; margin-bottom:5vw;">
           <div class="row" >
             <div class="col-lg-6" id="productDetailImage">
               <img class="img-fluid" src="<?php echo $resultDetails['image'] ?>" alt="" height="600px" width="700px">
@@ -134,9 +134,9 @@
                 if($resultDetails['count'] == 0){ ?>
                   <h5 style="background-color: red;">Out of Stock</h5>
               <?php } ?>
-              <div id="buttons" >
-                <a href="productsDetailPage.php?buyProduct=<?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">BuyNow</a>
-                <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3 ml-5" type="submit" id="cartbutton" name="addcart">Add to cart</a>
+              <div id="buttons" class="btn">
+                <a href="productsDetailPage.php?buyProduct=<?php echo $pid ?>" class="btn d-flex justify-content-center align-item-center mb-3" type="submit" id="buy" name="addcart">BuyNow</a>
+                <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="cartbtn   " name="addcart">Add to cart</a>
                 
                 <!-- <a href="product.php?cart= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Add to cart</a> -->
               </div>
