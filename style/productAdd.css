@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #2C394B;
+}
+section{
+    background-color: #2C394B;
+}
+h1{
+    margin: 30px;
+    padding-top: 30px;
+    color: #F0ECE5;
+    text-align: center;
+}
+.productAdd{
+    margin: 0 auto;
+    background-color: #082032;
+}
+.form-group input{
+    /* margin-left: 200px; */
+}

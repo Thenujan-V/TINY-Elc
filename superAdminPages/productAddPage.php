@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/navbarstyle.css">
     <link rel="stylesheet" href="../style/footerstyle.css">
-
+    <link rel="stylesheet" href="../style/productAdd.css">
     
 </head>
 <body>
@@ -62,43 +62,66 @@
           </form>
         </div>
       </nav>
-      <section>
+
+    <section>
     <div class="signup" style="background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(ìmages\login.jpg) ;background-size: cover;background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-11" id="register">
-                        <h1>Add product</h1>
-                        <form class="form m-2" method="post" action="productAddPage.php">
-                            <div class="form-group">
-                                <input type="text" placeholder="Product Name" class="form-outline mx-3 w-50" name="productName">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Category" class="form-outline mx-3 w-50" name="category">
-                            </div>  
-                            <div class="form-group">
-                                <input type="text" placeholder="Price" class="form-outline mx-3 w-50" name="Price">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Image" class="form-outline mx-3 w-50" name="image">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Delivery charge" class="form-outline mx-3 w-50" name="deliveryCharge">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Discount" class="form-outline mx-3 w-50" name="Discount">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Brand" class="form-outline mx-3 w-50" name="Brand">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Product Count" class="form-outline mx-3 w-50" name="ProductCount">
-                            </div>                            
-                            <div class="form-group">
-                                <textarea type="text" placeholder="Details" class="form-outline mx-3 w-50" name="details" cols="30" rows="10"></textarea>
-                            </div>
-                            <input type="submit" class="btn bg-primary" style="color:white;" name="submit" value="Submit">
-                        </form>
+        <div class="productAdd">
+                <h1>Add product</h1>
+            <form class="form m-2" method="post" action="productAddPage.php">
+                <div class="row">
+                    <div class="col-md-6 pl-5 d-flex justify-content-center align-items-end">
+                        <div class="form-group">
+                            <input type="text" placeholder="Product Name" class="form-outline mx-3 w-80" name="productName">
+                        </div>
                     </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group">
+                            <input type="text" placeholder="Category" class="form-outline mx-3 w-80" name="category">
+                        </div> 
+                    </div>
+                    <div class="col-md-6 pl-5 d-flex justify-content-center align-items-end"> 
+                        <div class="form-group">
+                            <input type="text" placeholder="Price" class="form-outline mx-3 w-40" name="Price">
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group">
+                            <input type="text" placeholder="Image" class="form-outline mx-3 w-70" name="image">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-5 d-flex justify-content-center align-items-end">
+                        <div class="form-group">
+                            <input type="text" placeholder="Delivery charge" class="form-outline mx-3 w-70" name="deliveryCharge">
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group">
+                            <input type="text" placeholder="Discount" class="form-outline mx-3 w-70" name="Discount">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-5 d-flex justify-content-center align-items-end">
+                        <div class="form-group">
+                            <input type="text" placeholder="Brand" class="form-outline mx-3 w-70" name="Brand">
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group">
+                            <input type="text" placeholder="Product Count" class="form-outline mx-3 w-70" name="ProductCount">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-5 d-flex justify-content-center align-items-end">                           
+                        <div class="form-group">
+                            <textarea type="text" placeholder="Details" class="form-outline mx-3 w-70" name="details" cols="23" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-5">
+                        <input type="submit" class="btn" style="color:white;  background-color: #FF4C29;" name="submit" value="Submit">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
                 <?php 
                 if(isset($_POST['submit'])){
                     $newProductName = $_POST['productName'];
