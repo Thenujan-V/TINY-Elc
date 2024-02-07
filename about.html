@@ -2,29 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style/about.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/navbarstyle.css">
+    <link rel="stylesheet" href="./style/about.css">
     <title>Document</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <a class="navbar-brand " href="userIndex.php">TINY Elc</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-5" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All
+                </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="./Guest/guestProductPage.php?category='laptop'">Laptops</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='mobile'">Mobile phones</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='smart watch'">Smart watches</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='tv'">Television</a></li>
+                    <li><a class="dropdown-item" id="alldropdownitem" href="./Guest/guestProductPage.php?category='camara'">Camaras</a></li>
+                  </ul>            
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="product.php">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contactus.html" >Customer service</a>
+            </li>
+            
+            
+          </ul>
+          <form class="form-inline" id="search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+          <form class="form-inline" id="account">
+            <a href="cart.php" class="btn mr-3" type="button" id="cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
+            <a class="btn" type="button" id="Register" href="register.php">Register</a>
+            <a class="btn" type="button" id="login" href="login.php">Login</a>
+            <!-- <a class="btn" href="userdetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+            <a href="logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a> -->
+              
+          </form>
+        </div>
+      </nav>
     <section>
-<div class="row row1">
-    <div class="col-4 offer"><img class="img-fluid img1"  src="./ìmages/offer.png" alt=""><span>TINY Elec</span></div>
-    <div class="col-4 about1"><h2>ABOUT</h2></div>
-    <div class="col-4 free" ><img class="img-fluid img2" src="./ìmages/shipping.png" alt=""></div>
-</div>
-<div class="row row2">
-    <div class=" col-lg-5 col-sm-12 about"><p>🌟 Welcome to the TINY Elec online universe – where cutting-edge tech meets unbeatable deals! Dive into a curated selection of sleek laptops, stylish smartwatches, cutting-edge mobile phones, and premium JBL audio devices. Enjoy exclusive discounts and the added perk of free delivery on select products, making your tech upgrade just a click away.</p></div>
-    <div class="col-lg-3 col-sm-12 box"><img class=" pic" src="https://www.zdnet.com/a/img/resize/44ee30136face6dcb90fe8ed96dc180a3a41a878/2023/09/12/29be3e47-9f70-4dbe-aa37-58719088b48f/old-iphones-apple-store.jpg?auto=webp&width=1280" alt=""></div>
-    <div class=" col-lg-4 col-sm-12 box"><img class=" pic " src="https://4.img-dpreview.com/files/p/TS560x560~forums/67113001/39994e132c5f48f1af2ed116d9c7f7b3" alt=""></div>
-</div>
-<div class="row row3">
-    <div class="col-lg-4 col-sm-12 box box6"><img class=" pic img5" src="https://i0.wp.com/english.lematinal.media/wp-content/uploads/2021/06/Samsung-Store-1.jpg?w=800&ssl=1" alt=""></div>
-    <div class="col-lg-3 col-sm-12 box"><img class=" pic" src="https://dealerscope.com/wp-content/uploads/2022/02/JBLStoreMainImage-scaled.jpg" alt=""></div>
-    <div class="col-lg-5 col-sm-12 about"><p>🚀 At TINY Elec, your online security is our top priority. Our passionate team is here to assist you every step of the way, ensuring a seamless and secure shopping experience. Explore the future of electronics confidently at TINY Elec – where technology meets unbeatable value. Your journey to tech bliss begins here! 🌈✨</p></div>
-</div>
-</section>
+        <div class="row row1">
+            <div class="col-4 offer"><img class="img-fluid img1"  src="./ìmages/offer.png" alt=""><span>TINY Elec</span></div>
+            <div class="col-4 about1"><h2>ABOUT</h2></div>
+            <div class="col-4 free" ><img class="img-fluid img2" src="./ìmages/shipping.png" alt=""></div>
+        </div>
+        <div class="row row2">
+            <div class=" col-lg-5 col-sm-12 about"><p>🌟 Welcome to the TINY Elec online universe – where cutting-edge tech meets unbeatable deals! Dive into a curated selection of sleek laptops, stylish smartwatches, cutting-edge mobile phones, and premium JBL audio devices. Enjoy exclusive discounts and the added perk of free delivery on select products, making your tech upgrade just a click away.</p></div>
+            <div class="col-lg-3 col-sm-12 box"><img class=" pic" src="https://www.zdnet.com/a/img/resize/44ee30136face6dcb90fe8ed96dc180a3a41a878/2023/09/12/29be3e47-9f70-4dbe-aa37-58719088b48f/old-iphones-apple-store.jpg?auto=webp&width=1280" alt=""></div>
+            <div class=" col-lg-4 col-sm-12 box"><img class=" pic " src="https://4.img-dpreview.com/files/p/TS560x560~forums/67113001/39994e132c5f48f1af2ed116d9c7f7b3" alt=""></div>
+        </div>
+        <div class="row row3">
+            <div class="col-lg-4 col-sm-12 box box6"><img class=" pic img5" src="https://i0.wp.com/english.lematinal.media/wp-content/uploads/2021/06/Samsung-Store-1.jpg?w=800&ssl=1" alt=""></div>
+            <div class="col-lg-3 col-sm-12 box"><img class=" pic" src="https://dealerscope.com/wp-content/uploads/2022/02/JBLStoreMainImage-scaled.jpg" alt=""></div>
+            <div class="col-lg-5 col-sm-12 about"><p>🚀 At TINY Elec, your online security is our top priority. Our passionate team is here to assist you every step of the way, ensuring a seamless and secure shopping experience. Explore the future of electronics confidently at TINY Elec – where technology meets unbeatable value. Your journey to tech bliss begins here! 🌈✨</p></div>
+        </div>
+    </section>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

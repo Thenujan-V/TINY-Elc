@@ -3,23 +3,39 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Preahvihear', sans-serif;
-    
+    background-color: #2C394B;
 }
 .top{
-    background-color: antiquewhite;
+    background-color: #082032;
+    color: #F0ECE5;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
+
 #cartproduct{
-    background-color: aquamarine;
+    background-color: #082032;
+    padding: 2vw;
+    color: #F0ECE5;
 }
 #odrsum{
-    background-color: blue;
+    background-color:#082032;
+    color: #F0ECE5;
+    border-left: 2vw solid #2C394B;
+    padding-top: 2vw;
 }
 section{
-    height: 100vh;
+    min-height: 54vh;
+    /* background-color: brown; */
     width: 100%;
 }
 #prices button{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     border: none;
     cursor: pointer;
+    background: none;
+    color: #F0ECE5;
+
+}
+form{
+    display: flex;
 }

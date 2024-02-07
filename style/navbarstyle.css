@@ -7,7 +7,7 @@ body{
 }
 #navbar{
     display: flex;
-    background-color: #001C30;
+    background-color: #082032;
 }
 #navbar a{
     color:#DAFFFB;
@@ -38,7 +38,7 @@ body{
     font-size: 18px;
     font-weight: 500;
     border-radius: 10px;
-    color: #001C30;
+    color: #082032;
 }
 #navbar #account #user{
     background: none;
@@ -59,13 +59,13 @@ body{
     color: #64CCC5;
 }
 #navbar .dropdown-menu{
-    background-color: #001C30;
+    background-color: #082032;
 }
 #navbar #userDetails{
     position: absolute;
     left: -400px;
     top: 50px;
-    background-color:#001C30;
+    background-color:#082032;
     width: 30vw;
 }
 #navbar #userDetails .dropdown-item input{

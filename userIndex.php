@@ -73,13 +73,13 @@
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="contactus.html" >Customer service</a>
             </li>
             
             
@@ -106,27 +106,27 @@
           <div class="container">
             <div id="catogaries" class="row pt-2" >
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='monitor'"><img src="ìmages\monitor.jpg" alt="" height="150px" width="150px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='monitor'" >Monitors</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='mobileacc'"><img src="ìmages\mobileacc.jpg" alt="" height="150px" width="150px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='mobileacc'" >Mobile Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6" >
-                <a href="product.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='storage'"><img src="ìmages\storage.jpg" alt="" height="150px" width="150px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='storage'" >Storage devices</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='pc'"><img src="ìmages\pcacc.jpg" alt="" height="150px" width="150px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='pc'" >Pc Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='game'"><img src="ìmages\gaming.jpg" alt="" height="150px" width="150px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='game'" >Gaming Accessories</a>
               </div>
               <div class="gadgets col-xl-2 col-md-4 col-sm-6">
-                <a href="product.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="170px" width="170px" style="border-radius: 50%;"></a>
+                <a href="product.php?category='speakers'"><img src="ìmages\speakers.jpg" alt="" height="150px" width="150px" style="border-radius: 50%;"></a>
                 <a href="product.php?category='speakers'" >Speakers</a>
               </div>
             </div>
@@ -136,8 +136,10 @@
           
       <section id="discount">
         <div class="container-fluid" >  
-          <h2 class="ml-5 pt-3">Exclusive Offers</h2>         
-            <div class="row ">
+          <div id='exclusive'>
+          <h1 class="ml-5 pt-3">Exclusive Offers</h1>    
+          <div>   
+            <div class="row " >
               <!-- <div id="arrow" class="ml-5"><i class="fa-solid fa-chevron-left fa-4x"></i></div> -->
                 <?php
                   $countProducts = 0;
@@ -148,31 +150,36 @@
                     $model =  $rows['model'];
                     // $details =  $rows['details'];
                     $discount =  $rows['discounts'];
-                    if($countProducts > 4){
+                    if($countProducts > 6){
                       break;
                     }
                 ?>
-                <div class="col-3 pl-5">
+                <div class="col-2 pt-5">
                 <div class="card">
                   <div class="image">
                     <img src="<?php echo $image ?>"/>
                   </div>
                   <div class="details">
                     <div class="center">
-                      <h1><?php echo $model ?><br></h1>
+                      <h6><?php echo $model ?><br></h6>
                     </div>
-                    <p class="pt-2"><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
+                    <p><s><?php echo $price ?></s> <span><?php echo $price ?></span></p>
                     <p><?php echo $discount ?></p>
                   </div>
                 </div>
                 </div>
                 <?php } ?>
-                <a href="product.php?discounts=0" class="d-flex justify-content-end">see more deals</a>
+                </div> 
+                <a href="product.php?discounts=0" style="color:#FF4C29">see more deals</a>
+                 
             </div>
+          </div>
+          
               <hr>
-          <div class="row">
-            <div class="col-6" id="trendbox" >
-              <h2 class="text-center">Trending Sales</h2>
+          <div id="trendbox">
+              <div class="row">
+              <div class="col-6">
+              <h1 class="text-center">Trending Sales</h1>
               <div>
                 <div class="row">
                 
@@ -182,17 +189,17 @@
                       $imageTrend = $rowsTrend['image'];   
                  
                 ?>
-                  <div class="col-6 "><img class="img-fluid" src="<?php echo $imageTrend   ?>" alt="" width="248px" height="248px"></div>
+                  <div class="col-6 d-flex justify-content-center""><img class="img-fluid mt-5" src="<?php echo $imageTrend   ?>" alt="" width="248px" height="248px"></div>
                 
                 <?php }?>
                 </div>
                
-                <a href="" class="d-flex justify-content-end">see more deals</a>
+                <a href="" class="d-flex justify-content-end" style="color:#FF4C29">see more deals</a>
               </div>
             </div>
             <div class="col-6">
 
-              <h2 class="text-center">Free delivery</h2>
+              <h1 class="text-center">Free delivery</h1>
               <div>
                 <div class="row">
                 <?php 
@@ -204,38 +211,45 @@
                       break;
                     }
                 ?>
-                  <div class="col-6"><img class="img-fluid" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
+                  <div class="col-6 d-flex justify-content-center"><img class="img-fluid mt-5" src="<?php echo $imageFree   ?>" alt="" width="248px" height="248px"></div>
                   <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
                 <?php }?>
                 </div>
-                
-                <a href="product.php?deliveryCharge=0" class="d-flex justify-content-end">see more deals</a>
+                <a href="product.php?deliveryCharge=0" class="d-flex justify-content-end" style="color:#FF4C29">see more deals</a>
               </div>
             </div>
           </div> 
         </div>
+      </div>
+          
         <hr>
         <div id="brands">
-          	<h2 class="ml-5">Brands</h2>
-            <div class=" d-flex justify-content-center">
-              <?php 
-                while($rowsBrand = mysqli_fetch_assoc($resultBrand)){
-                    $image = $rowsBrand['image'];
-                    $name =  $rowsBrand['name'];
-              ?>
-              <div class="col-lg-2">
-                <a href="product.php?brand=<?php echo $name?>">
-                  <img src="<?php echo $image ?>" class="img-fluid" alt="" width="180px" height="30px">
-                  <h5 class="text-center"><?php echo $name ?></h5>
-                </a>
+          <div>
+              <h1 class="ml-5">Brands</h1>
+              <div class=" d-flex justify-content-center flex-wrap">
+                <?php 
+                  while($rowsBrand = mysqli_fetch_assoc($resultBrand)){
+                      $image = $rowsBrand['image'];
+                      $name =  $rowsBrand['name'];
+                ?>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 d-flex justify-content-center" >
+                  <a href="product.php?brand=<?php echo $name?>" class="text-decoration-none">
+                    <img src="<?php echo $image ?>"  alt="" width="160vw" height="160vh">
+                    <h5 class="text-center  p-2"><?php echo $name ?></h5>
+                  </a>
+                </div>
+                <?php } ?>
               </div>
-              <?php } ?>
-            </div>
-            
+          </div>
         </div>
+        
       </section>
+
+
+      <!-- products -->
+      
       <section id="products">
-      <div class="" id="productcard">
+        <div class="" id="productcard">
           <center>
             <h1 class="title">Products</h1>
           </center>
@@ -262,7 +276,7 @@
                 <form action="{$_SERVER['REQUEST_URI']}" method="post">
                   <div class="front">
                     <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                    <h2><?php echo $model ?></h2>
+                    <h4><?php echo $model ?></h4>
                   </div>
                   <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -276,7 +290,7 @@
             </div>
             <?php } ?>
           </div>
-          <a class="d-flex justify-content-center mt-3" href="product.php">See more deals</a>
+          <a class="d-flex justify-content-center mt-3" href="product.php" style="color:#FF4C29">See more deals</a>
        </div> 
       </section>
 
