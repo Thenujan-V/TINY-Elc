@@ -151,7 +151,7 @@
                 </div>
                 <?php } ?>
                 </div> 
-                <a href="product.php?discounts=0" style="color:#FF4C29">see more deals</a>
+                <a href="./Guest/guestProductPage.php?discounts=0" style="color:#FF4C29">see more deals</a>
                  
             </div>
           </div>
@@ -262,7 +262,7 @@
             </div>
             <?php } ?>
           </div>
-          <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+          <a class="d-flex justify-content-center mt-3" href="./Guest/guestProductPage.php">See more deals</a>
        </div> 
       </section>
 

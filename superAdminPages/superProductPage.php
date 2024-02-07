@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/footerstyle.css">
     <link rel="stylesheet" href="../style/navbarstyle.css">
-    <link rel="stylesheet" href="../style/productstyle.css">
+    <link rel="stylesheet" href="../style/index.css">
   </head>
 <body>
     <!--nav bar-->
@@ -88,8 +88,9 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <form class="form-inline" id="account">
-          <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
-          <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
+            <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
+            <a class="btn" type="button" id="login" href="adminDetails.php"></i>Admins</a>
+            <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
             <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
             <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
             <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>

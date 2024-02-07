@@ -1,13 +1,13 @@
 <?php
     include '../connection.php' ;
     session_start();
-    $sqlUserTable = "select * from userdetails where status = 'Active'";
+    $sqlUserTable = "select * from admindetails where status = 'Active'";
     $resultUserTable = mysqli_query($connection, $sqlUserTable);
 
     if(isset($_GET['deleteId'])){
         $did = $_GET['deleteId'];
         //$sqlDelete = "DELETE FROM userdetails WHERE id = '$did' ";
-        $sqlDelete = "UPDATE userdetails SET status = 'Deactive' WHERE id = $did";
+        $sqlDelete = "UPDATE admindetails SET status = 'Deactive' WHERE id = $did";
         $resultDelete = mysqli_query($connection,$sqlDelete);
 
         if($resultDelete){
@@ -32,7 +32,7 @@
 <body>
 <!--nav bar-->
 <nav class="navbar navbar-expand-lg" id="navbar">
-    <a class="navbar-brand " href="adminIndex.php">TINY Elc</a>
+    <a class="navbar-brand " href="superIndex.php">TINY Elc</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,21 +43,21 @@
                 All
             </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="adminProductPage.php?category='mobile'">Laptops</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='mobile'">Mobile phones</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='smart watch'">Smart watches</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='tv'">Television</a></li>
-                <li><a class="dropdown-item" id="alldropdownitem" href="adminProductPage.php?category='camara'">Camaras</a></li>
+                <li><a class="dropdown-item" href="superProductPage.php?category='mobile'">Laptops</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='mobile'">Mobile phones</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='smart watch'">Smart watches</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='tv'">Television</a></li>
+                <li><a class="dropdown-item" id="alldropdownitem" href="superProductPage.php?category='camara'">Camaras</a></li>
                 </ul>            
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../about.html">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="adminProductPage.php">Products</a>
+            <a class="nav-link" href="superProductPage.php">Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../contactus.html">Customer service</a>
+            <a class="nav-link" href="../contactus.html" >Customer service</a>
         </li>
         
         
@@ -67,9 +67,10 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <form class="form-inline" id="account">
+        <a class="btn" type="button" id="login" href="usersDetails.php"></i>Users</a>
+        <a class="btn" type="button" id="Register" href="adminAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>admin</a>
         <a class="btn" type="button" id="login" href="productAddPage.php"><i class="fa-solid fa-plus fa-lg"></i>products</a>
-        <a class="btn" type="button" id="login" href="#"></i>Users</a>
-        <a class="btn" href="adminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
+        <a class="btn" href="superAdminDetails.php" type="button" id="user"><i class="fa-solid fa-user fa-2xl"></i></a>
         <a href="../logout.php" class="btn" id="logout" type="button"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
             
         </form>
@@ -80,21 +81,19 @@
             <?php
                 while($rowUserTable = mysqli_fetch_assoc($resultUserTable)){
                     $userName = $rowUserTable['name'];
-                    $mail = $rowUserTable['mail'];
+                    $mail = $rowUserTable['email'];
                     $phoneNo = $rowUserTable['phoneno'];
-                    $address = $rowUserTable['address'];
-                    $userId = $rowUserTable['id'];
+                    $adminId = $rowUserTable['id'];
                 ?>
                 <div class="details">
                     <div class="paras">
                         <h6>Name : <?php echo $userName ?></h6>
                         <h6>Email : <?php echo $mail ?></h6>
                         <h6>Phone No : <?php echo $phoneNo ?></h6>
-                        <h6>Address : <?php echo $address ?></h6>
                     </div>
                     <div class="btns">
                         <a href="" class="btn btn-warning">Send a message to this account user</a>
-                        <a href="usersDetails.php?deleteId=<?php echo $userId ?>;" class="btn btn-danger" >Delete this account</a>
+                        <a href="adminDetails.php?deleteId=<?php echo $adminId ?>;" class="btn btn-danger">Delete this account</a>
                     </div>
                     <hr>
                 </div>

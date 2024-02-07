@@ -305,7 +305,7 @@
               </div>
               <?php } } }?>
             </div>
-            <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+            <!-- <a class="d-flex justify-content-center mt-3" href="#">See more deals</a> -->
          </div> 
         </section>
 
