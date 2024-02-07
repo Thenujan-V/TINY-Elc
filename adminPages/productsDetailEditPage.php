@@ -2,7 +2,10 @@
     include '../connection.php';
     session_start();
     $uid = $_SESSION['uid'];
-    $Eid = $_SESSION['Eid'];
+    // $Eid = $_SESSION['Eid'];
+    if(isset($_GET['editDetail'])){
+        $Eid = $_GET['editDetail'];
+      }
 
     $sqlEditProductDetails = "select * from products where id = $Eid";
     $resultEditProductDetails = mysqli_query($connection,$sqlEditProductDetails);
@@ -19,6 +22,7 @@
             echo "<script>alert('Unable to Delete.')</script>";
         }
       }
+      
 ?>
 <!DOCTYPE html>
 <html lang="en">

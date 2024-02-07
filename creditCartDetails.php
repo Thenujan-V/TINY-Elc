@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
-                                            <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                            <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline"></span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
                                         </div>
                                         <div class="col-xs-5 col-md-5 pull-right">
                                             <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>

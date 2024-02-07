@@ -27,19 +27,19 @@ body{
 }
 #navbar #account #login{
     margin-right: 15px;
-    background-color: #F0ECE5;
+    background-color: #FF4C29;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: #F0ECE5;
+}
+#navbar #account #Register{
+    margin-right: 15px;
+    background-color:#F0ECE5;
     font-size: 18px;
     font-weight: 500;
     border-radius: 10px;
     color: #FF4C29;
-}
-#navbar #account #Register{
-    margin-right: 15px;
-    background-color:#FF4C29;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 10px;
-    color: #082032;
 }
 #navbar #account #user{
     background: none;
@@ -66,8 +66,11 @@ body{
     position: absolute;
     left: -400px;
     top: 50px;
-    background-color:#082032;
+    background-color:#FF4C29;
     width: 30vw;
+}
+#navbar #user{
+    color:#FF4C29;
 }
 #navbar #userDetails .dropdown-item input{
    font-size:14px;

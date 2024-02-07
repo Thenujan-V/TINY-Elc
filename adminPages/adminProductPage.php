@@ -60,7 +60,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/footerstyle.css">
     <link rel="stylesheet" href="../style/navbarstyle.css">
-    <link rel="stylesheet" href="../style/productstyle.css">
+    <link rel="stylesheet" href="../style/index.css">
   </head>
 <body>
     <!--nav bar-->
@@ -179,7 +179,7 @@
                         if($count == 0){ ?>
                           <h6 style="background-color: red;">Out of Stock</h6>
                        <?php } ?>                 
-                        <a href="adminProductPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
+                        <a href="productsDetailEditPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                         <a href="adminProductPage.php?deleteProduct= <?php echo $pid ?>" class="btn btn-danger ml-5 mt-3" type="submit" id="" name="buy">Delete Product</a>
                   </div>
                   </div>  
@@ -236,7 +236,7 @@
                        <?php } ?>
 
                       <!-- <a href="product.php?products= <?php echo $pid ?>" ><?php echo $details ?></a> -->
-                        <a href="adminProductPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
+                        <a href="productsDetailEditPage.php?editDetail=<?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Edit details</a>
                         <a href="adminProductPage.php?deleteProduct= <?php echo $pid ?>" class="btn ml-5" type="submit" id="cartbutton" name="buy">Delete Product</a>
                   </div>
                   </div>  
