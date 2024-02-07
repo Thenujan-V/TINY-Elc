@@ -137,8 +137,8 @@
       <section id="discount">
         <div class="container-fluid" >  
           <div id='exclusive'>
-          <h1 class="ml-5 pt-3">Exclusive Offers</h1>    
-          <div>   
+            <h1 class="ml-5 pt-3">Exclusive Offers</h1>    
+            <div>   
             <div class="row " >
               <!-- <div id="arrow" class="ml-5"><i class="fa-solid fa-chevron-left fa-4x"></i></div> -->
                 <?php
@@ -235,7 +235,7 @@
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 d-flex justify-content-center" >
                   <a href="product.php?brand=<?php echo $name?>" class="text-decoration-none">
                     <img src="<?php echo $image ?>"  alt="" width="160vw" height="160vh">
-                    <h5 class="text-center  p-2"><?php echo $name ?></h5>
+                    <h5 class="text-center p-2"><?php echo $name ?></h5>
                   </a>
                 </div>
                 <?php } ?>

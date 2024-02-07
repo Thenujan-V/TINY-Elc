@@ -22,7 +22,18 @@
     $resultBuyProduct = mysqli_query($connection,$sqlBuyProduct);
     $rowBuyProduct = mysqli_fetch_assoc($resultBuyProduct);
 
-    $productCount = $rowBuyProduct['count']
+    $productCount = $rowBuyProduct['count'];
+
+    if(isset($_GET['productPayment'])){
+        $pid = $_GET['productPayment'];
+        $sqlBuyProduct = "insert into buyproductsdetails (uid,pid,count) values ('$uid','$pid','1')";
+        $resultBuyProduct = mysqli_query($connection, $sqlBuyProduct);
+  
+        $stockProductCount = $resultDetails['count'];
+        $stockProductCount--;
+        $sqlProductCount ="UPDATE products SET count='$stockProductCount' WHERE id='$pid'";
+        $rowProductCount = mysqli_query($connection, $sqlProductCount);
+    }
 
 ?>
 
@@ -95,84 +106,84 @@
       </nav>
       <section id="buyProduct">
         <div class="paymentMethod">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6 col-md-offset-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <h3 class="text-center">Payment Details</h3>
-                                        <div class="inlineimage"> 
-                                        <img class="img-responsive images" src="https://cdn.vox-cdn.com/thumbor/zqrc6MN4NHTgAEU03-zuXiUBEYw=/0x248:1000x772/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg"> 
-                                        <img class="img-responsive images" src="https://s3.amazonaws.com/bizenglish/wp-content/uploads/2023/06/28152051/Visa-logo.jpg"> 
-                                        <img class="img-responsive images" src="https://i.pcmag.com/imagery/reviews/068BjcjwBw0snwHIq0KNo5m-15.fit_lim.size_1050x591.v1602794215.png"> 
-                                    </div>
-                                    </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-md-offset-4">
+                        <div class="panel panel-default" style="margin-left: 8vw;">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <h2 class="text-center">Payment Details</h2>
+                                    <div class="inlineimage"> 
+                                    <img class="img-responsive images" src="https://cdn.vox-cdn.com/thumbor/zqrc6MN4NHTgAEU03-zuXiUBEYw=/0x248:1000x772/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg"> 
+                                    <img class="img-responsive images" src="https://s3.amazonaws.com/bizenglish/wp-content/uploads/2023/06/28152051/Visa-logo.jpg"> 
+                                    <img class="img-responsive images" src="https://i.pcmag.com/imagery/reviews/068BjcjwBw0snwHIq0KNo5m-15.fit_lim.size_1050x591.v1602794215.png"> 
                                 </div>
-                                <div class="panel-body">
-                                    <form role="form">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="form-group"> <label>CARD NUMBER</label>
-                                                    <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-7 col-md-7">
-                                                <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
-                                            </div>
-                                            <div class="col-xs-5 col-md-5 pull-right">
-                                                <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
-                                <div class="panel-footer">
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
                                     <div class="row">
-                                        <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group"> <label>CARD NUMBER</label>
+                                                <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-xs-12"> <a href="creditCartDetails.php?productPayment=<?php echo $pid ?>" class="btn btn-success btn-lg btn-block">Confirm Payment</a> </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             
         </div>
         <div class="details">
             <div class="userDetails">
-                <h2>User Details</h2>
+            <h2>User Details</h2>
                 <div class="itemCount">
-                    <form class="form m-2" method="post" action="">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">product Count</label>
-                        <input type="number" class="form-outline mx-3 w-50" name="count" value="<?php echo $rowBuyProduct['count'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_count" value="save">
+                        <input type="number" class="form-outline mx-3 w-50 form-control" name="count" value="<?php echo $rowBuyProduct['count'];?>">
+                        <input type="submit" class="btn " style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_count" value="save">
                     </form>
                 </div>
-                <div class="username">
-                    <form class="form m-2" method="post" action="">
+                <div class="username" style="margin-top: -2.5vw;">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">Username</label>
-                        <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowuser['name'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
+                        <input type="text" class="form-outline mx-3 w-50 form-control" name="name" value="<?php echo $rowuser['name'];?>">
+                        <input type="submit" class="btn " style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_name" value="save">
                     </form>
                 </div>
-                <div class="phoneNo">
-                    <form class="form m-2" method="post" action="">
+                <div class="phoneNo" style="margin-top: -2.5vw;">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">Mobile number</label>
-                        <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowuser['phoneno'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
+                        <input type="text" class="form-outline mx-3 w-50 form-control" name="phone" value="<?php echo $rowuser['phoneno'];?>">
+                        <input type="submit" class="btn " style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_phone" value="save">
                     </form>
                 </div>
-                <div class="address">
-                    <form class="form m-2" method="post" action="">
+                <div class="address" style="margin-top: -2.5vw;">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">Address</label>
-                        <input type="text" class="form-outline mx-3 w-50" name="address" value="<?php echo $rowuser['address'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_address" value="save">
+                        <input type="text" class="form-outline mx-3 w-50 form-control" name="address" value="<?php echo $rowuser['address'];?>">
+                        <input type="submit" class="btn" style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_address" value="save">
                     </form>
                 </div>
                 <?php 

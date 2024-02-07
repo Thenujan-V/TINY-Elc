@@ -88,7 +88,7 @@
       <section id="buyProduct">
         <div class="paymentMethod">
             <div class="paymentContainer">
-                <h3>Select peyment method</h3>
+                <h4>Select peyment method</h4>
                 <form action="">
                     <ul class="paymentMethods">
                         <li><a href="creditCartDetails.php">Credit / Debit Card</a></li>
@@ -102,31 +102,31 @@
             <div class="userDetails">
                 <h2>User Details</h2>
                 <div class="itemCount">
-                    <form class="form m-2" method="post" action="">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">product Count</label>
-                        <input type="number" class="form-outline mx-3 w-50" name="count" value="<?php echo $rowBuyProduct['count'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_count" value="save">
+                        <input type="number" class="form-outline mx-3 w-50 form-control" name="count" value="<?php echo $rowBuyProduct['count'];?>">
+                        <input type="submit" class="btn " style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_count" value="save">
                     </form>
                 </div>
-                <div class="username">
-                    <form class="form m-2" method="post" action="">
+                <div class="username" style="margin-top: -2.5vw;">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">Username</label>
-                        <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowuser['name'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
+                        <input type="text" class="form-outline mx-3 w-50 form-control" name="name" value="<?php echo $rowuser['name'];?>">
+                        <input type="submit" class="btn " style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_name" value="save">
                     </form>
                 </div>
-                <div class="phoneNo">
-                    <form class="form m-2" method="post" action="">
+                <div class="phoneNo" style="margin-top: -2.5vw;">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">Mobile number</label>
-                        <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowuser['phoneno'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
+                        <input type="text" class="form-outline mx-3 w-50 form-control" name="phone" value="<?php echo $rowuser['phoneno'];?>">
+                        <input type="submit" class="btn " style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_phone" value="save">
                     </form>
                 </div>
-                <div class="address">
-                    <form class="form m-2" method="post" action="">
+                <div class="address" style="margin-top: -2.5vw;">
+                    <form class="form m-2 form-group" method="post" action="">
                         <label for="name">Address</label>
-                        <input type="text" class="form-outline mx-3 w-50" name="address" value="<?php echo $rowuser['address'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_address" value="save">
+                        <input type="text" class="form-outline mx-3 w-50 form-control" name="address" value="<?php echo $rowuser['address'];?>">
+                        <input type="submit" class="btn" style="color:082032;background-color:#ff4c29;position:relative; bottom:2.5vw; left:22vw;" name="submit_address" value="save">
                     </form>
                 </div>
                 <?php 

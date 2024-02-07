@@ -48,10 +48,10 @@
       $sqlBuyProduct = "insert into buyproductsdetails (uid,pid,count) values ('$uid','$pid','1')";
       $resultBuyProduct = mysqli_query($connection, $sqlBuyProduct);
 
-      $stockProductCount = $resultDetails['count'];
-      $stockProductCount--;
-      $sqlProductCount ="UPDATE products SET count='$stockProductCount' WHERE id='$pid'";
-      $rowProductCount = mysqli_query($connection, $sqlProductCount);
+      // $stockProductCount = $resultDetails['count'];
+      // $stockProductCount--;
+      // $sqlProductCount ="UPDATE products SET count='$stockProductCount' WHERE id='$pid'";
+      // $rowProductCount = mysqli_query($connection, $sqlProductCount);
       header('location:buyNow.php');
     }
   }

@@ -147,7 +147,7 @@
                 if(isset($_GET['discounts'])){
 
                   $discounts = $_GET['discounts'];
-                  $sqlProducts = "select * from products where discounts = '$discounts'";
+                  $sqlProducts = "select * from products where discounts != '$discounts'";
                   $resultProducts = mysqli_query($connection,$sqlProducts);
                   
                   while($rowsproducts = mysqli_fetch_assoc($resultProducts)){

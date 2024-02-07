@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/footerstyle.css">
     <link rel="stylesheet" href="../style/navbarstyle.css">
-    <link rel="stylesheet" href="../style/productstyle.css">
+    <!-- <link rel="stylesheet" href="../style/productstyle.css"> -->
+    <link rel="stylesheet" href="../style/index.css">
 </head>
 <body>
     <!--nav bar-->
@@ -128,7 +129,7 @@
                     
                       <div class="front">
                         <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                        <h2><?php echo $model ?></h2>
+                        <h4><?php echo $model ?></h4>
                       </div>
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -167,7 +168,7 @@
                     
                       <div class="front">
                         <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                        <h2><?php echo $model ?></h2>
+                        <h4><?php echo $model ?></h4>
                       </div>
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -206,7 +207,7 @@
                 
                   <div class="front">
                     <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                    <h2><?php echo $model ?></h2>
+                    <h4><?php echo $model ?></h4>
                   </div>
                   <div class="back from-left">
                     <h2>LKR <?php echo $price ?></h2>
@@ -245,7 +246,7 @@
                     
                       <div class="front">
                         <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                        <h2><?php echo $model ?></h2>
+                        <h4><?php echo $model ?></h4>
                       </div>
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -287,7 +288,7 @@
                   
                     <div class="front">
                       <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
+                      <h4><?php echo $model ?></h4>
                     </div>
                     <div class="back from-left">
                     <h2>LKR <?php echo $price ?></h2>
