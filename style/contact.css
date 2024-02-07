@@ -4,11 +4,13 @@ body {
   }
   #contantUs{
     background: linear-gradient(rgba(19, 155, 173, 0.5),rgba(0,0,0,.7)),url(https://www.lincad.co.uk/wp-content/uploads/2022/08/contact-us-scaled-1.jpg);
-    height: 100vh;
+    height: 555px;
     background-size:cover;
     background-position: center;
     display: flex;
     flex-direction: column;
+    position: relative;
+    bottom: 10px;
   }
   .contactHead{
    display: flex;
