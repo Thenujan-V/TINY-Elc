@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #2C394B;
+}
+#register{
+    /* width: 100vw; */
+    height: 70vh;
+    border-radius: 20px;
+    /* margin-top: 50px;
+    margin-bottom: 50px; */
+    margin:50px auto ;
+    background-color: #082032;
+    color: #F0ECE5;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#register .btn{
+    background-color: #FF4C29;
+}
+p{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding-left: 6vw;
+}
