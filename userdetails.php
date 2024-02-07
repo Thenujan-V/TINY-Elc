@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/navbarstyle.css">
     <link rel="stylesheet" href="style/footerstyle.css">
-
+    <link rel="stylesheet" href="style/profile.css">
     
 </head>
 <body>
@@ -72,6 +72,8 @@
           </form>
         </div>
       </nav>
+
+
     <section>
     <div class="signup" style="background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(ìmages\login.jpg) ;background-size: cover;background-position: center;">
         <div class="container">
@@ -81,22 +83,22 @@
                     <form class="form m-2" method="post" action="">
                         <p>UserName</p>
                         <input type="text" class="form-outline mx-3 w-50" name="name" value="<?php echo $rowuser['name'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_name" value="save">
+                        <input type="submit" class="btn "  style="color:white;" name="submit_name" value="save">
                     </form>
                     <form class="form m-2" method="post" action="">
                         <p>Email</p>
                         <input type="email" class="form-outline mx-3 w-50" name="email" value="<?php echo $rowuser['mail'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_email" value="save">
+                        <input type="submit" class="btn " style="color:white;" name="submit_email" value="save">
                     </form>
                     <form class="form m-2" method="post" action="">
                         <p>Phone</p>
                         <input type="text" class="form-outline mx-3 w-50" name="phone" value="<?php echo $rowuser['phoneno'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_phone" value="save">
+                        <input type="submit" class="btn " style="color:white;" name="submit_phone" value="save">
                     </form>
                     <form class="form m-2" method="post" action="">
                         <p>Address</p>
                         <input type="text" class="form-outline mx-3 w-50" name="address" value="<?php echo $rowuser['address'];?>">
-                        <input type="submit" class="btn bg-primary" style="color:white;" name="submit_address" value="save">
+                        <input type="submit" class="btn " style="color:white; " name="submit_address" value="save">
                     </form>
                 </div>
                 <?php 
