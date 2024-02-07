@@ -212,21 +212,20 @@
         <hr>
         <div id="brands">
           	<h2 class="ml-5">Brands</h2>
-            <div class=" d-flex justify-content-center">
+            <div class=" d-flex justify-content-center flex-wrap">
               <?php 
                 while($rowsBrand = mysqli_fetch_assoc($resultBrand)){
                     $image = $rowsBrand['image'];
                     $name =  $rowsBrand['name'];
               ?>
-              <div class="col-lg-2">
-                <div>
-                  <img src="<?php echo $image ?>" class="img-fluid" alt="" width="180px" height="30px">
-                  <h5 class="text-center"><?php echo $name ?></h5>
-                </div>
+              <div class="col-lg-2 col-md-3 col-sm-4 col-6 d-flex justify-content-center" >
+                <a href="product.php?brand=<?php echo $name?>" class="text-decoration-none">
+                  <img src="<?php echo $image ?>"  alt="" width="160vw" height="160vh">
+                  <h5 class="text-center  p-2"><?php echo $name ?></h5>
+                </a>
               </div>
               <?php } ?>
             </div>
-            
         </div>
       </section>
       <section id="products">

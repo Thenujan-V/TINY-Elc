@@ -48,7 +48,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/footerstyle.css">
     <link rel="stylesheet" href="style/navbarstyle.css">
-    <link rel="stylesheet" href="style/productstyle.css">
+    <!-- <link rel="stylesheet" href="style/productstyle.css"> -->
+    <link rel="stylesheet" href="style/index.css">
   </head>
 <body>
     <!--nav bar-->
@@ -72,13 +73,13 @@
                   </ul>            
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutpage.php">About</a>
+                <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="product.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contactpage.php" >Customer service</a>
+                <a class="nav-link" href="contactus.html" >Customer service</a>
             </li>
             
             
@@ -165,7 +166,7 @@
                     
                       <div class="front">
                         <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                        <h2><?php echo $model ?></h2>
+                        <h4><?php echo $model ?></h4>
                       </div>
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -174,8 +175,8 @@
                         if($count == 0){ ?>
                           <h6 style="background-color: red;">Out of Stock</h6>
                        <?php } ?>
-                        <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                        <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                        <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart" style="background-color:#FF4C29 ;">Buy</a>
+                        <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy" style="color:#FF4C29">Add to cart</a>
                       </div>
                     </div>  
                   </div>
@@ -204,7 +205,7 @@
                     
                       <div class="front">
                         <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                        <h2><?php echo $model ?></h2>
+                        <h4><?php echo $model ?></h4>
                       </div>
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -213,8 +214,8 @@
                         if($count == 0){ ?>
                           <h6 style="background-color: red;">Out of Stock</h6>
                        <?php } ?>
-                        <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                        <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                        <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart" style="background-color:#FF4C29 ;">Buy</a>
+                        <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy" style="color:#FF4C29">Add to cart</a>
                       </div>
                     </div>  
                   </div>
@@ -243,7 +244,7 @@
                   
                     <div class="front">
                       <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
+                      <h4><?php echo $model ?></h4>
                     </div>
                     <div class="back from-left">
                     <h2>LKR <?php echo $price ?></h2>
@@ -252,8 +253,8 @@
                         if($count == 0){ ?>
                           <h6 style="background-color: red;">Out of Stock</h6>
                        <?php } ?>
-                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart" style="background-color:#FF4C29 ;">Buy</a>
+                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy" style="color:#FF4C29">Add to cart</a>
                     </div>
                   </div>  
                 </div>
@@ -278,11 +279,10 @@
                 ?>
                 <div class="column">
                   <div class="card" id="card">
-                    <div class="content">
-                    
+                    <div class="content">  
                       <div class="front">
                         <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                        <h2><?php echo $model ?></h2>
+                        <h4><?php echo $model ?></h4>
                       </div>
                       <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -291,8 +291,8 @@
                         if($count == 0){ ?>
                           <h6 style="background-color: red;">Out of Stock</h6>
                        <?php } ?>
-                        <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                        <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                        <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart" style="background-color:#FF4C29 ;">Buy</a>
+                        <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy" style="color:#FF4C29">Add to cart</a>
                       </div>
                     </div>  
                   </div>
@@ -324,7 +324,7 @@
                   
                     <div class="front">
                       <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
+                      <h4><?php echo $model ?></h4>
                     </div>
                     <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -333,15 +333,15 @@
                         if($count == 0){ ?>
                           <h6 style="background-color: red;">Out of Stock</h6>
                        <?php } ?>
-                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart">Buy</a>
-                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy">Add to cart</a>
+                      <a href="product.php?products= <?php echo $pid ?>" class="btn d-flex justify-content-center mb-3" type="submit" id="buybutton" name="addcart" style="background-color:#FF4C29;">Buy</a>
+                      <a href="product.php?cart= <?php echo $pid ?>" class="btn d-flex justify-content-center" type="submit" id="cartbutton" name="buy" style="color:#FF4C29">Add to cart</a>
                     </div>
                   </div>  
                 </div>
               </div>
               <?php } } }?>
             </div>
-            <a class="d-flex justify-content-center mt-3" href="#">See more deals</a>
+            <!-- <a class="d-flex justify-content-center mt-3" href="#">See more deals</a> -->
          </div> 
         </section>
 

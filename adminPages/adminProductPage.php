@@ -170,7 +170,7 @@
                   
                     <div class="front">
                       <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
+                      <h4><?php echo $model ?></h4>
                     </div>
                     <div class="back from-left">
                       <h2>LKR <?php echo $price ?></h2>
@@ -223,7 +223,7 @@
                   
                     <div class="front">
                       <img class="profile" width="100%" src="<?php echo $image ?>" alt="product">
-                      <h2><?php echo $model ?></h2>
+                      <h4><?php echo $model ?></h4>
                     </div>
                     <div class="back from-left">
                       <h2><?php echo $price ?></h2>

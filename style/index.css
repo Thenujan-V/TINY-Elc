@@ -3,15 +3,16 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Preahvihear', sans-serif;
-    
+    background-color: #2C394B;
 }
 
 section{
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
+
 #home{
-    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url(ìmages\home.jpg);
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),url('../ìmages/home.jpg');
     height: 63vh;
     background-size:cover;
     background-position: center;
@@ -35,7 +36,20 @@ section{
     font-size: 90%;
 }
 #homepage{
-    background-color: #64CCC5;
+    background-color: #2C394B;
+}
+#catogaries{
+    /* width: 70    vw; */
+    background-color: #082032;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding-bottom: 1vw;
+}
+#catogaries a{
+    color: #F0ECE5;
 }
 #catogaries img{
     object-fit: cover;
@@ -52,20 +66,25 @@ section{
     text-align: center;
 }
 .gadgets a:nth-child(2){
-    color: #001C30;
-    
+    /* color: #001C30; */
+    height: 3vw;
 }
-#discount{
-    background-color:#DAFFFB;
+#discount #exclusive{
+    background-color:#082032;
 }
-#carddiv{
+/* #carddiv{
     width: 250px;
+} */
+#discount h1{
+    color: #FF4C29;
+    font-weight: 700;
 }
+
 .card {
     
     /* transform: translate(-50%,-50%); */
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     background: #000;
 }
 .card .image {
@@ -76,6 +95,7 @@ section{
 }
 .card .image img {
     width: 100%;
+    height: 100%;
     transition: .5s;
 }
 .card:hover .image img {
@@ -88,7 +108,7 @@ section{
     left: 0;
     width: 70%;/*100%*/
     height: 100%;
-    background: #ffc107;
+    background: #2C394B;
     transition: .5s;
     transform-origin: left;
     transform: perspective(2000px) rotateY(-90deg);
@@ -104,57 +124,47 @@ section{
     top: 50%;
     transform: translateY(-50%);
 }
-.card .details .center h1 {
+.card .details .center h6 {
     margin: 0;
     padding: 0;
     color: #ff3636;
     line-height: 20px;
-    font-size: 20px;
+    font-size: 12px;
     text-transform: uppercase;
 }
-.card .details .center h1 span {
+.card .details .center p span {
     font-size: 14px;
-    color: #262626;
+    color: #d60d0d;
 }
 .card .details .center p {
-    margin: 10px 0;
-    padding: 0;
-    color: #262626;
-}
-.card .details .center ul {
-    margin: 10px auto 0;
-    padding: 0;
-    display: table;
-}
-.card .details .center ul li {
-    list-style: none;
-    margin: 0 5px;
-    float: left;
-}
-.card .details .center ul li a {
-    display: block;
-    background: #262626;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    transform: .5s;
-}
-.card .details .center ul li a:hover {
-    /* background: #ff3636; */
+    position: relative;
+    bottom: 30vw;
+    /* margin-bottom: 10px; */
+    /* padding: 0; */
+    color: #9a2b2b;
 }
 #trendbox{
+    background-color: #082032;
     border-right: 2px solid black;
+}
+#trendbox h1{
+    color:#ff3636 ;
+    font-weight: 700;
+
 }
 
 #productcard{
 width:90%;
-margin:0px auto; 
+margin:50px auto; 
+background-color:#082032;
+border-radius: 20px;
 }
-#products{
-    background-color: #64CCC5;
-
+#products .card{
+    height: 100%;
+}
+#products h1{
+    color: #FF4C29;
+    font-weight: 700;
 }
 .column {
 float: left;
@@ -167,7 +177,7 @@ margin-bottom: 10px;
 
 #details {
     margin: 0 -5px;
-    background-color: #001C30;
+    /* background-color: #001C30; */
 }
 
 
@@ -177,10 +187,25 @@ display: table;
 clear: both;
 
 }
+#brands{
+    background-color: #082032;
+}
+#brands h1{
+    font-weight: 700;
+    color: #FF4C29;
+    margin-bottom: 2vw;
+    padding-left:4vw ;
+}
+#brands a{
+    color:#F0ECE5;
+    font-size: 2vw;
+    font-weight: 800;
+    text-decoration:none;
+    text-transform:uppercase;
+}
 
 /* Responsive columns */
 @media screen and (max-width: 917px) {
-
 #productcard{
     width: 90%;
   }
