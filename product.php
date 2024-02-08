@@ -364,7 +364,7 @@
                     <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
-                    <h5>Spices</h5>
+                    <h5>Tiny Elc</h5>
                     <div>
                         <address class="px-sm-5">999 BB Avenue<br>
                                 Chunnakam,Jaffna 40000<br>

@@ -9,7 +9,7 @@
   $resultTrend = mysqli_query($connection,$sqlTrend);
   $sqlBrand = "select * from brands";
   $resultBrand = mysqli_query($connection,$sqlBrand);
-  $sqlProducts = "select * from products";
+  $sqlProducts = "select * from products where status = 'available'";
   $resultProducts = mysqli_query($connection,$sqlProducts);
 
   if(isset($_GET['products'])){
@@ -171,7 +171,7 @@
                 </div>
                 <?php } ?>
                 </div> 
-                <a href="product.php?discounts=0" style="color:#FF4C29">see more deals</a>
+                <a href="superProductPage.php?discounts=0" style="color:#FF4C29">see more deals</a>
                  
             </div>
           </div>
@@ -195,7 +195,7 @@
                 <?php }?>
                 </div>
                
-                <a href="" class="d-flex justify-content-end" style="color:#FF4C29">see more deals</a>
+                <a href="superProductPage.php" class="d-flex justify-content-end" style="color:#FF4C29">see more deals</a>
               </div>
             </div>
             <div class="col-6">
@@ -216,7 +216,7 @@
                   <!-- <div class="col-6"><img class="img-fluid" src="ìmages\game.jpg" alt="" width="230px" height="150px"></div> -->
                 <?php }?>
                 </div>
-                <a href="product.php?deliveryCharge=0" class="d-flex justify-content-end" style="color:#FF4C29">see more deals</a>
+                <a href="superProductPage.php?deliveryCharge=0" class="d-flex justify-content-end" style="color:#FF4C29">see more deals</a>
               </div>
             </div>
           </div> 
@@ -314,7 +314,7 @@
                     <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
-                    <h5>Spices</h5>
+                    <h5>Tiny Elc</h5>
                     <div>
                         <address class="px-sm-5">999 BB Avenue<br>
                                 Chunnakam,Jaffna 40000<br>

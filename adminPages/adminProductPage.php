@@ -39,10 +39,10 @@
   }
   if(isset($_GET['deleteProduct'])){
     $pid = $_GET['deleteProduct'];
-    $sqlDelete = "DELETE FROM products WHERE id = '$pid' ";
+    $sqlDelete = "UPDATE products set status='unavailable'  WHERE id = '$pid' ";
     $resultDelete = mysqli_query($connection,$sqlDelete);
     //$rowDelete = mysqli_fetch_assoc($resultDelete);
-    if(!$resultDelete){
+    if($resultDelete){
         echo "<script>alert('Delete successfully.')</script>";
     }
     else{
@@ -151,7 +151,7 @@
             <div class="row" id="details">
               <?php 
               if(!isset($_GET['category'])){
-                $sqlProducts = "select * from products";
+                $sqlProducts = "select * from products where status = 'available'";
                 $resultProducts = mysqli_query($connection,$sqlProducts);
                 
                 while($rowsproducts = mysqli_fetch_assoc($resultProducts)){
@@ -202,7 +202,7 @@
               <?php 
               if(isset($_GET['category'])){
                 $category = $_GET['category'];
-                $sqlProducts = "select * from products where category = $category";
+                $sqlProducts = "select * from products where category = $category status = 'available'";
                 $resultProducts = mysqli_query($connection,$sqlProducts);
                 if(mysqli_num_rows($resultProducts) == 0){
                   echo 'no products';
@@ -278,7 +278,7 @@
                 <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="../ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
             </div>
             <div class="col-lg-4 col-md-6 col-6" id="footright">
-                <h5>Spices</h5>
+                <h5>Tiny Elc</h5>
                 <div>
                     <address class="px-sm-5">999 BB Avenue<br>
                             Chunnakam,Jaffna 40000<br>

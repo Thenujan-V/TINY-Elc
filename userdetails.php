@@ -11,6 +11,21 @@
     // $resultuser = mysqli_query($connection,$sqluser);
     // $rowuser = mysqli_fetch_assoc($resultuser);
 
+    if(isset($_GET['deleteId'])){
+        $did = $_GET['deleteId'];
+        //$sqlDelete = "DELETE FROM userdetails WHERE id = '$did' ";
+        $sqlDelete = "UPDATE userdetails SET status = 'Deactive' WHERE id = $did";
+        $resultDelete = mysqli_query($connection,$sqlDelete);
+
+        if($resultDelete){
+            echo "<script>alert('Delete successfully.')</script>";
+            header('Location:index.php');
+
+        }
+        else{
+            echo "<script>alert('Unable to Delete.')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,6 +115,7 @@
                         <input type="text" class="form-outline mx-3 w-50" name="address" value="<?php echo $rowuser['address'];?>">
                         <input type="submit" class="btn " style="color:white; " name="submit_address" value="save">
                     </form>
+                    <a href="userdetails.php?deleteId=<?php echo $uid ?>" class="btn">Delete My Account</a>
                 </div>
                 <?php 
                 if(isset($_POST['submit_name'])){
@@ -218,7 +234,7 @@
                     <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
-                    <h5>Spices</h5>
+                    <h5>Tiny Elc</h5>
                     <div>
                         <address class="px-sm-5">999 BB Avenue<br>
                                 Chunnakam,Jaffna 40000<br>

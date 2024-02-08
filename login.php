@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
 
                 <div class="col-xl-4 col-lg-6 col-md-8 col-10" id="details">
                     <div class="top">
-                        <h2>ABC mobiles</h2>
+                        <h2>TINY Elc</h2>
                         <h5>Hi there,</h5>
                     </div>
                     <h1>login</h1>
@@ -133,7 +133,7 @@ if(isset($_POST['submit'])){
                     <a href="" class="text-decoration-none text-reset px-lg-5 px-md-2"><img src="ìmages\linkedin.png" alt="linkedin-logo"><span>Add us on Linkedin</span></a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-6" id="footright">
-                    <h5>Spices</h5>
+                    <h5>Tiny Elc</h5>
                     <div>
                         <address class="px-sm-5">999 BB Avenue<br>
                                 Chunnakam,Jaffna 40000<br>
